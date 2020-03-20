@@ -6,6 +6,9 @@ public class MouseCalculations : MonoBehaviour
 {
     private Camera cam;
 
+    public Transform firepoint;
+    public GameObject fire;
+
     private void Start()
     {
         cam = Camera.main;
@@ -24,6 +27,9 @@ public class MouseCalculations : MonoBehaviour
         float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(fire, firepoint.position, transform.rotation);
+        }
     }
 }
