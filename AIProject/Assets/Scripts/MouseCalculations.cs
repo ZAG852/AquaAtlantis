@@ -33,7 +33,7 @@ public class MouseCalculations : MonoBehaviour
             Instantiate(fire, firepoint.position, transform.rotation);
         }
 
-        if (Input.GetMouseButtonDown(1))
+         if (Input.GetMouseButtonDown(1))
         {
             Instantiate(bolt, firepoint.position, transform.rotation);
         }
