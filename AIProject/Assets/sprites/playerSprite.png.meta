@@ -1,28 +1,43 @@
 fileFormatVersion: 2
-guid: a218459c3ff1a4b0ebb3a3806a6268c4
+guid: cb3a8230c700c4142ba592b0d0bb6d2a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1562377837763503213
-    second: HellBat_defaultEnemy_0
+      213: -7896281735413620878
+    second: playerSprite_0
   - first:
-      213: 3927413880381268453
-    second: HellBat_defaultEnemy_1
+      213: 4214452682036070143
+    second: playerSprite_1
   - first:
-      213: -9000453527249616855
-    second: HellBat_defaultEnemy_2
+      213: 6707464328325396904
+    second: playerSprite_2
   - first:
-      213: 5331168497303445289
-    second: HellBat_defaultEnemy_0
+      213: -1635223701302756372
+    second: playerSprite_0
   - first:
-      213: 205500669357741142
-    second: HellBat_defaultEnemy_1
+      213: -5096243558962579737
+    second: playerSprite_1
   - first:
-      213: -7914653472353527950
-    second: HellBat_defaultEnemy_2
+      213: 7759811693992987672
+    second: playerSprite_2
   - first:
-      213: 3183814894405325659
-    second: HellBat_defaultEnemy_3
+      213: -6646785486133963012
+    second: playerSprite_3
+  - first:
+      213: 7079147233807534215
+    second: playerSprite_4
+  - first:
+      213: -6313837671609529662
+    second: playerSprite_3
+  - first:
+      213: -8287209587246565068
+    second: playerSprite_4
+  - first:
+      213: 9203835802740118276
+    second: playerSprite_5
+  - first:
+      213: 3444000953378699735
+    second: playerSprite_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -119,11 +134,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HellBat_defaultEnemy_0
+      name: playerSprite_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 70
+        x: 0
+        y: 240
         width: 80
         height: 80
       alignment: 0
@@ -133,20 +148,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92f5687a08d1cf940800000000000000
-      internalID: 5331168497303445289
+      spriteID: cebbc8b15b48e49e0800000000000000
+      internalID: -1635223701302756372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HellBat_defaultEnemy_1
+      name: playerSprite_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 240
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6b923fb718649b0800000000000000
+      internalID: -5096243558962579737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerSprite_2
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 240
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ccf585f9360bb60800000000000000
+      internalID: 7759811693992987672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerSprite_3
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 140
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca0c3ef61eb068a0800000000000000
+      internalID: -6313837671609529662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: playerSprite_4
       rect:
         serializedVersion: 2
         x: 100
-        y: 61
+        y: 140
         width: 80
-        height: 89
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +232,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6545c2e15c51ad200800000000000000
-      internalID: 205500669357741142
+      spriteID: 439f4f4b9caedfc80800000000000000
+      internalID: -8287209587246565068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HellBat_defaultEnemy_2
+      name: playerSprite_5
       rect:
         serializedVersion: 2
-        x: 30
-        y: 70
-        width: 40
-        height: 10
+        x: 190
+        y: 140
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,29 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2775e0cb990892290800000000000000
-      internalID: -7914653472353527950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HellBat_defaultEnemy_3
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 60
-        width: 40
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5390a327ce2f2c20800000000000000
-      internalID: 3183814894405325659
+      spriteID: 7d97e38be9c8bcf20800000000000000
+      internalID: 3444000953378699735
       vertices: []
       indices: 
       edges: []
