@@ -8,6 +8,7 @@ public class MouseCalculations : MonoBehaviour
 
     public Transform firepoint;
     public GameObject fire;
+    public GameObject bolt;
 
     private void Start()
     {
@@ -30,6 +31,11 @@ public class MouseCalculations : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(fire, firepoint.position, transform.rotation);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Instantiate(bolt, firepoint.position, transform.rotation);
         }
     }
 }
