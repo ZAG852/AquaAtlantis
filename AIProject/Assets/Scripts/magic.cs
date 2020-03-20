@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class magic : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 7f;
     public Rigidbody2D rb;
 
     private void Start()
