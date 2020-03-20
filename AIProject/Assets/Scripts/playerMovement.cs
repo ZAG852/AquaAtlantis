@@ -25,13 +25,11 @@ public class playerMovement : MonoBehaviour
 
         if (facingRight == false && movement.x > 0)
         {
-            //sr.flipX = true;
 
             Flip();
         }
         else if (movement.x < 0 && facingRight == true)
         {
-            //sr.flipX = false;
             Flip();
         }
 
