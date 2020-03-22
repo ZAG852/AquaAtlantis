@@ -7,6 +7,10 @@ public class EnemyHealthManager : MonoBehaviour
     public int enemyMaxHealth;
     public int enemyCurrentHealth;
 
+    public GameObject slimeParticle;
+    public GameObject flameParticle;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,7 @@ public class EnemyHealthManager : MonoBehaviour
     {
         if (enemyCurrentHealth <= 0)
         {
+            Instantiate(slimeParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

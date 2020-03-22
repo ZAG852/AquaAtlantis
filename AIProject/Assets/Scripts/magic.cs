@@ -9,6 +9,8 @@ public class magic : MonoBehaviour
 
     public int damage;
 
+    public GameObject flameParticle;
+
     private void Start()
     {
 
@@ -26,7 +28,7 @@ public class magic : MonoBehaviour
        if(collision.tag == "enemy")
         {
             //Destroy(collision.gameObject);
-
+            Instantiate(flameParticle, transform.position, Quaternion.identity);
             collision.gameObject.GetComponent<EnemyHealthManager>().hurtEnemy(damage);
         }
         Destroy(gameObject);
