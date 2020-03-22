@@ -7,6 +7,8 @@ public class magic : MonoBehaviour
     public float speed = 7f;
     public Rigidbody2D rb;
 
+    public int damage;
+
     private void Start()
     {
 
@@ -23,7 +25,9 @@ public class magic : MonoBehaviour
     {
        if(collision.tag == "enemy")
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+
+            collision.gameObject.GetComponent<EnemyHealthManager>().hurtEnemy(damage);
         }
         Destroy(gameObject);
     }
