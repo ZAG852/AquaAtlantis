@@ -10,7 +10,6 @@ public class EnemyHealthManager : MonoBehaviour
     public GameObject DeathParticle;
     public GameObject attackedParticle;
 
-
     // Start is called before the first frame update
     void Start()
     {
