@@ -16,7 +16,7 @@ public class PlayerHealthManager : MonoBehaviour
     public Sprite emptyHeart;
 
     bool empty = false;
-    public Animator anim;
+    public Animator[] anim;
 
 
     // Start is called before the first frame update
@@ -28,33 +28,36 @@ public class PlayerHealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("empty", empty);
 
-        if (health <= 0)
-        {
-            Instantiate(DamageParticle, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
-
+        // anim.SetBool("empty", empty);
+        death();
+        manageHealth();
+        
+    }
+    void manageHealth()
+    {
         //checks and makes sure players cant have more than the max health
-        if(health > numberOfHearts)
+        if (health > numberOfHearts)
         {
             health = numberOfHearts;
         }
 
-        for(int i = 0; i < hearts.Length; i++)
+        for (int i = 0; i < hearts.Length; i++)
         {
-            if(i < health)
+            if (i + 1 < health)
             {
                 hearts[i].sprite = fullHeart;
                 empty = false;
+                anim[i].SetBool("empty", empty);
             }
-            else
+            else if(i + 1 > health)
             {
                 hearts[i].sprite = emptyHeart;
                 empty = true;
+                print("emptyHeart " + i);
+                anim[i].SetBool("empty", empty);
             }
-            if(i < numberOfHearts)
+            if (i < numberOfHearts)
             {
                 hearts[i].enabled = true;
             }
@@ -64,7 +67,14 @@ public class PlayerHealthManager : MonoBehaviour
             }
         }
     }
-
+    void death()
+    {
+        if (health <= 0)
+        {
+            Instantiate(DamageParticle, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
     public void hurtEnemy(int damage)
     {
         health -= damage;

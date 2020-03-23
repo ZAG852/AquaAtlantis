@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 1521622}
   m_Layer: 0
   m_Name: wall (1)
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 137118519}
   m_Layer: 0
   m_Name: wall (3)
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 257284968}
   m_Layer: 0
   m_Name: wall (2)
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1305,7 +1305,7 @@ GameObject:
   - component: {fileID: 1989445091}
   m_Layer: 0
   m_Name: wall
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1523,6 +1523,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
         type: 3}
+      propertyPath: anim.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
+        type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
       objectReference: {fileID: 1834064359}
@@ -1571,6 +1576,31 @@ PrefabInstance:
     - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
         type: 3}
       propertyPath: anim
+      value: 
+      objectReference: {fileID: 1834064361}
+    - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
+        type: 3}
+      propertyPath: anim.Array.data[0]
+      value: 
+      objectReference: {fileID: 546751038}
+    - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
+        type: 3}
+      propertyPath: anim.Array.data[1]
+      value: 
+      objectReference: {fileID: 773989419}
+    - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
+        type: 3}
+      propertyPath: anim.Array.data[2]
+      value: 
+      objectReference: {fileID: 1104824836}
+    - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
+        type: 3}
+      propertyPath: anim.Array.data[3]
+      value: 
+      objectReference: {fileID: 1516070470}
+    - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
+        type: 3}
+      propertyPath: anim.Array.data[4]
       value: 
       objectReference: {fileID: 1834064361}
     - target: {fileID: 9036022212263636647, guid: 7858e326c6b5841969569e674920787d,
