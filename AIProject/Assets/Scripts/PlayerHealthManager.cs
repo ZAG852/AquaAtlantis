@@ -54,7 +54,6 @@ public class PlayerHealthManager : MonoBehaviour
             {
                 hearts[i].sprite = emptyHeart;
                 empty = true;
-                print("emptyHeart " + i);
                 anim[i].SetBool("empty", empty);
             }
             if (i < numberOfHearts)
