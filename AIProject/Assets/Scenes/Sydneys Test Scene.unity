@@ -1530,12 +1530,12 @@ PrefabInstance:
         type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
-      objectReference: {fileID: 1834064359}
+      objectReference: {fileID: 546751039}
     - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
         type: 3}
       propertyPath: hearts.Array.data[1]
       value: 
-      objectReference: {fileID: 1516070471}
+      objectReference: {fileID: 773989420}
     - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
         type: 3}
       propertyPath: hearts.Array.data[2]
@@ -1545,12 +1545,12 @@ PrefabInstance:
         type: 3}
       propertyPath: hearts.Array.data[3]
       value: 
-      objectReference: {fileID: 773989420}
+      objectReference: {fileID: 1516070471}
     - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
         type: 3}
       propertyPath: hearts.Array.data[4]
       value: 
-      objectReference: {fileID: 546751039}
+      objectReference: {fileID: 1834064359}
     - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
         type: 3}
       propertyPath: fullHeart

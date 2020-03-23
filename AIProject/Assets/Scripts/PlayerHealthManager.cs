@@ -75,7 +75,7 @@ public class PlayerHealthManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void hurtEnemy(int damage)
+    public void hurtPlayer(int damage)
     {
         health -= damage;
     }
