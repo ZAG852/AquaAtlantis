@@ -73,8 +73,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98391f0a351264c56a736b2321e92999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mover: 0
   firepoint: {fileID: 397705366}
   fire: {fileID: 5441104226764644584, guid: b95eec59d03f14a7196a49f310272f13, type: 3}
+  bolt: {fileID: 8294334694577999787, guid: db128e79dcd1e40fa99611c9a81c1840, type: 3}
 --- !u!1 &9036022212263636647
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +90,7 @@ GameObject:
   - component: {fileID: 9036022212263636648}
   - component: {fileID: 9036022212263636652}
   - component: {fileID: 9036022212263636651}
+  - component: {fileID: 2262415376800560744}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -217,3 +220,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2262415376800560744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9036022212263636647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39e7c47f84f84aabbe9ca0b3257b8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 5
+  CurrentHealth: 0
+  DamageParticle: {fileID: 3228727945687963553, guid: 5b454a828b3fd459fae6e9b222b1cd84,
+    type: 3}
+  flameParticle: {fileID: 5441104226764644584, guid: b95eec59d03f14a7196a49f310272f13,
+    type: 3}
