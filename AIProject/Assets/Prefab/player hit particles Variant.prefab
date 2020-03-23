@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2951339405135264155, guid: 3fecdb87b5234483086ee11b71bcbac8,
         type: 3}
       propertyPath: m_Name
-      value: player hit particles
+      value: player hit particles Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2951339405135264156, guid: 3fecdb87b5234483086ee11b71bcbac8,
         type: 3}
@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2951339405135264157, guid: 3fecdb87b5234483086ee11b71bcbac8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2951339405135264158, guid: 3fecdb87b5234483086ee11b71bcbac8,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
