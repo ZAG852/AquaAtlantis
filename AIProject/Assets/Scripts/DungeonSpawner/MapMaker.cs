@@ -11,8 +11,8 @@ public class MapMaker : MonoBehaviour
     GameObject player;
     [SerializeField]
     float tileSize = 16.5f;
-    public int worldSizex = 50;
-    public int worldSizey = 50;
+    public int worldSizex = 30;
+    public int worldSizey = 30;
     Node[,] grid;
     int[] parentArray = new int[50];
     Stack<Node> path = new Stack<Node>();
@@ -47,10 +47,11 @@ public class MapMaker : MonoBehaviour
     List<GameObject> upRightDown;
     [SerializeField]
     List<GameObject> intersection;
-
+    MapMaker mapThingy;
     // Start is called before the first frame update
     void Awake()
     {
+        mapThingy = this;
         grid = new Node[worldSizex, worldSizey];
         int id = 1;
         for (int i = 0; i < worldSizex; i++)
@@ -131,7 +132,20 @@ public class MapMaker : MonoBehaviour
         }*/
         CreateMap(path);
     }
-
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + (worldSizey/2 *tileSize), transform.position.y + (worldSizey / 2 * tileSize)), new Vector2(worldSizex* tileSize,worldSizey * tileSize));
+        /*
+        if (grid != null)
+        {
+            foreach (Node n in grid)
+            {
+                Gizmos.color = Color.white;
+                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
+            }
+        }
+        */
+    }
     void CreateMap(Stack<Node> path)
     {
         Target = path.Peek();
