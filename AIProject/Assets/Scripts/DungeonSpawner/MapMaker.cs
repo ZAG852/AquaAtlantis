@@ -9,6 +9,8 @@ public class MapMaker : MonoBehaviour
     public Node Target = new Node();
     [SerializeField]
     GameObject player;
+    [SerializeField]
+    float tileSize = 16.5f;
     public int worldSizex = 50;
     public int worldSizey = 50;
     Node[,] grid;
@@ -62,15 +64,18 @@ public class MapMaker : MonoBehaviour
         }
         Source.id = 0;
         grid[worldSizex / 2, worldSizey / 2] = Source;
-        grid[worldSizex / 2, worldSizey / 2].AddNodalPosition(worldSizex, worldSizey);
+        grid[worldSizex / 2, worldSizey / 2].AddNodalPosition(worldSizex, worldSizey, tileSize);
         path.Push(Source);
         startWalk();
     }
-    
+    public float getWorldSize()
+    {
+        return tileSize * worldSizey;
+    }
     void startWalk()
     {
         Vector2Int currentPos = new Vector2Int(worldSizex / 2, worldSizey / 2);
-        while (currentPos.x < 50 && currentPos.y < 50 && currentPos.x > 0 && currentPos.y > 0 && newSquaresTravel > 0)
+        while (currentPos.x < worldSizex && currentPos.y < worldSizey && currentPos.x > 0 && currentPos.y > 0 && newSquaresTravel > 0)
         {
             int dir = Random.Range(0, 3);
             Vector2 dirToGo = new Vector2(0, 0);
@@ -112,7 +117,7 @@ public class MapMaker : MonoBehaviour
             }
             currentPos.x += (int)dirToGo.x;
             currentPos.y += (int)dirToGo.y;
-            grid[currentPos.x, currentPos.y].AddNodalPosition(currentPos.x, currentPos.y);
+            grid[currentPos.x, currentPos.y].AddNodalPosition(currentPos.x, currentPos.y, tileSize);
             path.Peek().AddParent(grid[currentPos.x, currentPos.y]);
             grid[currentPos.x, currentPos.y].AddParent(path.Peek());
             path.Push(grid[currentPos.x, currentPos.y]);
