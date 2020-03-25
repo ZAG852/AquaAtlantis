@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Nodies;
+using UnityEditor;
+using System.IO;
 public class MapMaker : MonoBehaviour
 {
 
@@ -17,6 +19,9 @@ public class MapMaker : MonoBehaviour
     int[] parentArray = new int[50];
     Stack<Node> path = new Stack<Node>();
     int newSquaresTravel = 30;
+    [SerializeField]
+    bool getPieces = false;
+    //Zero rooms will have clear centers
     [SerializeField]
     List<GameObject> upRooms;
     [SerializeField]
@@ -49,9 +54,33 @@ public class MapMaker : MonoBehaviour
     List<GameObject> intersection;
     public static MapMaker mapThingy;
     List<Node> nodalList = new List<Node>();
+    List<Object> possiblyRoom = new List<Object>();
     // Start is called before the first frame update
     void Awake()
     {
+        if(getPieces)
+        {
+            string[] fileEntries = Directory.GetFiles(Application.dataPath + "/" + "Rooms");
+            foreach(string fileName in fileEntries)
+            {
+                int assetPathIndex = fileName.IndexOf("Assets");
+                string localPath = fileName.Substring(assetPathIndex);
+                Object t = AssetDatabase.LoadAssetAtPath(localPath, typeof(Object));
+                if (t != null)
+                    possiblyRoom.Add(t);
+            }
+            print(possiblyRoom.Count);
+            for(int k = 0; k < possiblyRoom.Count; k++)        
+                print(possiblyRoom[k]);
+            /*
+            foreach (GameObject piece in GetComponents<GameObject>())
+            {
+                //if(piece.CompareTag("up"))
+
+            }
+            //upRooms = GetComponents<GameObject>().tag.CompareTo("up");
+            */
+        }
         mapThingy = this;
         grid = new Node[worldSizex, worldSizey];
         int id = 1;
@@ -281,3 +310,17 @@ public class MapMaker : MonoBehaviour
         }
     }
 }
+#if UNITY_EDITOR
+[CustomEditor(typeof(MapMaker))]
+public class CustomInspector : Editor
+{
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+        EditorGUILayout.LabelField("Zero rooms should have clear");
+        EditorGUILayout.LabelField("centers for Exits and Entrances");
+        EditorGUILayout.LabelField("For the Dungeon Layout.");
+    }
+}
+#endif

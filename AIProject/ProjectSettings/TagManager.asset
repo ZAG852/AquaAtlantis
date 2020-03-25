@@ -5,6 +5,21 @@ TagManager:
   serializedVersion: 2
   tags:
   - enemy
+  - Up
+  - Down
+  - DownUp
+  - Left
+  - LeftUp
+  - LeftDown
+  - LeftDownUp
+  - Right
+  - RightUp
+  - RightDown
+  - RigthDownUp
+  - RightLeft
+  - RightLeftUp
+  - RightLeftDown
+  - RightLeftDownUp
   layers:
   - Default
   - TransparentFX
