@@ -47,7 +47,8 @@ public class MapMaker : MonoBehaviour
     List<GameObject> upRightDown;
     [SerializeField]
     List<GameObject> intersection;
-    MapMaker mapThingy;
+    public static MapMaker mapThingy;
+    static List<Node> nodalList = new List<Node>();
     // Start is called before the first frame update
     void Awake()
     {
@@ -146,6 +147,10 @@ public class MapMaker : MonoBehaviour
         }
         */
     }
+    public List<Node> getNodeList()
+    {
+        return nodalList;
+    }
     void CreateMap(Stack<Node> path)
     {
         Target = path.Peek();
@@ -153,10 +158,7 @@ public class MapMaker : MonoBehaviour
         {
             
             Node tmp = path.Pop();
-            if (path.Count == 0)
-            {
-                
-            }
+            nodalList.Add(tmp);
             Node[] parentArray = new Node[tmp.RetrieveParent().Length];
             bool up, down, left, right;
             float dirX = 0;
