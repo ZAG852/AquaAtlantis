@@ -48,7 +48,7 @@ public class MapMaker : MonoBehaviour
     [SerializeField]
     List<GameObject> intersection;
     public static MapMaker mapThingy;
-    static List<Node> nodalList = new List<Node>();
+    List<Node> nodalList = new List<Node>();
     // Start is called before the first frame update
     void Awake()
     {
