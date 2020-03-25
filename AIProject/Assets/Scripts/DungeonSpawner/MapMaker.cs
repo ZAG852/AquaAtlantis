@@ -55,31 +55,116 @@ public class MapMaker : MonoBehaviour
     public static MapMaker mapThingy;
     List<Node> nodalList = new List<Node>();
     List<Object> possiblyRoom = new List<Object>();
+    void ClearAllRooms()
+    {
+    upRooms.Clear();
+    downRooms.Clear();
+    leftRooms.Clear();
+    rightRooms.Clear();
+    leftRightRooms.Clear();
+    leftRightDownRooms.Clear();
+    leftRightUpRooms.Clear();
+    upDownRooms.Clear();
+    upLeftRooms.Clear();
+    upRightRooms.Clear();
+    downLeftRooms.Clear();
+    downRightRooms.Clear();
+    upLeftDown.Clear();
+    upRightDown.Clear();
+    intersection.Clear();
+}
+    void FillOutRooms()
+    {
+        string[] fileEntries = Directory.GetFiles(Application.dataPath + "/" + "Rooms");
+        foreach (string fileName in fileEntries)
+        {
+            int assetPathIndex = fileName.IndexOf("Assets");
+            string localPath = fileName.Substring(assetPathIndex);
+            Object t = AssetDatabase.LoadAssetAtPath(localPath, typeof(Object));
+            if (t != null)
+                possiblyRoom.Add(t);
+        }
+        print(possiblyRoom.Count);
+        for (int k = 0; k < possiblyRoom.Count; k++)
+            print(possiblyRoom[k]);
+
+        ClearAllRooms();
+        foreach (Object piece in possiblyRoom)
+        {
+            if (piece.GetType() == typeof(GameObject))
+            {
+                GameObject t = (GameObject)Instantiate(piece);
+                if (t.CompareTag("Up"))
+                {
+                    upRooms.Add(t);
+                }
+                if (t.CompareTag("Down"))
+                {
+                    downRooms.Add(t);
+                }
+                if (t.CompareTag("DownUp"))
+                {
+                    upDownRooms.Add(t);
+                }
+                if (t.CompareTag("Left"))
+                {
+                    leftRooms.Add(t);
+                }
+                if (t.CompareTag("LeftUp"))
+                {
+                    upLeftRooms.Add(t);
+                }
+                if (t.CompareTag("LeftDown"))
+                {
+                    downLeftRooms.Add(t);
+                }
+                if (t.CompareTag("LeftDownUp"))
+                {
+                    upLeftDown.Add(t);
+                }
+                if (t.CompareTag("Right"))
+                {
+                    rightRooms.Add(t);
+                }
+                if (t.CompareTag("RightUp"))
+                {
+                    upRightRooms.Add(t);
+                }
+                if (t.CompareTag("RightDown"))
+                {
+                    downRightRooms.Add(t);
+                }
+                if (t.CompareTag("RightDownUp"))
+                {
+                    upRightDown.Add(t);
+                }
+                if (t.CompareTag("RightLeft"))
+                {
+                    leftRightRooms.Add(t);
+                }
+                if (t.CompareTag("RightLeftUp"))
+                {
+                    leftRightUpRooms.Add(t);
+                }
+                if (t.CompareTag("RightLeftDown"))
+                {
+                    leftRightDownRooms.Add(t);
+                }
+                if (t.CompareTag("RightLeftDownUp"))
+                {
+                    intersection.Add(t);
+                }
+            }
+        }
+        //upRooms = GetComponents<GameObject>().tag.CompareTo("up");
+
+    }
     // Start is called before the first frame update
     void Awake()
     {
         if(getPieces)
         {
-            string[] fileEntries = Directory.GetFiles(Application.dataPath + "/" + "Rooms");
-            foreach(string fileName in fileEntries)
-            {
-                int assetPathIndex = fileName.IndexOf("Assets");
-                string localPath = fileName.Substring(assetPathIndex);
-                Object t = AssetDatabase.LoadAssetAtPath(localPath, typeof(Object));
-                if (t != null)
-                    possiblyRoom.Add(t);
-            }
-            print(possiblyRoom.Count);
-            for(int k = 0; k < possiblyRoom.Count; k++)        
-                print(possiblyRoom[k]);
-            /*
-            foreach (GameObject piece in GetComponents<GameObject>())
-            {
-                //if(piece.CompareTag("up"))
-
-            }
-            //upRooms = GetComponents<GameObject>().tag.CompareTo("up");
-            */
+            FillOutRooms();
         }
         mapThingy = this;
         grid = new Node[worldSizex, worldSizey];

@@ -15,11 +15,11 @@ TagManager:
   - Right
   - RightUp
   - RightDown
-  - RigthDownUp
   - RightLeft
   - RightLeftUp
   - RightLeftDown
   - RightLeftDownUp
+  - RightDownUp
   layers:
   - Default
   - TransparentFX
