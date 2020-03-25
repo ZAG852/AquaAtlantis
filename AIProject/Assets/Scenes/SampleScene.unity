@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  tileSize: 16.5
+  tileSize: 20
   worldSizex: 30
   worldSizey: 30
   getPieces: 1
