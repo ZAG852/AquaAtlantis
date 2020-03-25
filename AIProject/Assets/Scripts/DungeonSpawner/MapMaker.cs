@@ -16,7 +16,6 @@ public class MapMaker : MonoBehaviour
     Node[,] grid;
     int[] parentArray = new int[50];
     Stack<Node> path = new Stack<Node>();
-    [SerializeField]
     int newSquaresTravel = 30;
     [SerializeField]
     List<GameObject> upRooms;
@@ -48,9 +47,7 @@ public class MapMaker : MonoBehaviour
     List<GameObject> upRightDown;
     [SerializeField]
     List<GameObject> intersection;
-    public static MapMaker mapThingy;
-    static List<Node> nodalList = new List<Node>();
-   
+    MapMaker mapThingy;
     // Start is called before the first frame update
     void Awake()
     {
@@ -135,13 +132,19 @@ public class MapMaker : MonoBehaviour
         }*/
         CreateMap(path);
     }
-    public void AddToList(Node tmp)
+    void OnDrawGizmos()
     {
-        nodalList.Add(tmp);
-    }
-    public List<Node> getList()
-    {
-        return nodalList;
+        Gizmos.DrawWireCube(new Vector2(transform.position.x + (worldSizey/2 *tileSize), transform.position.y + (worldSizey / 2 * tileSize)), new Vector2(worldSizex* tileSize,worldSizey * tileSize));
+        /*
+        if (grid != null)
+        {
+            foreach (Node n in grid)
+            {
+                Gizmos.color = Color.white;
+                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
+            }
+        }
+        */
     }
     void CreateMap(Stack<Node> path)
     {
@@ -150,7 +153,10 @@ public class MapMaker : MonoBehaviour
         {
             
             Node tmp = path.Pop();
-            AddToList(tmp);
+            if (path.Count == 0)
+            {
+                
+            }
             Node[] parentArray = new Node[tmp.RetrieveParent().Length];
             bool up, down, left, right;
             float dirX = 0;
@@ -190,88 +196,86 @@ public class MapMaker : MonoBehaviour
                 //right left up
                 Instantiate(leftRightUpRooms[Random.Range(0, leftRightUpRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
 
+
             }
             else if (!right && left && !up && down)
             {
                 //right left up
                 Instantiate(downLeftRooms[Random.Range(0, leftRightUpRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
+
             }
             else if (right && left && !up && down)
             {
                 //right left down
                 Instantiate(leftRightDownRooms[Random.Range(0, leftRightDownRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
+
             }
             else if (right && !left && up && down)
             {
                 //right up down
                 Instantiate(upRightDown[Random.Range(0, upRightDown.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
-                
+
             }
             else if (!right && left && up && down)
             {
                 //left up down
                 Instantiate(upLeftDown[Random.Range(0, upLeftDown.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
-                
+
             }
             else if (right && left && !up && !down)
             {
                 //right left
                 Instantiate(leftRightRooms[Random.Range(0, leftRightRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
-               
+
             }
             else if (right && !left && !up && down)
             {
                 //right down
                 Instantiate(downRightRooms[Random.Range(0, downRightRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
-               
+
             }
             else if (right && !left && up && !down)
             {
                 //right up
                 Instantiate(upRightRooms[Random.Range(0, upRightRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
-                
+
             }
             else if (!right && left && up && !down)
             {
                 //up left
                 Instantiate(upLeftRooms[Random.Range(0, upLeftRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
-               
+
             }
             else if (!right && !left && up && down)
             {
                 //up down
                 Instantiate(upDownRooms[Random.Range(0, upDownRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
-               
+
             }
             else if (right && !left && !up && !down)
             {
                 //right
                 Instantiate(rightRooms[Random.Range(0, rightRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
-               
+
             }
             else if (!right && !left && !up && down)
             {
                 //down
                 Instantiate(downRooms[Random.Range(0, downRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
-                
+
             }
             else if (!right && left && !up && !down)
             {
                 //left
                 Instantiate(leftRooms[Random.Range(0, leftRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
-               
+
             }
             else if (!right && !left && up && !down)
             {
                 //up
                 Instantiate(upRooms[Random.Range(0, upRooms.Count)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
+
             }
         }
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(new Vector2(transform.position.x + (worldSizey / 2 * tileSize), transform.position.y + (worldSizey / 2 * tileSize)),
-            new Vector2(worldSizex * tileSize, worldSizey * tileSize));
     }
 }
