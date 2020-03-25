@@ -11,9 +11,8 @@ namespace Nodies
         public int nodalPositionX = 0, nodalPositionY = 0;
         int parentPos = 0;
         bool isSource = false, isTarget = false;
-        public float playerX = 25, playerY = 25;
         bool isLand = false;
-        static List<Node> nodalList = new List<Node>();
+        
         public void AddParent(Node p)
         {
             if (parentPos > 0)
@@ -29,9 +28,9 @@ namespace Nodies
         public void AddNodalPosition(int x, int y, float tileWidth)
         {
             nodalPositionX = x;
-            playerX = positionX = x * tileWidth;
+            positionX = x * tileWidth;
             nodalPositionY = y;
-            playerY = positionY = y * tileWidth;
+            positionY = y * tileWidth;
         }
         public int GetParentPos()
         {
@@ -41,5 +40,6 @@ namespace Nodies
         {
             return parents;
         }
+       
     }
 }
