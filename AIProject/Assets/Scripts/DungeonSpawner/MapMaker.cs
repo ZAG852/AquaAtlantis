@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Nodies;
+using UnityEditor;
+using System.IO;
 public class MapMaker : MonoBehaviour
 {
 
@@ -17,6 +19,9 @@ public class MapMaker : MonoBehaviour
     int[] parentArray = new int[50];
     Stack<Node> path = new Stack<Node>();
     int newSquaresTravel = 30;
+    [SerializeField]
+    bool getPieces = false;
+    //Zero rooms will have clear centers
     [SerializeField]
     List<GameObject> upRooms;
     [SerializeField]
@@ -47,10 +52,120 @@ public class MapMaker : MonoBehaviour
     List<GameObject> upRightDown;
     [SerializeField]
     List<GameObject> intersection;
-    MapMaker mapThingy;
+    public static MapMaker mapThingy;
+    List<Node> nodalList = new List<Node>();
+    List<Object> possiblyRoom = new List<Object>();
+    void ClearAllRooms()
+    {
+    upRooms.Clear();
+    downRooms.Clear();
+    leftRooms.Clear();
+    rightRooms.Clear();
+    leftRightRooms.Clear();
+    leftRightDownRooms.Clear();
+    leftRightUpRooms.Clear();
+    upDownRooms.Clear();
+    upLeftRooms.Clear();
+    upRightRooms.Clear();
+    downLeftRooms.Clear();
+    downRightRooms.Clear();
+    upLeftDown.Clear();
+    upRightDown.Clear();
+    intersection.Clear();
+}
+    void FillOutRooms()
+    {
+        string[] fileEntries = Directory.GetFiles(Application.dataPath + "/" + "Rooms");
+        foreach (string fileName in fileEntries)
+        {
+            int assetPathIndex = fileName.IndexOf("Assets");
+            string localPath = fileName.Substring(assetPathIndex);
+            Object t = AssetDatabase.LoadAssetAtPath(localPath, typeof(Object));
+            if (t != null)
+                possiblyRoom.Add(t);
+        }
+        print(possiblyRoom.Count);
+        for (int k = 0; k < possiblyRoom.Count; k++)
+            print(possiblyRoom[k]);
+
+        ClearAllRooms();
+        foreach (Object piece in possiblyRoom)
+        {
+            if (piece.GetType() == typeof(GameObject))
+            {
+                GameObject t = (GameObject)Instantiate(piece);
+                if (t.CompareTag("Up"))
+                {
+                    upRooms.Add(t);
+                }
+                if (t.CompareTag("Down"))
+                {
+                    downRooms.Add(t);
+                }
+                if (t.CompareTag("DownUp"))
+                {
+                    upDownRooms.Add(t);
+                }
+                if (t.CompareTag("Left"))
+                {
+                    leftRooms.Add(t);
+                }
+                if (t.CompareTag("LeftUp"))
+                {
+                    upLeftRooms.Add(t);
+                }
+                if (t.CompareTag("LeftDown"))
+                {
+                    downLeftRooms.Add(t);
+                }
+                if (t.CompareTag("LeftDownUp"))
+                {
+                    upLeftDown.Add(t);
+                }
+                if (t.CompareTag("Right"))
+                {
+                    rightRooms.Add(t);
+                }
+                if (t.CompareTag("RightUp"))
+                {
+                    upRightRooms.Add(t);
+                }
+                if (t.CompareTag("RightDown"))
+                {
+                    downRightRooms.Add(t);
+                }
+                if (t.CompareTag("RightDownUp"))
+                {
+                    upRightDown.Add(t);
+                }
+                if (t.CompareTag("RightLeft"))
+                {
+                    leftRightRooms.Add(t);
+                }
+                if (t.CompareTag("RightLeftUp"))
+                {
+                    leftRightUpRooms.Add(t);
+                }
+                if (t.CompareTag("RightLeftDown"))
+                {
+                    leftRightDownRooms.Add(t);
+                }
+                if (t.CompareTag("RightLeftDownUp"))
+                {
+                    intersection.Add(t);
+                }
+            }
+        }
+        //upRooms = GetComponents<GameObject>().tag.CompareTo("up");
+
+    }
     // Start is called before the first frame update
     void Awake()
     {
+        if(getPieces)
+        {
+            FillOutRooms();
+        }
         mapThingy = this;
         grid = new Node[worldSizex, worldSizey];
         int id = 1;
@@ -146,6 +261,10 @@ public class MapMaker : MonoBehaviour
         }
         */
     }
+    public List<Node> getNodeList()
+    {
+        return nodalList;
+    }
     void CreateMap(Stack<Node> path)
     {
         Target = path.Peek();
@@ -153,10 +272,7 @@ public class MapMaker : MonoBehaviour
         {
             
             Node tmp = path.Pop();
-            if (path.Count == 0)
-            {
-                
-            }
+            nodalList.Add(tmp);
             Node[] parentArray = new Node[tmp.RetrieveParent().Length];
             bool up, down, left, right;
             float dirX = 0;
@@ -279,3 +395,17 @@ public class MapMaker : MonoBehaviour
         }
     }
 }
+#if UNITY_EDITOR
+[CustomEditor(typeof(MapMaker))]
+public class CustomInspector : Editor
+{
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+        EditorGUILayout.LabelField("Zero rooms should have clear");
+        EditorGUILayout.LabelField("centers for Exits and Entrances");
+        EditorGUILayout.LabelField("For the Dungeon Layout.");
+    }
+}
+#endif
