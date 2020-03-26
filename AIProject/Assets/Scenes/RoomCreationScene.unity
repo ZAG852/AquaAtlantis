@@ -370,15 +370,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9036022212263636649, guid: 7858e326c6b5841969569e674920787d,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2034783445
+      objectReference: {fileID: 0}
+    - target: {fileID: 9036022212263636649, guid: 7858e326c6b5841969569e674920787d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9036022212263636650, guid: 7858e326c6b5841969569e674920787d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.372196
+      value: -11.11
       objectReference: {fileID: 0}
     - target: {fileID: 9036022212263636650, guid: 7858e326c6b5841969569e674920787d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25126815
+      value: -1.21
       objectReference: {fileID: 0}
     - target: {fileID: 9036022212263636650, guid: 7858e326c6b5841969569e674920787d,
         type: 3}
