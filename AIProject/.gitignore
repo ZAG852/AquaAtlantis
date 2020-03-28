@@ -10,6 +10,9 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+
+AIProject/ProjectSettings/ProjectVersion.txt
+AIProject/Packages/manifest.json
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
@@ -47,7 +50,7 @@ ExportedObj/
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
-
+*.meta
 # Unity3D generated file on crash reports
 sysinfo.txt
 
