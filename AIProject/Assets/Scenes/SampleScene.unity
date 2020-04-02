@@ -256,6 +256,7 @@ MonoBehaviour:
   tileSize: 21
   worldSizex: 30
   worldSizey: 30
+  newSquaresTravel: 20
   getPieces: 1
   upRooms:
   - {fileID: 7230656252555532634, guid: a7beedf6ac5feed4abd5a7b99f89782f, type: 3}

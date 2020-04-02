@@ -18,6 +18,7 @@ public class MapMaker : MonoBehaviour
     Node[,] grid;
     int[] parentArray = new int[50];
     Stack<Node> path = new Stack<Node>();
+    [SerializeField]
     int newSquaresTravel = 30;
     [SerializeField]
     bool getPieces = false;
@@ -213,21 +214,21 @@ public class MapMaker : MonoBehaviour
                 default:
                     break;
             }
-            if (currentPos.x == 50 && dirToGo.x == 1)
+            if (currentPos.x == 49 && dirToGo.x == 1)
             {
                 dirToGo = Vector2Int.left;
 
             }
-            if (currentPos.y == 50 && dirToGo.y == 1)
+            if (currentPos.y == 49 && dirToGo.y == 1)
             {
                 dirToGo = Vector2Int.down;
             }
-            if (currentPos.x == 0 && dirToGo.x == -1)
+            if (currentPos.x == 1 && dirToGo.x == -1)
             {
                 dirToGo = Vector2Int.down;
 
             }
-            if (currentPos.y == 0 && dirToGo.y == -1)
+            if (currentPos.y == 1 && dirToGo.y == -1)
             {
                 dirToGo = Vector2Int.up;
             }
