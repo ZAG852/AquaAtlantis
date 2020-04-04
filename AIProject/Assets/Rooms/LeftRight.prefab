@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 7742829613163606374}
   m_Layer: 13
   m_Name: LeftRight
-  m_TagString: RightLeft
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

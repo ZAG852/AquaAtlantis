@@ -1143,7 +1143,7 @@ GameObject:
   - component: {fileID: 6362894626067650223}
   m_Layer: 13
   m_Name: UpRightDown
-  m_TagString: RightDownUp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
