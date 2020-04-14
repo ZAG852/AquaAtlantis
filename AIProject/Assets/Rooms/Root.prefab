@@ -1881,7 +1881,7 @@ GameObject:
   - component: {fileID: 2047774817159806014}
   m_Layer: 13
   m_Name: Root
-  m_TagString: RightLeftDownUp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
