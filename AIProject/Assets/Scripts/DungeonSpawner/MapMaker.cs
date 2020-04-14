@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Nodies;
+using Node = Nodies.Node;
 using UnityEditor;
 using System.IO;
 public class MapMaker : MonoBehaviour
@@ -85,7 +85,7 @@ public class MapMaker : MonoBehaviour
             if (t != null)
                 possiblyRoom.Add(t);
         }
-        print(possiblyRoom.Count);
+        
         for (int k = 0; k < possiblyRoom.Count; k++)
             print(possiblyRoom[k]);
 
@@ -157,8 +157,6 @@ public class MapMaker : MonoBehaviour
                 }
             }
         }
-        //upRooms = GetComponents<GameObject>().tag.CompareTo("up");
-
     }
     // Start is called before the first frame update
     void Awake()
