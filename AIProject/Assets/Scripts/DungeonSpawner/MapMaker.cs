@@ -92,8 +92,8 @@ public class MapMaker : MonoBehaviour
                 possiblyRoom.Add(t);
         }
         
-        for (int k = 0; k < possiblyRoom.Count; k++)
-            print(possiblyRoom[k]);
+       // for (int k = 0; k < possiblyRoom.Count; k++)
+          //  print(possiblyRoom[k]);
 
         ClearAllRooms();
         foreach (Object piece in possiblyRoom)
@@ -149,9 +149,15 @@ public class MapMaker : MonoBehaviour
                 if (t.CompareTag("LeftUp") || t.CompareTag("EndLeftUp"))
                 {
                     if (t.CompareTag("LeftUp") && upLeftRooms.Count < 1)
+                    {
+
                         upLeftRooms.Add(t);
+                    }
                     else if (t.CompareTag("LeftUp") && upLeftRooms.Count >= 1)
+                    {
                         upLeftRooms.Insert(upLeftRooms.Count - 1, t);
+                        print(t.tag + "Count > 1");
+                    }
                     if (t.CompareTag("EndLeftUp"))
                     {
                         upLeftRooms.Add(t);
@@ -171,9 +177,9 @@ public class MapMaker : MonoBehaviour
                 if (t.CompareTag("LeftDownUp")|| t.CompareTag("EndLeftDownUp"))
                 {
                     if (t.CompareTag("LeftDownUp") && upLeftDown.Count < 1)
-                        upLeftRooms.Add(t);
-                    else if (t.CompareTag("LeftDownUp") && upLeftRooms.Count >= 1)
-                        upLeftRooms.Insert(upLeftRooms.Count - 1, t);
+                        upLeftDown.Add(t);
+                    else if (t.CompareTag("LeftDownUp") && upLeftDown.Count >= 1)
+                        upLeftDown.Insert(upLeftDown.Count - 1, t);
                     if (t.CompareTag("EndLeftDownUp"))
                     {
                         upLeftDown.Add(t);
@@ -225,27 +231,47 @@ public class MapMaker : MonoBehaviour
                 }
                 if (t.CompareTag("RightLeft"))
                 {
-                    if (t.CompareTag("RightDownUp") && leftRightRooms.Count < 1)
+                    if (t.CompareTag("RightLeft") && leftRightRooms.Count < 1)
                         leftRightRooms.Add(t);
-                    else if (t.CompareTag("RightDownUp") && leftRightRooms.Count >= 1)
+                    else if (t.CompareTag("RightLeft") && leftRightRooms.Count >= 1)
                         leftRightRooms.Insert(leftRightRooms.Count - 1, t);
-                    if (t.CompareTag("EndRightDownUp"))
+                    if (t.CompareTag("EndRightLeft"))
                     {
                         leftRightRooms.Add(t);
                     }
-                    leftRightRooms.Add(t);
                 }
                 if (t.CompareTag("RightLeftUp"))
                 {
-                    leftRightUpRooms.Add(t);
+                    if (t.CompareTag("RightLeftUp") && leftRightUpRooms.Count < 1)
+                        leftRightUpRooms.Add(t);
+                    else if (t.CompareTag("RightLeftUp") && leftRightUpRooms.Count >= 1)
+                        leftRightUpRooms.Insert(leftRightUpRooms.Count - 1, t);
+                    if (t.CompareTag("EndRightLeftUp"))
+                    {
+                        leftRightUpRooms.Add(t);
+                    }
                 }
                 if (t.CompareTag("RightLeftDown"))
                 {
-                    leftRightDownRooms.Add(t);
+                    if (t.CompareTag("RightLeftDown") && leftRightDownRooms.Count < 1)
+                        leftRightDownRooms.Add(t);
+                    else if (t.CompareTag("RightLeftDown") && leftRightDownRooms.Count >= 1)
+                        leftRightDownRooms.Insert(leftRightDownRooms.Count - 1, t);
+                    if (t.CompareTag("EndRightLeftDown"))
+                    {
+                        leftRightDownRooms.Add(t);
+                    }
                 }
                 if (t.CompareTag("RightLeftDownUp"))
                 {
-                    intersection.Add(t);
+                    if (t.CompareTag("RightLeftDownUp") && intersection.Count < 1)
+                        intersection.Add(t);
+                    else if (t.CompareTag("RightLeftDownUp") && intersection.Count >= 1)
+                        intersection.Insert(intersection.Count - 1, t);
+                    if (t.CompareTag("EndRightLeftDownUp"))
+                    {
+                        intersection.Add(t);
+                    }
                 }
                 
             }
