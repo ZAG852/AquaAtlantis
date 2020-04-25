@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1294527049}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.069357544, y: 0.29436645, z: -1275.5803}
-  m_LocalScale: {x: 8.817627, y: 8.817627, z: 10.581154}
+  m_LocalScale: {x: -0.27610525, y: 2.0080383, z: 2.4096463}
   m_Children: []
   m_Father: {fileID: 410633832075110712}
   m_RootOrder: 0
@@ -265,10 +265,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 0
   range: 5
-  interval: 0
-  bulletspeed: 0
+  interval: 0.2
+  bulletspeed: 1
   bulletTimer: 0
   inRange: 0
+  attackk: 0
   bullet: {fileID: 3024678525969123190, guid: 8c9dad3e5060f476586c40f9da0ed24f, type: 3}
   target: {fileID: 0}
   anim: {fileID: 0}
