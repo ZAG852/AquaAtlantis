@@ -785,26 +785,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1012173317}
-    - target: {fileID: 326214774, guid: 48c7ca1cdfe6e4a61a4351693537cbec, type: 3}
-      propertyPath: bulletspeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 326214774, guid: 48c7ca1cdfe6e4a61a4351693537cbec, type: 3}
-      propertyPath: interval
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294527050, guid: 48c7ca1cdfe6e4a61a4351693537cbec, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -0.27610525
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294527050, guid: 48c7ca1cdfe6e4a61a4351693537cbec, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.0080383
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294527050, guid: 48c7ca1cdfe6e4a61a4351693537cbec, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.4096463
-      objectReference: {fileID: 0}
     - target: {fileID: 410633832075110711, guid: 48c7ca1cdfe6e4a61a4351693537cbec,
         type: 3}
       propertyPath: m_Name
@@ -864,11 +844,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 410633832075110714, guid: 48c7ca1cdfe6e4a61a4351693537cbec,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 410633832075110715, guid: 48c7ca1cdfe6e4a61a4351693537cbec,
         type: 3}
