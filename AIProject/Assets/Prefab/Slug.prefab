@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83497999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.20251083, y: 0.65286136, z: -1275.7045}
+  m_LocalPosition: {x: -0.20251083, y: 0.65286136, z: 0}
   m_LocalScale: {x: 0.83333325, y: 0.83333325, z: 1}
   m_Children: []
   m_Father: {fileID: 410633832075110712}
@@ -250,6 +250,7 @@ MonoBehaviour:
     type: 3}
   attackedParticle: {fileID: 0}
   left: 1
+  isBoss: 0
   target: {fileID: 0}
 --- !u!114 &326214774
 MonoBehaviour:
@@ -265,12 +266,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 0
   range: 5
-  interval: 0.2
-  bulletspeed: 1
+  interval: 1
+  bulletspeed: 3
   bulletTimer: 0
+  damage: 1
   inRange: 0
   attackk: 0
   bullet: {fileID: 3024678525969123190, guid: 8c9dad3e5060f476586c40f9da0ed24f, type: 3}
   target: {fileID: 0}
   anim: {fileID: 0}
   shootPoint: {fileID: 83498000}
+  flameParticle: {fileID: 7665300956988182348, guid: 1bbd9596c43ea4c6cb04f4cdb5a1d6a8,
+    type: 3}

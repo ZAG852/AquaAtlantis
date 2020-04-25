@@ -9,8 +9,9 @@ public class RangedEnemyManager : MonoBehaviour
     public float interval;
     public float bulletspeed;
     public float bulletTimer;
-
     float mover = 0;
+
+    public int damage;
 
     public bool inRange = false;
     public bool attackk = false;
@@ -20,13 +21,10 @@ public class RangedEnemyManager : MonoBehaviour
     public Animator anim;
     public Transform shootPoint;
 
-       private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            attack();
-        }
-    }
+    public GameObject flameParticle;
+
+
+  
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +37,6 @@ public class RangedEnemyManager : MonoBehaviour
         if (distance < range)
         {
             attack();
-            print("attack");
             inRange = true;
         }
         if(distance > range)
