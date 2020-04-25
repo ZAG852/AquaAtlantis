@@ -13,6 +13,8 @@ public class Stairs : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.N))
             {
+                GameManager.instance.increaseLevel();
+                GameManager.instance.calculateDifficulty();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }

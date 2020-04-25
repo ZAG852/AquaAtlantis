@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     float[] playerStats = new float[stats];
     int baseStat = 5;
     int playerLevel = 1;
+    bool newGame = true;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,9 +31,21 @@ public class GameManager : MonoBehaviour
         {
             playerStats[i] = baseStat;
         }
+        if(!newGame)
+        {
+            //load stats
+
+            //load equipment
+
+        }
+        if(newGame)
+        {
+            clearStats();
+            newGame = !newGame;
+        }
     }
 
-    void calculateDifficulty()
+   public void calculateDifficulty()
     {
         if (level > 10)
             overallDifficulty = difficulty + level;
