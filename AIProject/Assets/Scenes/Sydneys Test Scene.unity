@@ -829,6 +829,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frog Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 4934896203398789784, guid: bcef19061dced41bd933c788c78e2ce4,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1012173317}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcef19061dced41bd933c788c78e2ce4, type: 3}
 --- !u!1001 &2171049834776868462
