@@ -28,13 +28,13 @@ public class EnemyAttackManager : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-           if (timer == 0)
-            {
+          // if (timer == 0)
+           // {
                 attack = true;
                 print("hurt");
                 collision.GetComponent<PlayerHealthManager>().hurtPlayer(damage);
                 Instantiate(flameParticle, target.transform.position, Quaternion.identity);
-            }
+          //  }
 
         }
         else

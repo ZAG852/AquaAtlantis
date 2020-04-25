@@ -30,7 +30,8 @@ public class magic : MonoBehaviour
             //Destroy(collision.gameObject);
             Instantiate(flameParticle, transform.position, Quaternion.identity);
             collision.gameObject.GetComponent<EnemyHealthManager>().hurtEnemy(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+       
     }
 }
