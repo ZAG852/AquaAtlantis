@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    GameManager instance;
+    public static GameManager instance;
 
     int level = 0;
     int difficulty = 1;
