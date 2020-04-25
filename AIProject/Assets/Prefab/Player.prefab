@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2262415376800560744}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -232,9 +232,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a39e7c47f84f84aabbe9ca0b3257b8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 5
-  CurrentHealth: 0
+  health: 5
+  numberOfHearts: 5
   DamageParticle: {fileID: 3228727945687963553, guid: 5b454a828b3fd459fae6e9b222b1cd84,
     type: 3}
   flameParticle: {fileID: 5441104226764644584, guid: b95eec59d03f14a7196a49f310272f13,
     type: 3}
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullHeart: {fileID: -205270267638800340, guid: 0e5ebb10b5ed74665b71689b0f454f91,
+    type: 3}
+  emptyHeart: {fileID: -5128850884273562437, guid: 03778d059e73d4a79a1c61262aeb84ac,
+    type: 3}
+  anim:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

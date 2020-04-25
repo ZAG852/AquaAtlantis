@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,7 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMaxHealth: 3
   enemyCurrentHealth: 0
-  slimeParticle: {fileID: 2951339405135264155, guid: 3fecdb87b5234483086ee11b71bcbac8,
+  DeathParticle: {fileID: 2951339405135264155, guid: 3fecdb87b5234483086ee11b71bcbac8,
     type: 3}
-  flameParticle: {fileID: 5441104226764644584, guid: b95eec59d03f14a7196a49f310272f13,
-    type: 3}
+  attackedParticle: {fileID: 0}
+  left: 1
+  target: {fileID: 0}

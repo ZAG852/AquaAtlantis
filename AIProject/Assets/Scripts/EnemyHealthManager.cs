@@ -10,6 +10,9 @@ public class EnemyHealthManager : MonoBehaviour
     public GameObject DeathParticle;
     public GameObject attackedParticle;
 
+    public bool left = true;
+    public Transform target;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,17 @@ public class EnemyHealthManager : MonoBehaviour
             Instantiate(DeathParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+
+        //checks if looking right
+        if (target.transform.position.x > transform.position.x)
+        {
+            left = false;
+        }
+        if (target.transform.position.x < transform.position.x)
+        {
+            left = true;
+        }
+
     }
 
     public void hurtEnemy(int damage)
@@ -35,4 +49,5 @@ public class EnemyHealthManager : MonoBehaviour
     {
         enemyCurrentHealth = enemyMaxHealth;
     }
+
 }
