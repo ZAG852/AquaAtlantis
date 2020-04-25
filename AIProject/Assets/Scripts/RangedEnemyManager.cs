@@ -46,20 +46,22 @@ public class RangedEnemyManager : MonoBehaviour
             inRange = false;
         }
     }
-    public void attack() {
+    public void attack()
+    {
         bulletTimer += Time.deltaTime;
 
-        if(inRange)
+        if (bulletTimer >= interval)
         {
             Vector2 direction = target.transform.position - transform.position;
             direction.Normalize();
+            if (inRange)
+            {
+                GameObject bulletClone;
+                bulletClone = Instantiate(bullet, shootPoint.transform.position, shootPoint.transform.rotation) as GameObject;
+                bulletClone.GetComponent<Rigidbody2D>().velocity = direction * bulletspeed;
 
-            GameObject bulletClone;
-            bulletClone = Instantiate(bullet, shootPoint.transform.position, shootPoint.transform.rotation) as GameObject;
-            bulletClone.GetComponent<Rigidbody2D>().velocity = direction * bulletspeed;
-
-            bulletTimer = 0;
+                bulletTimer = 0;
+            }
         }
     }
-
 }
