@@ -459,10 +459,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(intersection[Random.Range(0, intersection.Count -1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(intersection[intersection.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -475,10 +471,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(leftRightUpRooms[Random.Range(0, leftRightUpRooms.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(leftRightUpRooms[leftRightUpRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -491,10 +483,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(downLeftRooms[Random.Range(0, leftRightUpRooms.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(downLeftRooms[leftRightUpRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -506,10 +494,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(leftRightDownRooms[Random.Range(0, leftRightDownRooms.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(leftRightDownRooms[leftRightDownRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -521,10 +505,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(upRightDown[Random.Range(0, upRightDown.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(upRightDown[upRightDown.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -536,10 +516,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(upLeftDown[Random.Range(0, upLeftDown.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(upLeftDown[upLeftDown.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -551,10 +527,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(leftRightRooms[Random.Range(0, leftRightRooms.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(leftRightRooms[leftRightRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -566,10 +538,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(downRightRooms[Random.Range(0, downRightRooms.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(downRightRooms[downRightRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -581,10 +549,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(upRightRooms[Random.Range(0, upRightRooms.Count -1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(upRightRooms[upRightRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -596,10 +560,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(upLeftRooms[Random.Range(0, upLeftRooms.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(upLeftRooms[upLeftRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -611,10 +571,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(upDownRooms[Random.Range(0, upDownRooms.Count- 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(upDownRooms[upDownRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -626,10 +582,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(rightRooms[Random.Range(0, rightRooms.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else 
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(rightRooms[rightRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -641,10 +593,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(downRooms[Random.Range(0, downRooms.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(downRooms[downRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -656,10 +604,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(leftRooms[Random.Range(0, leftRooms.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(leftRooms[leftRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
@@ -671,10 +615,6 @@ public class MapMaker : MonoBehaviour
                 Instantiate(upRooms[Random.Range(0, upRooms.Count - 1)], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 else
                 {
-                    if (path.Count == 0)
-                    {
-                        print("last one");
-                    }
                     Instantiate(upRooms[upRooms.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
 
