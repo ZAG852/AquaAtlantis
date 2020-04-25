@@ -102,52 +102,137 @@ public class MapMaker : MonoBehaviour
             {
                 // GameObject t = (GameObject)Instantiate(piece, new Vector2(-50,-50), Quaternion.identity);
                 GameObject t = (GameObject)(piece);
-                if (t.CompareTag("Up"))
+                if (t.CompareTag("Up") || t.CompareTag("EndUp"))
                 {
-                    upRooms.Add(t);
+                    if(t.CompareTag("Up") && upRooms.Count < 1)
+                        upRooms.Add(t);
+                    else if (t.CompareTag("Up") && upRooms.Count >= 1)
+                        upRooms.Insert(upRooms.Count - 1, t);
+                    if(t.CompareTag("EndUp"))
+                    {
+                        upRooms.Add(t);
+                    }
                 }
-                if (t.CompareTag("Down"))
+                if (t.CompareTag("Down") || t.CompareTag("EndDown"))
                 {
-                    downRooms.Add(t);
+                    if (t.CompareTag("Down") && downRooms.Count < 1)
+                        downRooms.Add(t);
+                    else if (t.CompareTag("Down") && downRooms.Count >= 1)
+                        downRooms.Insert(downRooms.Count - 1, t);
+                    if (t.CompareTag("EndDown"))
+                    {
+                        downRooms.Add(t);
+                    }
                 }
-                if (t.CompareTag("DownUp"))
+                if (t.CompareTag("DownUp") || t.CompareTag("EndDownUp"))
                 {
-                    upDownRooms.Add(t);
+                    if (t.CompareTag("DownUp") && upDownRooms.Count < 1)
+                        upDownRooms.Add(t);
+                    else if (t.CompareTag("DownUp") && upDownRooms.Count >= 1)
+                        upDownRooms.Insert(upDownRooms.Count - 1, t);
+                    if (t.CompareTag("EndDownUp"))
+                    {
+                        upDownRooms.Add(t);
+                    }
                 }
-                if (t.CompareTag("Left"))
+                if (t.CompareTag("Left")|| t.CompareTag("EndLeft"))
                 {
-                    leftRooms.Add(t);
+                    if (t.CompareTag("Left") && leftRooms.Count < 1)
+                        leftRooms.Add(t);
+                    else if (t.CompareTag("Left") && leftRooms.Count >= 1)
+                        leftRooms.Insert(leftRooms.Count - 1, t);
+                    if (t.CompareTag("EndLeft"))
+                    {
+                        leftRooms.Add(t);
+                    }
                 }
-                if (t.CompareTag("LeftUp"))
+                if (t.CompareTag("LeftUp") || t.CompareTag("EndLeftUp"))
                 {
-                    upLeftRooms.Add(t);
+                    if (t.CompareTag("LeftUp") && upLeftRooms.Count < 1)
+                        upLeftRooms.Add(t);
+                    else if (t.CompareTag("LeftUp") && upLeftRooms.Count >= 1)
+                        upLeftRooms.Insert(upLeftRooms.Count - 1, t);
+                    if (t.CompareTag("EndLeftUp"))
+                    {
+                        upLeftRooms.Add(t);
+                    }
                 }
-                if (t.CompareTag("LeftDown"))
+                if (t.CompareTag("LeftDown")|| t.CompareTag("EndLeftDown"))
                 {
-                    downLeftRooms.Add(t);
+                    if (t.CompareTag("LeftDown") && downLeftRooms.Count < 1)
+                        downLeftRooms.Add(t);
+                    else if (t.CompareTag("LeftDown") && downLeftRooms.Count >= 1)
+                        downLeftRooms.Insert(downLeftRooms.Count - 1, t);
+                    if (t.CompareTag("EndLeftDown"))
+                    {
+                        downLeftRooms.Add(t);
+                    }
                 }
-                if (t.CompareTag("LeftDownUp"))
+                if (t.CompareTag("LeftDownUp")|| t.CompareTag("EndLeftDownUp"))
                 {
-                    upLeftDown.Add(t);
+                    if (t.CompareTag("LeftDownUp") && upLeftDown.Count < 1)
+                        upLeftRooms.Add(t);
+                    else if (t.CompareTag("LeftDownUp") && upLeftRooms.Count >= 1)
+                        upLeftRooms.Insert(upLeftRooms.Count - 1, t);
+                    if (t.CompareTag("EndLeftDownUp"))
+                    {
+                        upLeftDown.Add(t);
+                    }
                 }
-                if (t.CompareTag("Right"))
+                if (t.CompareTag("Right")|| t.CompareTag("EndRight"))
                 {
-                    rightRooms.Add(t);
+                    if (t.CompareTag("Right") && rightRooms.Count < 1)
+                        rightRooms.Add(t);
+                    else if (t.CompareTag("Right") && rightRooms.Count >= 1)
+                        rightRooms.Insert(rightRooms.Count - 1, t);
+                    if (t.CompareTag("EndRight"))
+                    {
+                        rightRooms.Add(t);
+                    }
                 }
                 if (t.CompareTag("RightUp"))
                 {
-                    upRightRooms.Add(t);
+                    if (t.CompareTag("RightUp") && upRightRooms.Count < 1)
+                        upRightRooms.Add(t);
+                    else if (t.CompareTag("RightUp") && upRightRooms.Count >= 1)
+                        upRightRooms.Insert(upRightRooms.Count - 1, t);
+                    if (t.CompareTag("EndRightUp"))
+                    {
+                        upRightRooms.Add(t);
+                    }
                 }
                 if (t.CompareTag("RightDown"))
                 {
-                    downRightRooms.Add(t);
+                    if (t.CompareTag("RightDown") && downRightRooms.Count < 1)
+                        downRightRooms.Add(t);
+                    else if (t.CompareTag("RightDown") && downRightRooms.Count >= 1)
+                        downRightRooms.Insert(downRightRooms.Count - 1, t);
+                    if (t.CompareTag("EndRightDown"))
+                    {
+                        downRightRooms.Add(t);
+                    }
                 }
                 if (t.CompareTag("RightDownUp"))
                 {
-                    upRightDown.Add(t);
+                    if (t.CompareTag("RightDownUp") && upRightDown.Count < 1)
+                        upRightDown.Add(t);
+                    else if (t.CompareTag("RightDownUp") && upRightDown.Count >= 1)
+                        upRightDown.Insert(upRightDown.Count - 1, t);
+                    if (t.CompareTag("EndRightDownUp"))
+                    {
+                        upRightDown.Add(t);
+                    }
                 }
                 if (t.CompareTag("RightLeft"))
                 {
+                    if (t.CompareTag("RightDownUp") && leftRightRooms.Count < 1)
+                        leftRightRooms.Add(t);
+                    else if (t.CompareTag("RightDownUp") && leftRightRooms.Count >= 1)
+                        leftRightRooms.Insert(leftRightRooms.Count - 1, t);
+                    if (t.CompareTag("EndRightDownUp"))
+                    {
+                        leftRightRooms.Add(t);
+                    }
                     leftRightRooms.Add(t);
                 }
                 if (t.CompareTag("RightLeftUp"))
