@@ -12,10 +12,11 @@ public class PathNode : MonoBehaviour
     private int vIdx; // Index of vertex column of which this node represents
 
     // Start is called before the first frame update. new path nodes should specify vertex count
-    void Start(int vertsLen, int currentVertexNum)
+    void Start()
     {
-        vIdx = currentVertexNum;
-        mstrGrid = new PathNode[vertsLen, vertsLen];
+        //initialize
+        mstrGrid = new PathNode[MapMaker.mapThingy.getWorldSize(),  MapMaker.mapThingy.getWorldSize()];
+       
     }
 
     // Update is called once per frame
@@ -24,8 +25,9 @@ public class PathNode : MonoBehaviour
         
     }
 
-    bool isPlayerLocation()
+    void isPlayerLocation()
     {
+
         // True if the player is colliding with this node.
     }
 }
