@@ -53,9 +53,15 @@ public class MapMaker : MonoBehaviour
     List<GameObject> upRightDown;
     [SerializeField]
     List<GameObject> intersection;
+    [SerializeField]
+    List<GameObject> lastRooms;
+    [SerializeField]
+    List<GameObject> bossRooms;
     public static MapMaker mapThingy;
+
     List<Node> nodalList = new List<Node>();
     List<Object> possiblyRoom = new List<Object>();
+    bool bossRoom = false;
     void ClearAllRooms()
     {
     upRooms.Clear();
@@ -94,7 +100,8 @@ public class MapMaker : MonoBehaviour
         {
             if (piece.GetType() == typeof(GameObject))
             {
-                GameObject t = (GameObject)Instantiate(piece);
+                // GameObject t = (GameObject)Instantiate(piece, new Vector2(-50,-50), Quaternion.identity);
+                GameObject t = (GameObject)(piece);
                 if (t.CompareTag("Up"))
                 {
                     upRooms.Add(t);
@@ -155,33 +162,65 @@ public class MapMaker : MonoBehaviour
                 {
                     intersection.Add(t);
                 }
+                
             }
         }
     }
     // Start is called before the first frame update
     void Awake()
     {
-        if(getPieces)
+        if (GameManager.instance != null && GameManager.instance.getLevel() % 3 == 0)
         {
-            FillOutRooms();
-        }
-        mapThingy = this;
-        grid = new Node[worldSizex, worldSizey];
-        int id = 1;
-        for (int i = 0; i < worldSizex; i++)
-        {
-            for (int j = 0; j < worldSizey; j++)
+            int chance = Random.Range(1, 20);
+            if (chance >= 5)
             {
-                grid[i, j] = new Node();
-                grid[i, j].id = id;
-                id++;
+                bossRoom = true;
             }
         }
-        Source.id = 0;
-        grid[worldSizex / 2, worldSizey / 2] = Source;
-        grid[worldSizex / 2, worldSizey / 2].AddNodalPosition(worldSizex, worldSizey, tileSize);
-        path.Push(Source);
-        startWalk();
+        if (bossRoom)
+        {
+            mapThingy = this;
+            grid = new Node[worldSizex, worldSizey];
+            int id = 1;
+            for (int i = 0; i < worldSizex; i++)
+            {
+                for (int j = 0; j < worldSizey; j++)
+                {
+                    grid[i, j] = new Node();
+                    grid[i, j].id = id;
+                    id++;
+                }
+            }
+            int room = Random.Range(0, bossRooms.Count - 1);
+            Node bossNode = grid[worldSizex / 2, worldSizey / 2];
+            bossNode.AddNodalPosition(worldSizex / 2, worldSizey / 2, tileSize);
+            GameObject tmp = Instantiate(bossRooms[room], new Vector2(bossNode.positionX,bossNode.positionY), Quaternion.identity);
+            nodalList.Add(bossNode);
+        }
+        else
+        {
+            if (getPieces)
+            {
+                FillOutRooms();
+            }
+            mapThingy = this;
+            grid = new Node[worldSizex, worldSizey];
+            int id = 1;
+            for (int i = 0; i < worldSizex; i++)
+            {
+                for (int j = 0; j < worldSizey; j++)
+                {
+                    grid[i, j] = new Node();
+                    grid[i, j].id = id;
+                    id++;
+                }
+            }
+            Source.id = 0;
+            grid[worldSizex / 2, worldSizey / 2] = Source;
+            grid[worldSizex / 2, worldSizey / 2].AddNodalPosition(worldSizex, worldSizey, tileSize);
+            path.Push(Source);
+            startWalk();
+        }
     }
     public float getWorldSize()
     {

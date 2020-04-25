@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    int level = 0;
+    int level = 1;
     int difficulty = 1;
     float overallDifficulty;
     static int stats = 5;
@@ -27,24 +27,27 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-        for(int i = 0; i < stats; i ++)
+        for (int i = 0; i < stats; i++)
         {
             playerStats[i] = baseStat;
         }
-        if(!newGame)
+        if (!newGame)
         {
             //load stats
 
             //load equipment
 
         }
-        if(newGame)
+        if (newGame)
         {
             clearStats();
             newGame = !newGame;
         }
     }
-
+    public int getLevel()
+    {
+        return level;
+    }
    public void calculateDifficulty()
     {
         if (level > 10)
