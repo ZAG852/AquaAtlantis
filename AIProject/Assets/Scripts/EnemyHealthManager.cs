@@ -35,10 +35,10 @@ public class EnemyHealthManager : MonoBehaviour
             Destroy(gameObject);
 
             dropChance = Random.Range(0, 3);
-           // if(dropChance >= 2)
-           // {
+           if(dropChance >= 2)
+            {
                 Instantiate(heartDrop, transform.position, Quaternion.identity);
-            //}
+            }
 
             if (isBoss)
             {
