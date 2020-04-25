@@ -47,11 +47,18 @@ public class RangedEnemyManager : MonoBehaviour
         }
     }
     public void attack() {
+        bulletTimer += Time.deltaTime;
 
         if(inRange)
         {
-            Instantiate(bullet, shootPoint.position, transform.rotation);
+            Vector2 direction = target.transform.position - transform.position;
+            direction.Normalize();
 
+            GameObject bulletClone;
+            bulletClone = Instantiate(bullet, shootPoint.transform.position, shootPoint.transform.rotation) as GameObject;
+            bulletClone.GetComponent<Rigidbody2D>().velocity = direction * bulletspeed;
+
+            bulletTimer = 0;
         }
     }
 
