@@ -10,6 +10,8 @@ public class RangedEnemyManager : MonoBehaviour
     public float bulletspeed;
     public float bulletTimer;
 
+    float mover = 0;
+
     public bool inRange = false;
     public bool attackk = false;
 
@@ -49,6 +51,11 @@ public class RangedEnemyManager : MonoBehaviour
     public void attack()
     {
         bulletTimer += Time.deltaTime;
+
+        Vector2 offset = target.position - transform.position;
+
+        float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+        shootPoint.transform.rotation = Quaternion.Euler(0f, 0f, angle + mover);
 
         if (bulletTimer >= interval)
         {
