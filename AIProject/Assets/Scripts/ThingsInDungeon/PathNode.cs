@@ -15,10 +15,14 @@ public class PathNode : MonoBehaviour
     void Start()
     {
         //initialize
-        mstrGrid = new PathNode[MapMaker.mapThingy.getWorldSize(),  MapMaker.mapThingy.getWorldSize()];
+        init();
        
     }
 
+    void init()
+    {
+        mstrGrid = new PathNode[(int)MapMaker.mapThingy.getWorldSize(), (int)MapMaker.mapThingy.getWorldSize()];
+    }
     // Update is called once per frame
     void Update()
     {
