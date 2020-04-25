@@ -11,6 +11,7 @@ public class EnemyHealthManager : MonoBehaviour
     public GameObject attackedParticle;
 
     public bool left = true;
+    public bool isBoss = false;
     public Transform target;
 
     // Start is called before the first frame update
@@ -26,6 +27,12 @@ public class EnemyHealthManager : MonoBehaviour
         {
             Instantiate(DeathParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
+
+            if (isBoss)
+            {
+                //make stairs??
+                print("you killed a boss");
+            }
         }
 
         //checks if looking right
