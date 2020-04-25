@@ -1,25 +1,37 @@
 fileFormatVersion: 2
-guid: 3f440954a72fa4fb2b1ace062d643294
+guid: 66c177127ba884d8fab42e677d3bf5d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6839496009830364226
-    second: boss_frogmove_0
+      213: -1368272747069446358
+    second: frog_attack_0
   - first:
-      213: -400272722273543843
-    second: boss_frogmove_1
+      213: 3627958650097420970
+    second: frog_attack_1
   - first:
-      213: 9091348502142952654
-    second: boss_frogmove_2
+      213: -1995657583191136533
+    second: frog_attack_2
   - first:
-      213: -6124940125165881785
-    second: boss_frogmove_0
+      213: 3262575027081549800
+    second: frog_attack_3
   - first:
-      213: -1762675821440655495
-    second: boss_frogmove_1
+      213: 2658496090799132645
+    second: frog_attack_4
   - first:
-      213: 1156815769723512504
-    second: boss_frogmove_2
+      213: -6099842018452336391
+    second: frog_attack_0
+  - first:
+      213: 530558436910899665
+    second: frog_attack_1
+  - first:
+      213: -8718148017656816871
+    second: frog_attack_2
+  - first:
+      213: 8274362935380519059
+    second: frog_attack_3
+  - first:
+      213: -2502213084545853063
+    second: frog_attack_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -116,11 +128,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss_frogmove_0
+      name: frog_attack_0
       rect:
         serializedVersion: 2
         x: 10
-        y: 20
+        y: 10
         width: 60
         height: 50
       alignment: 7
@@ -130,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74673f05867dffaa0800000000000000
-      internalID: -6124940125165881785
+      spriteID: 9f09528a002095ba0800000000000000
+      internalID: -6099842018452336391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_frogmove_1
+      name: frog_attack_1
       rect:
         serializedVersion: 2
         x: 80
-        y: 20
-        width: 80
-        height: 50
+        y: 10
+        width: 60
+        height: 60
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,19 +163,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97f1cd0fda7b987e0800000000000000
-      internalID: -1762675821440655495
+      spriteID: 1d129ac561cec5700800000000000000
+      internalID: 530558436910899665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss_frogmove_2
+      name: frog_attack_2
       rect:
         serializedVersion: 2
-        x: 170
-        y: 20
-        width: 80
+        x: 150
+        y: 10
+        width: 60
         height: 50
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -172,8 +184,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b6a0f040d5dd0010800000000000000
-      internalID: 1156815769723512504
+      spriteID: 91b1a44919ae20780800000000000000
+      internalID: -8718148017656816871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog_attack_3
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 10
+        width: 60
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398a302104174d270800000000000000
+      internalID: 8274362935380519059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog_attack_4
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 10
+        width: 60
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9795f47f47a564dd0800000000000000
+      internalID: -2502213084545853063
       vertices: []
       indices: 
       edges: []

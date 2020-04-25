@@ -18,7 +18,6 @@ public class PlayerHealthManager : MonoBehaviour
     bool empty = false;
     public Animator[] anim;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +32,19 @@ public class PlayerHealthManager : MonoBehaviour
         death();
         manageHealth();
         
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "heart")
+        {
+            if (health != numberOfHearts)
+            {
+                print("heart");
+                health = health + 1;
+                Destroy(collision.gameObject);
+                manageHealth();
+            }
+        }
     }
     void manageHealth()
     {

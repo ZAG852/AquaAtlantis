@@ -143,7 +143,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.6, y: 0.5}
     newSize: {x: 0.6, y: 0.5}
     adaptiveTilingThreshold: 0.5
@@ -170,6 +170,8 @@ MonoBehaviour:
   DeathParticle: {fileID: 5476224465701710118, guid: a2d48ef760d50415cb332ddb29259ad7,
     type: 3}
   attackedParticle: {fileID: 0}
+  heartDrop: {fileID: 5625802017856457078, guid: 7caa5ace4dc184e62b0db0833f839f64,
+    type: 3}
   left: 1
   isBoss: 1
   target: {fileID: 9036022212263636650, guid: 7858e326c6b5841969569e674920787d, type: 3}
@@ -186,6 +188,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+  interval: 0
+  timer: 0
+  attack: 0
   target: {fileID: 9036022212263636650, guid: 7858e326c6b5841969569e674920787d, type: 3}
   flameParticle: {fileID: 3228727945687963553, guid: 5b454a828b3fd459fae6e9b222b1cd84,
     type: 3}
