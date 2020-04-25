@@ -33,6 +33,19 @@ public class PlayerHealthManager : MonoBehaviour
         manageHealth();
         
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "heart")
+        {
+            if (health != numberOfHearts)
+            {
+                print("heart");
+                health = health + 1;
+                Destroy(collision.gameObject);
+                manageHealth();
+            }
+        }
+    }
     void manageHealth()
     {
         //checks and makes sure players cant have more than the max health
