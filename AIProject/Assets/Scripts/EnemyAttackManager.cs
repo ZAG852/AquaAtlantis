@@ -22,11 +22,13 @@ public class EnemyAttackManager : MonoBehaviour
         {
             timer = 0;
         }
+
+        attack = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.tag == "Player")
         {
           // if (timer == 0)
            // {
@@ -37,10 +39,7 @@ public class EnemyAttackManager : MonoBehaviour
           //  }
 
         }
-        else
-        {
-            attack = false;
-        }
+        
     }
     
 }
