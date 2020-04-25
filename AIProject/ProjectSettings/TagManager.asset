@@ -20,6 +20,21 @@ TagManager:
   - RightLeftDown
   - RightLeftDownUp
   - RightDownUp
+  - EndUp
+  - EndDown
+  - EndDownUp
+  - EndLeft
+  - EndLeftUp
+  - EndLeftDown
+  - EndLeftDownUp
+  - EndRight
+  - EndRightUp
+  - EndRightDown
+  - EndRightLeft
+  - EndRightLeftUp
+  - EndRightLeftDown
+  - EndRightLeftDownUp
+  - EndRightDownUp
   layers:
   - Default
   - TransparentFX
