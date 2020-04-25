@@ -8,6 +8,7 @@ public class rangedEnemyBulletManager : MonoBehaviour
     public GameObject flameParticle;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
 
         if (collision.CompareTag("Player"))
         {
@@ -18,4 +19,5 @@ public class rangedEnemyBulletManager : MonoBehaviour
         }
 
     }
+    
 }

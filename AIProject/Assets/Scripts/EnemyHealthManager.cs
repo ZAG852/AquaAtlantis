@@ -9,15 +9,21 @@ public class EnemyHealthManager : MonoBehaviour
 
     public GameObject DeathParticle;
     public GameObject attackedParticle;
+    public GameObject heartDrop;
 
     public bool left = true;
     public bool isBoss = false;
     public Transform target;
 
+    int dropChance;
+    Transform enemyPos;
+
     // Start is called before the first frame update
     void Start()
     {
-        enemyCurrentHealth = enemyMaxHealth; 
+        enemyCurrentHealth = enemyMaxHealth;
+        enemyPos = GetComponent<Transform>();
+
     }
 
     // Update is called once per frame
@@ -27,6 +33,12 @@ public class EnemyHealthManager : MonoBehaviour
         {
             Instantiate(DeathParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
+
+            dropChance = Random.Range(0, 3);
+           // if(dropChance >= 2)
+           // {
+                Instantiate(heartDrop, transform.position, Quaternion.identity);
+            //}
 
             if (isBoss)
             {

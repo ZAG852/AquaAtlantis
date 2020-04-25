@@ -18,7 +18,6 @@ public class PlayerHealthManager : MonoBehaviour
     bool empty = false;
     public Animator[] anim;
 
-
     // Start is called before the first frame update
     void Start()
     {

@@ -170,6 +170,8 @@ MonoBehaviour:
   DeathParticle: {fileID: 5884455127908659957, guid: b66e1eb94deda483081658b492187b5f,
     type: 3}
   attackedParticle: {fileID: 0}
+  heartDrop: {fileID: 5625802017856457078, guid: 7caa5ace4dc184e62b0db0833f839f64,
+    type: 3}
   left: 1
   isBoss: 0
   target: {fileID: 0}
