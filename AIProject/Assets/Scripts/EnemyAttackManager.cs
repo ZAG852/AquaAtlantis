@@ -4,26 +4,33 @@ using UnityEngine;
 
 public class EnemyAttackManager : MonoBehaviour
 {
+    [SerializeField]
     public int damage;
-    
+    [SerializeField]
     public float interval;
     public float timer;
 
     public bool attack = false;
 
 
-    public Transform target;
+    public Transform target = null;
     public GameObject flameParticle;
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= interval)
+        if (attack)
         {
-            timer = 0;
-        }
+            timer += Time.deltaTime;
+            if (timer >= interval)
+            {
+                timer = 0;
+                print("hurt");
+                target.GetComponent<PlayerHealthManager>().hurtPlayer(damage);
+                Instantiate(flameParticle, target.transform.position, Quaternion.identity);
+            }
 
-        attack = false;
+            //attack = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,13 +40,21 @@ public class EnemyAttackManager : MonoBehaviour
           // if (timer == 0)
            // {
                 attack = true;
-                print("hurt");
-                collision.GetComponent<PlayerHealthManager>().hurtPlayer(damage);
-                Instantiate(flameParticle, target.transform.position, Quaternion.identity);
+
+                target = collision.gameObject.transform;
+                
           //  }
 
         }
         
     }
-    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            attack = false;
+
+        }
+    }
+
 }
