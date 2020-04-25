@@ -28,6 +28,7 @@ public class RangedEnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(target != null)
         rangeCheck();
     }
     public void rangeCheck()

@@ -36,15 +36,17 @@ public class EnemyHealthManager : MonoBehaviour
         }
 
         //checks if looking right
-        if (target.transform.position.x > transform.position.x)
+        if (target != null)
         {
-            left = false;
+            if (target.transform.position.x > transform.position.x)
+            {
+                left = false;
+            }
+            if (target.transform.position.x < transform.position.x)
+            {
+                left = true;
+            }
         }
-        if (target.transform.position.x < transform.position.x)
-        {
-            left = true;
-        }
-
     }
 
     public void hurtEnemy(int damage)

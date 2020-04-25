@@ -18,7 +18,7 @@ public class EnemyAttackManager : MonoBehaviour
 
     private void Update()
     {
-        if (attack)
+        if (attack && target != null)
         {
             timer += Time.deltaTime;
             if (timer >= interval)
