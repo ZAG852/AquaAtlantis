@@ -10,6 +10,8 @@ public class RangedEnemyManager : MonoBehaviour
     public float bulletspeed;
     public float bulletTimer;
 
+    float mover = 0;
+
     public bool inRange = false;
     public bool attackk = false;
 
@@ -46,20 +48,27 @@ public class RangedEnemyManager : MonoBehaviour
             inRange = false;
         }
     }
-    public void attack() {
+    public void attack()
+    {
         bulletTimer += Time.deltaTime;
 
-        if(inRange)
+        Vector2 offset = target.position - transform.position;
+
+        float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+        shootPoint.transform.rotation = Quaternion.Euler(0f, 0f, angle + mover);
+
+        if (bulletTimer >= interval)
         {
             Vector2 direction = target.transform.position - transform.position;
             direction.Normalize();
+            if (inRange)
+            {
+                GameObject bulletClone;
+                bulletClone = Instantiate(bullet, shootPoint.transform.position, shootPoint.transform.rotation) as GameObject;
+                bulletClone.GetComponent<Rigidbody2D>().velocity = direction * bulletspeed;
 
-            GameObject bulletClone;
-            bulletClone = Instantiate(bullet, shootPoint.transform.position, shootPoint.transform.rotation) as GameObject;
-            bulletClone.GetComponent<Rigidbody2D>().velocity = direction * bulletspeed;
-
-            bulletTimer = 0;
+                bulletTimer = 0;
+            }
         }
     }
-
 }
