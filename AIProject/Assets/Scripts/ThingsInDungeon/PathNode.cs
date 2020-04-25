@@ -7,9 +7,10 @@ public class PathNode : MonoBehaviour
     // Create static adj matrix 
 
     static PathNode[,] mstrGrid;
-
+    private int weight;
     private List<PathNode> neighbors;
     private int vIdx; // Index of vertex column of which this node represents
+    
 
     // Start is called before the first frame update. new path nodes should specify vertex count
     void Start()
@@ -22,6 +23,7 @@ public class PathNode : MonoBehaviour
     void init()
     {
         mstrGrid = new PathNode[(int)MapMaker.mapThingy.getWorldSize(), (int)MapMaker.mapThingy.getWorldSize()];
+        weight = int.MaxValue;
     }
     // Update is called once per frame
     void Update()

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PathAI : MonoBehaviour
 {
-
+    
     Queue<PathNode> openQ = new Queue<PathNode> () ;
+    List<PathNode> closedSet;
 
     // Start is called before the first frame update
     void Start()
