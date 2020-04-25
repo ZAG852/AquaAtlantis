@@ -44,7 +44,7 @@ public class PlayerHealthManager : MonoBehaviour
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i + 1 < health)
+            if (i  < health)
             {
                 hearts[i].sprite = fullHeart;
                 empty = false;

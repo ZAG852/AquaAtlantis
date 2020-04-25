@@ -6,14 +6,13 @@ public class EnemyHealthManager : MonoBehaviour
 {
     public int enemyMaxHealth;
     public int enemyCurrentHealth;
-
     public GameObject DeathParticle;
     public GameObject attackedParticle;
 
     public bool left = true;
     public bool isBoss = false;
     public Transform target;
-
+    
     // Start is called before the first frame update
     void Start()
     {
