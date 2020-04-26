@@ -59,6 +59,7 @@ public class MapMaker : MonoBehaviour
     List<GameObject> bossRooms;
     public static MapMaker mapThingy;
 
+    List<Node> unFilterdNodalList = new List<Node>();
     List<Node> nodalList = new List<Node>();
     List<Object> possiblyRoom = new List<Object>();
     bool bossRoom = false;
@@ -414,6 +415,26 @@ public class MapMaker : MonoBehaviour
     {
         return nodalList;
     }
+    void filterNodes()
+    {
+        nodalList.Add(unFilterdNodalList[0]);
+        bool exists = false;
+        for (int i = 1; i < unFilterdNodalList.Count; i++)
+        {
+            for(int j = 0; j < nodalList.Count; j++)
+            {
+                if (unFilterdNodalList[i].positionX == nodalList[j].positionX && unFilterdNodalList[i].positionY == nodalList[j].positionY)
+                {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists)
+            {
+                nodalList.Add(unFilterdNodalList[i]);
+            }
+        }
+    }
     void CreateMap(Stack<Node> path)
     {
         Target = path.Peek();
@@ -421,7 +442,7 @@ public class MapMaker : MonoBehaviour
         {
             print("Path Count = " + path.Count);
             Node tmp = path.Pop();
-            nodalList.Add(tmp);
+            unFilterdNodalList.Add(tmp);
             Node[] parentArray = new Node[tmp.RetrieveParent().Length];
             bool up, down, left, right;
             float dirX = 0;
@@ -620,6 +641,7 @@ public class MapMaker : MonoBehaviour
 
             }
         }
+        filterNodes();
     }
 }
 #if UNITY_EDITOR
