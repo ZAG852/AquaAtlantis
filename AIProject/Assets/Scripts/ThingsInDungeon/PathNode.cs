@@ -15,7 +15,13 @@ public class PathNode : MonoBehaviour
     public bool containsPlayer = false;
     public List<PathNode> neighbors;
     private int vIdx; // Index of vertex column of which this node represents
-    
+
+    //Each node tracks it's own scores
+    double fCost;
+    double gScore;
+    double hScore;
+
+
     public double getX()
     {
         return X;
@@ -47,9 +53,9 @@ public class PathNode : MonoBehaviour
         double pX = player.transform.position.x;
         double pY = player.transform.position.y;
         // if player x is greater than node center - 5 AND less than node center -5
-        if ( (pX < ( X + (double)( area / 2 ) ) ) && (pX > (X - (double)(area / 2 ) ) ) ) {
+        if ( (pX < X + Mathf.Sqrt(area) ) && (pX > X - (double) Mathf.Sqrt(area) ) ) {
             //if inside here, then player is within X bounds of this node!
-            if ( (pY < ( Y + (double)(area / 2) ) ) && ( pY > (Y - (double)(area / 2) ) ) ) {
+            if ( (pY < Y + Mathf.Sqrt(area)/2 ) && pY > (Y - Mathf.Sqrt(area)/2 ) )  {
                 //if inside here, then player is also within Y bounds of this node! player is in this node!
                 return true;
             }

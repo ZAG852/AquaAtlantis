@@ -22,9 +22,9 @@ public class PathGrid : MonoBehaviour
         
         float ws = MapMaker.mapThingy.getWorldSize(); // world size is length of one side
         print(ws);
-        int nodeArea = 100; // 10 ^2
-        int rowCount = (int) Mathf.Sqrt(nodeArea);
-        double B = ((double)( ws*ws ) / nodeArea);
+        int gridRes = 50; // SIDE LENGTH IS SQRT OF THIS NUM | This is grid resolution. Higher = more node objects
+        int rowCount = (int) Mathf.Sqrt(gridRes);
+        double B = ((double)( ws*ws ) / gridRes);
         mstrGrid = new PathNode[(int) B, (int) B];
 
 
@@ -39,7 +39,7 @@ public class PathGrid : MonoBehaviour
 
                 mstrGrid[x, y] = Instantiate(node); 
                 //mstrGrid[x, y] = this.gameObject.AddComponent<PathNode>(); // returns game object                
-                mstrGrid[x, y].area = nodeArea;               
+                mstrGrid[x, y].area = gridRes;               
                 mstrGrid[x, y].X = cX;
                 mstrGrid[x, y].Y = cY;
                 mstrGrid[x, y].IDX = "[" + x + "," + y + "]";
