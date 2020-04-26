@@ -10,6 +10,9 @@ public class MouseCalculations : MonoBehaviour
     public Transform firepoint;
     public GameObject fire;
     public GameObject bolt;
+    public float interval;
+    public float bulletTimer;
+
 
     private void Start()
     {
@@ -19,6 +22,7 @@ public class MouseCalculations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bulletTimer += Time.deltaTime;
         Vector3 mouse = Input.mousePosition;
 
         //is all this nessessary? i have no idea
@@ -31,12 +35,11 @@ public class MouseCalculations : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(fire, firepoint.position, transform.rotation);
-        }
-
-         if (Input.GetMouseButtonDown(1))
-        {
-            Instantiate(bolt, firepoint.position, transform.rotation);
+            if (bulletTimer >= interval)
+            {
+                Instantiate(fire, firepoint.position, transform.rotation);
+                bulletTimer = 0;
+            }
         }
     }
 }
