@@ -12,9 +12,9 @@ public class PathGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // each node takes up 10x10 space so div the world size by 10 to create appropriate # of path node entries in the array
+        // each node takes up 5x5 space so div the world size by 10 to create appropriate # of path node entries in the array
         ws = MapMaker.mapThingy.getWorldSize();
-        mstrGrid = new PathNode[ (int) ws / 10 , (int) ws / 10];
+        mstrGrid = new PathNode[ (int) ws / 5 , (int) ws / 5];
         int cX = 0;
         int cY = 0;
    
@@ -28,6 +28,7 @@ public class PathGrid : MonoBehaviour
             }
             cX += 10;
         }
+        print(mstrGrid.ToString());
     }
 
     // Update is called once per frame
