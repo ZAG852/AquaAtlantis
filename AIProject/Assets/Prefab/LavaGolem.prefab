@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &85031899407843923
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 85031899407843922}
-  m_Layer: 0
-  m_Name: ShootPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &85031899407843922
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85031899407843923}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 85031899592908918}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &85031899592908905
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,8 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.57085085, y: -2.47248, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 85031899407843922}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -204,8 +173,6 @@ MonoBehaviour:
     type: 3}
   heartDrop: {fileID: 5625802017856457078, guid: 7caa5ace4dc184e62b0db0833f839f64,
     type: 3}
-  flameParticle: {fileID: 7665300956988182348, guid: 1bbd9596c43ea4c6cb04f4cdb5a1d6a8,
-    type: 3}
   left: 1
   isBoss: 1
   target: {fileID: 0}
@@ -232,6 +199,6 @@ MonoBehaviour:
   bullet: {fileID: 6516355055336711359, guid: 1d2b8657e3db4400689651dac48a991d, type: 3}
   target: {fileID: 0}
   anim: {fileID: 0}
-  shootPoint: {fileID: 85031899407843922}
+  shootPoint: {fileID: 85031899592908918}
   flameParticle: {fileID: 7665300956988182348, guid: 1bbd9596c43ea4c6cb04f4cdb5a1d6a8,
     type: 3}
