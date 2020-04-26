@@ -200,7 +200,8 @@ MonoBehaviour:
   enemyCurrentHealth: 0
   DeathParticle: {fileID: 8816903609148946779, guid: 9b8bdcb1893ff4b99a16851093857b4f,
     type: 3}
-  attackedParticle: {fileID: 0}
+  attackedParticle: {fileID: 5441104226764644584, guid: b95eec59d03f14a7196a49f310272f13,
+    type: 3}
   heartDrop: {fileID: 5625802017856457078, guid: 7caa5ace4dc184e62b0db0833f839f64,
     type: 3}
   left: 1
