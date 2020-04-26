@@ -23,8 +23,11 @@ public class RangedEnemyManager : MonoBehaviour
 
     public GameObject flameParticle;
 
+    private void Start()
+    {
+        target = GameObject.Find("Player").GetComponent<Transform>();
+    }
 
-  
     // Update is called once per frame
     void Update()
     {
