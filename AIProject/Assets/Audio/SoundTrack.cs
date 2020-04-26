@@ -84,6 +84,7 @@ public class SoundTrack : MonoBehaviour
             print("found new track");
             soundTrackSource.clip = soundtrack[num].audioClip;
             soundtrack[num].playCount++;
+            m_currentTrackIndex = num;
         }
 
         if (num <= soundtrack[m_currentTrackIndex].playCount)
@@ -91,6 +92,7 @@ public class SoundTrack : MonoBehaviour
             print("found new track");
             soundTrackSource.clip = soundtrack[num].audioClip;
             soundtrack[num].playCount++;
+            m_currentTrackIndex = num;
         }
     }
 }
