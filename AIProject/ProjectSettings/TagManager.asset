@@ -36,6 +36,7 @@ TagManager:
   - EndRightLeftDownUp
   - EndRightDownUp
   - heart
+  - Canvas
   layers:
   - Default
   - TransparentFX
