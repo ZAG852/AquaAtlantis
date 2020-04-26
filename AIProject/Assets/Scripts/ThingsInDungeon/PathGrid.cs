@@ -10,9 +10,14 @@ public class PathGrid : MonoBehaviour
     public PathNode node;
     public double pX = 0;
     public double pY = 0;
-    private PathNode[,] mstrGrid;
+    public string playerIsAt;
+    static int gridRes = 50; // SIDE LENGTH IS SQRT OF THIS NUM | This is grid resolution. Higher = more node objects
+
+    PathNode[,] mstrGrid;
     int cX = 0;
     int cY = 0;
+    
+    int rowCount = (int)Mathf.Sqrt(gridRes);
     //World bounds, node side length, 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +27,8 @@ public class PathGrid : MonoBehaviour
         
         float ws = MapMaker.mapThingy.getWorldSize(); // world size is length of one side
         print(ws);
-        int gridRes = 50; // SIDE LENGTH IS SQRT OF THIS NUM | This is grid resolution. Higher = more node objects
-        int rowCount = (int) Mathf.Sqrt(gridRes);
+        
+        
         double B = ((double)( ws*ws ) / gridRes);
         mstrGrid = new PathNode[(int) B, (int) B];
 
@@ -42,7 +47,7 @@ public class PathGrid : MonoBehaviour
                 mstrGrid[x, y].area = gridRes;               
                 mstrGrid[x, y].X = cX;
                 mstrGrid[x, y].Y = cY;
-                mstrGrid[x, y].IDX = "[" + x + "," + y + "]";
+                mstrGrid[x, y].IDX = "[" + x + "," + y + "]"; // stores idx string
                 cY += rowCount;
             }
             cX += rowCount;
@@ -54,6 +59,18 @@ public class PathGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        for ( int i = 0; i < rowCount; i++)
+        {
+           for ( int j = 0; j < rowCount; j ++ )
+            {
+                if (mstrGrid[i, j].containsPlayer)
+                {
+                    playerIsAt = mstrGrid[i, j].IDX;
+                }
+            }
+        }
+
         pX = player.transform.position.x;
         pY = player.transform.position.y;
     }

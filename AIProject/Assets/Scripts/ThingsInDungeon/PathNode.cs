@@ -5,7 +5,6 @@ using UnityEngine;
 public class PathNode : MonoBehaviour
 {
     // Create static adj matrix 
-
     int dfp;
     public string IDX;
     public int area; // box around center
@@ -36,14 +35,19 @@ public class PathNode : MonoBehaviour
     {
         //initialize
 
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         containsPlayer = hasPlayerWithin();
         //hScore[vIdx] = distanceCheck(player);
+        if (containsPlayer)
+        {
+            
+        }
         
     }
 
