@@ -9,6 +9,7 @@ public class EnemySpawnScript : MonoBehaviour
     public GameObject frogPrefab;
     public GameObject snekPrefab;
     public GameObject dragonPrefab;
+    public GameObject golemPrefab;
 
     public GameObject enemyInstance;
 
@@ -19,6 +20,19 @@ public class EnemySpawnScript : MonoBehaviour
     public static System.Random random = new System.Random();
     #endregion
 
+    void Start()
+    {
+        Debug.Log("Yes");
+        for (int i = 0; i < MapMaker.mapThingy.getNodeList().Count; i++)
+        {
+            int centerX = (int)(MapMaker.mapThingy.getNodeList()[i].positionX);
+            int centerY = (int)(MapMaker.mapThingy.getNodeList()[i].positionY);
+            int weightMax = 20;
+            Debug.Log("Now filling room #" + i);
+            FillRoom(weightMax, centerX, centerY);
+        }
+    }
+
     /// <summary>
     /// Fills the room to capacity with randomly chosen enemies.
     /// </summary>
@@ -26,12 +40,13 @@ public class EnemySpawnScript : MonoBehaviour
     /// <param name="roomCenterPoint">The center coordinate of the node (to randomize spawnpoints)</param>
     public void FillRoom(int weightMax, int roomCenterX, int roomCenterY)
     {
-        //Reset key variables.
+        //Set key variables.
         int currentWeight = 0, enemyChoice = -1;
         
         //Check to make sure there's room in the encounter.
         while (currentWeight < weightMax - 1)
         {
+            Debug.Log(currentWeight + "/" + weightMax);
             //If there is, draw a random number.
             enemyChoice = random.Next(0, totalEnemies);
 
@@ -43,8 +58,9 @@ public class EnemySpawnScript : MonoBehaviour
                         //If there's room to spawn a bat, spawn one at a random position in the room.
                         if (batPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth <= (weightMax - currentWeight))
                         {
-                            int x = random.Next(roomCenterX - 10, roomCenterX + 10);
-                            int y = random.Next(roomCenterY - 10, roomCenterY + 10);
+                            Debug.Log(currentWeight + "/" + weightMax + "; spawning an enemy worth " + batPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth);
+                            int x = random.Next(roomCenterX - 9, roomCenterX + 9);
+                            int y = random.Next(roomCenterY - 9, roomCenterY + 9);
                             enemyInstance = Instantiate(batPrefab, new Vector2(x, y), Quaternion.identity) as GameObject;
                             currentWeight += batPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth;
                         }             
@@ -55,8 +71,9 @@ public class EnemySpawnScript : MonoBehaviour
                         //If there's room to spawn a slime, spawn one at a random position in the room.
                         if (slimePrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth <= (weightMax - currentWeight))
                         {
-                            int x = random.Next(roomCenterX - 10, roomCenterX + 10);
-                            int y = random.Next(roomCenterY - 10, roomCenterY + 10);
+                            Debug.Log(currentWeight + "/" + weightMax + "; spawning an enemy worth " + slimePrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth);
+                            int x = random.Next(roomCenterX - 9, roomCenterX + 9);
+                            int y = random.Next(roomCenterY - 9, roomCenterY + 9);
                             enemyInstance = Instantiate(slimePrefab, new Vector2(x, y), Quaternion.identity) as GameObject;
                             currentWeight += slimePrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth;
                         }
@@ -67,8 +84,9 @@ public class EnemySpawnScript : MonoBehaviour
                         //If there's room to spawn a slug, spawn one at a random position in the room.
                         if (slugPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth <= (weightMax - currentWeight))
                         {
-                            int x = random.Next(roomCenterX - 10, roomCenterX + 10);
-                            int y = random.Next(roomCenterY - 10, roomCenterY + 10);
+                            Debug.Log(currentWeight + "/" + weightMax + "; spawning an enemy worth " + slugPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth);
+                            int x = random.Next(roomCenterX - 9, roomCenterX + 9);
+                            int y = random.Next(roomCenterY - 9, roomCenterY + 9);
                             enemyInstance = Instantiate(slugPrefab, new Vector2(x, y), Quaternion.identity) as GameObject;
                             currentWeight += slugPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth;
                         }
@@ -79,8 +97,9 @@ public class EnemySpawnScript : MonoBehaviour
                         //If there's room to spawn a frog, spawn one at a random position in the room.
                         if (frogPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth <= (weightMax - currentWeight))
                         {
-                            int x = random.Next(roomCenterX - 10, roomCenterX + 10);
-                            int y = random.Next(roomCenterY - 10, roomCenterY + 10);
+                            Debug.Log(currentWeight + "/" + weightMax + "; spawning an enemy worth " + frogPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth);
+                            int x = random.Next(roomCenterX - 9, roomCenterX + 9);
+                            int y = random.Next(roomCenterY - 9, roomCenterY + 9);
                             enemyInstance = Instantiate(frogPrefab, new Vector2(x, y), Quaternion.identity) as GameObject;
                             currentWeight += frogPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth;
                         }
@@ -91,8 +110,9 @@ public class EnemySpawnScript : MonoBehaviour
                         //If there's room to spawn a snek, spawn one at a random position in the room.
                         if (snekPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth <= (weightMax - currentWeight))
                         {
-                            int x = random.Next(roomCenterX - 10, roomCenterX + 10);
-                            int y = random.Next(roomCenterY - 10, roomCenterY + 10);
+                            Debug.Log(currentWeight + "/" + weightMax + "; spawning an enemy worth " + snekPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth);
+                            int x = random.Next(roomCenterX - 9, roomCenterX + 9);
+                            int y = random.Next(roomCenterY - 9, roomCenterY + 9);
                             enemyInstance = Instantiate(snekPrefab, new Vector2(x, y), Quaternion.identity) as GameObject;
                             currentWeight += snekPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth;
                         }
@@ -103,10 +123,24 @@ public class EnemySpawnScript : MonoBehaviour
                         //If there's room to spawn a dragon, spawn one at a random position in the room.
                         if (dragonPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth <= (weightMax - currentWeight))
                         {
-                            int x = random.Next(roomCenterX - 10, roomCenterX + 10);
-                            int y = random.Next(roomCenterY - 10, roomCenterY + 10);
+                            Debug.Log(currentWeight + "/" + weightMax + "; spawning an enemy worth " + dragonPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth);
+                            int x = random.Next(roomCenterX - 9, roomCenterX + 9);
+                            int y = random.Next(roomCenterY - 9, roomCenterY + 9);
                             enemyInstance = Instantiate(dragonPrefab, new Vector2(x, y), Quaternion.identity) as GameObject;
                             currentWeight += dragonPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth;
+                        }
+                        break;
+                    }
+                case 6:
+                    {
+                        //If there's room to spawn a lava golem, spawn one at a random position in the room.
+                        if (golemPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth <= (weightMax - currentWeight))
+                        {
+                            Debug.Log(currentWeight + "/" + weightMax + "; spawning an enemy worth " + golemPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth);
+                            int x = random.Next(roomCenterX - 9, roomCenterX + 9);
+                            int y = random.Next(roomCenterY - 9, roomCenterY + 9);
+                            enemyInstance = Instantiate(golemPrefab, new Vector2(x, y), Quaternion.identity) as GameObject;
+                            currentWeight += golemPrefab.GetComponent<EnemyHealthManager>().enemyMaxHealth;
                         }
                         break;
                     }
