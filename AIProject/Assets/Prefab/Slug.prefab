@@ -275,7 +275,7 @@ MonoBehaviour:
   inRange: 0
   attackk: 0
   bullet: {fileID: 3024678525969123190, guid: 8c9dad3e5060f476586c40f9da0ed24f, type: 3}
-  target: {fileID: 0}
+  target: {fileID: 9036022212263636650, guid: 7858e326c6b5841969569e674920787d, type: 3}
   anim: {fileID: 0}
   shootPoint: {fileID: 83498000}
   flameParticle: {fileID: 7665300956988182348, guid: 1bbd9596c43ea4c6cb04f4cdb5a1d6a8,
