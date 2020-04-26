@@ -5,15 +5,22 @@ using UnityEngine;
 public class PathAI : MonoBehaviour
 {
     
-    Queue<PathNode> openQ = new Queue<PathNode> () ;
+    Queue<PathNode> openQ = new Queue<PathNode> ();
     List<PathNode> closedSet;
+    
+    
 
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {// initialize
+
     }
 
+    void initGrid()
+    {
+        mstrGrid = new PathNode[10,10];
+       
+    }
     // Update is called once per frame
     void Update()
     {
