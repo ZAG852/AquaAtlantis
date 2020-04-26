@@ -5,13 +5,13 @@ using UnityEngine;
 public class PathNode : MonoBehaviour
 {
     // Create static adj matrix 
-    
-   
 
+    
+    public string IDX;
+    public int Area;
     public int X;
     public int Y;
-    private int weight;
-    private List<PathNode> neighbors;
+    public List<PathNode> neighbors;
     private int vIdx; // Index of vertex column of which this node represents
     
     public int getX()
@@ -34,7 +34,7 @@ public class PathNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Put heuristic calc into here!
+       
         //hScore[vIdx] = distanceCheck(player);
         
     }
