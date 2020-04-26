@@ -11,13 +11,15 @@ public class PathGrid : MonoBehaviour
     public double pX = 0;
     public double pY = 0;
     public string playerIsAt;
-    static int gridRes = 50; // SIDE LENGTH IS SQRT OF THIS NUM | This is grid resolution. Higher = more node objects
+    static int gridRes = 200; // SIDE LENGTH IS SQRT OF THIS NUM | This is grid resolution. Higher = more node objects
+   
 
     PathNode[,] mstrGrid;
+    int rowCount = (int)Mathf.Sqrt(gridRes);
     int cX = 0;
     int cY = 0;
     
-    int rowCount = (int)Mathf.Sqrt(gridRes);
+    
     //World bounds, node side length, 
     // Start is called before the first frame update
     void Start()

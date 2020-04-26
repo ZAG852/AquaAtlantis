@@ -57,7 +57,7 @@ public class PathNode : MonoBehaviour
         double pX = player.transform.position.x;
         double pY = player.transform.position.y;
         // if player x is greater than node center - 5 AND less than node center -5
-        if ( (pX < X + Mathf.Sqrt(area) ) && (pX > X - (double) Mathf.Sqrt(area) ) ) {
+        if ( (pX < X + Mathf.Sqrt(area)/2 ) && (pX > X - (double) Mathf.Sqrt(area)/2 ) ) {
             //if inside here, then player is within X bounds of this node!
             if ( (pY < Y + Mathf.Sqrt(area)/2 ) && pY > (Y - Mathf.Sqrt(area)/2 ) )  {
                 //if inside here, then player is also within Y bounds of this node! player is in this node!
