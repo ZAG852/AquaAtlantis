@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Stairs : MonoBehaviour
 {
+    [SerializeField]
     bool playerInAreaOfEffect = false;
 
     // Update is called once per frame
@@ -18,6 +19,7 @@ public class Stairs : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
