@@ -6,16 +6,10 @@ public class PathNode : MonoBehaviour
 {
     // Create static adj matrix 
     
-    public PathNode(int x, int y)
-    {
-        //Create with coordinates relative to 0,0
-        X = x;
-        Y = y;
+   
 
-    }
-
-    private int X;
-    private int Y;
+    public int X;
+    public int Y;
     private int weight;
     private List<PathNode> neighbors;
     private int vIdx; // Index of vertex column of which this node represents

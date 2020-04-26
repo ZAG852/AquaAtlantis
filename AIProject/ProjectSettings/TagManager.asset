@@ -37,6 +37,7 @@ TagManager:
   - EndRightDownUp
   - heart
   - Canvas
+  - PathNode
   layers:
   - Default
   - TransparentFX
