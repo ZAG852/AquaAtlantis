@@ -16,7 +16,7 @@ public class rangedEnemyBulletManager : MonoBehaviour
             Instantiate(flameParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        if (collision.tag != "enemy" || collision.tag != "heart")
+        if (collision.tag != "enemy" && collision.tag != "heart")
         {
             Destroy(gameObject);
             Instantiate(flameParticle, transform.position, Quaternion.identity);
