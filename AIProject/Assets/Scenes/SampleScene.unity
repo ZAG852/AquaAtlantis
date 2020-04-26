@@ -917,6 +917,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2097409498, guid: 7858e326c6b5841969569e674920787d, type: 3}
+      propertyPath: interval
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2262415376800560744, guid: 7858e326c6b5841969569e674920787d,
         type: 3}
       propertyPath: hearts.Array.size

@@ -33,9 +33,10 @@ public class magic : MonoBehaviour
             Destroy(gameObject);
 
         }
-        if (collision.tag != "Player")
+        if (collision.tag != "Player" && collision.tag != "heart")
         {
             Destroy(gameObject);
+            Instantiate(flameParticle, transform.position, Quaternion.identity);
         }
     }
 }
