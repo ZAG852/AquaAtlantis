@@ -43,12 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696fda42434c77b49bd5df82d3725f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batPrefab: {fileID: 0}
-  slimePrefab: {fileID: 0}
-  slugPrefab: {fileID: 0}
-  frogPrefab: {fileID: 0}
-  snekPrefab: {fileID: 0}
-  dragonPrefab: {fileID: 0}
-  golemPrefab: {fileID: 0}
+  batPrefab: {fileID: 2194251063230026235, guid: 8ffc71f389cd64ab5a58d6931353219f,
+    type: 3}
+  slimePrefab: {fileID: 2171049834548499823, guid: 99a29ea616bb941d9889f0fa414067f1,
+    type: 3}
+  slugPrefab: {fileID: 410633832075110711, guid: 48c7ca1cdfe6e4a61a4351693537cbec,
+    type: 3}
+  frogPrefab: {fileID: 23459541059457428, guid: bcef19061dced41bd933c788c78e2ce4,
+    type: 3}
+  snekPrefab: {fileID: 2274372550925384940, guid: 8df6960e04e94494f9d74d940e2dfe1b,
+    type: 3}
+  dragonPrefab: {fileID: 1151378315351522288, guid: 41567b48bb170b14b9e0feb79892e135,
+    type: 3}
+  golemPrefab: {fileID: 85031899592908905, guid: f0b4f700949994075952654e5e1df0e2,
+    type: 3}
   enemyInstance: {fileID: 0}
-  totalEnemies: 7
+  totalNonBoss: 4
+  totalBoss: 3
