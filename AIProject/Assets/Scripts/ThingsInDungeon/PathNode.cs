@@ -16,20 +16,15 @@ public class PathNode : MonoBehaviour
     void Start()
     {
         //initialize
-        init();
+
        
     }
 
-    void init()
-    {
-        mstrGrid = new PathNode[(int)MapMaker.mapThingy.getWorldSize(), (int)MapMaker.mapThingy.getWorldSize()];
-        
-    }
     // Update is called once per frame
     void Update()
     {
         // Put heuristic calc into here!
-        hScore[vIdx] = distanceCheck(player);
+        //hScore[vIdx] = distanceCheck(player);
         
     }
 
