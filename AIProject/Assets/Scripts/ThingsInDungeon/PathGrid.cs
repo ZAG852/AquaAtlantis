@@ -4,29 +4,38 @@ using UnityEngine;
 
 public class PathGrid : MonoBehaviour
 {
-    float ws;
+    
     // Center of room X coord, Y coord
-    PathNode[ , ] mstrGrid;
-
+    public PathNode node;
+    private PathNode[,] mstrGrid;
+    int cX = 0;
+    int cY = 0;
     //World bounds, node side length, 
     // Start is called before the first frame update
     void Start()
     {
         // each node takes up 5x5 space so div the world size by 10 to create appropriate # of path node entries in the array
-        ws = MapMaker.mapThingy.getWorldSize();
-        mstrGrid = new PathNode[ (int) ws / 5 , (int) ws / 5];
-        int cX = 0;
-        int cY = 0;
+        float ws = MapMaker.mapThingy.getWorldSize();
+        print(ws);
+        int nodeArea = 5; // squared
+        int B = (int)(ws / nodeArea);
+        mstrGrid = new PathNode[ B , B ];
+        
    
-        for ( int x = 0; x < ws; x++)
+        for ( int x = 0; x < B; x++)
         {
        
-            for (int y = 0; y < ws; y++)
+            for (int y = 0; y < B; y++)
             {
-                mstrGrid[x, y] = new PathNode(cX,cY);
-                cY += 10;
+                mstrGrid[x, y] =  Instantiate(node); // creates reference to the object stored in node
+                                                     // call master grid to return a node and set the coordinate properties.
+                                                     // cX & cY are both based on nodeArea
+                mstrGrid[x, y].X = cX;
+                mstrGrid[x, y].Y = cY;
+                cY += nodeArea;
             }
-            cX += 10;
+            cX += nodeArea;
+            cY = 0;
         }
         print(mstrGrid.ToString());
     }
