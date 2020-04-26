@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  interval: 1
+  interval: 0.2
   timer: 0
   attack: 0
   target: {fileID: 0}

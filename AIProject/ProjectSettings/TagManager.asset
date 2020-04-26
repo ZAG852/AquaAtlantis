@@ -35,6 +35,7 @@ TagManager:
   - EndRightLeftDown
   - EndRightLeftDownUp
   - EndRightDownUp
+  - heart
   layers:
   - Default
   - TransparentFX
