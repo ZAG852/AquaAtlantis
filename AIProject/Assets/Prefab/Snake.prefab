@@ -201,7 +201,7 @@ MonoBehaviour:
   interval: 1
   bulletspeed: 5
   bulletTimer: 0
-  damage: 2
+  damage: 1
   inRange: 0
   attackk: 0
   bullet: {fileID: 4360439390253091573, guid: 562359e21f05b43a4898542782cb2d31, type: 3}
