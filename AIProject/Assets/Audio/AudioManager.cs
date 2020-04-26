@@ -24,6 +24,15 @@ public struct audioOptions{
     public float clipVolume;
 }
 
+[System.Serializable]
+public struct soundtrackOptions
+{
+    public AudioClip audioClip;
+    public int playCount;
+}
+
+
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager audioManager;
