@@ -63,6 +63,7 @@ public class EnemyHealthManager : MonoBehaviour
     public void hurtEnemy(int damage)
     {
         enemyCurrentHealth -= damage;
+
     }
 
     public void setMaxHealth()

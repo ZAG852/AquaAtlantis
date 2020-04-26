@@ -172,6 +172,8 @@ MonoBehaviour:
   attackedParticle: {fileID: 0}
   heartDrop: {fileID: 5625802017856457078, guid: 7caa5ace4dc184e62b0db0833f839f64,
     type: 3}
+  flameParticle: {fileID: 7665300956988182348, guid: 1bbd9596c43ea4c6cb04f4cdb5a1d6a8,
+    type: 3}
   left: 1
   isBoss: 0
   target: {fileID: 0}

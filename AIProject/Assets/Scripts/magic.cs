@@ -31,6 +31,7 @@ public class magic : MonoBehaviour
             Instantiate(flameParticle, transform.position, Quaternion.identity);
             collision.gameObject.GetComponent<EnemyHealthManager>().hurtEnemy(damage);
             Destroy(gameObject);
+
         }
         if (collision.tag != "Player")
         {
