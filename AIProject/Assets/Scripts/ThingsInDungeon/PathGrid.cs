@@ -17,7 +17,7 @@ public class PathGrid : MonoBehaviour
         // each node takes up 5x5 space so div the world size by 10 to create appropriate # of path node entries in the array
         float ws = MapMaker.mapThingy.getWorldSize();
         print(ws);
-        int nodeArea = 5; // squared
+        int nodeArea = 10; // squared
         int B = (int)(ws / nodeArea);
         mstrGrid = new PathNode[ B , B ];
         
@@ -35,7 +35,7 @@ public class PathGrid : MonoBehaviour
                 cY += nodeArea;
             }
             cX += nodeArea;
-            cY = 0;
+            cY = 0;// account for node area and bring row back
         }
         print(mstrGrid.ToString());
     }
