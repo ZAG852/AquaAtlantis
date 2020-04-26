@@ -432,7 +432,10 @@ public class MapMaker : MonoBehaviour
             if (!exists)
             {
                 nodalList.Add(unFilterdNodalList[i]);
+                
             }
+            if (exists)
+                exists = !exists;
         }
     }
     void CreateMap(Stack<Node> path)
