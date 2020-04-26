@@ -6,7 +6,7 @@ public class PathNode : MonoBehaviour
 {
     // Create static adj matrix 
 
-    
+    int dfp;
     public string IDX;
     public int Area;
     public int X;
@@ -34,7 +34,7 @@ public class PathNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        //dfp = Math.Abs( PathGrid.pX - X )^2 + (PathGrid.pX - Y)^2;
         //hScore[vIdx] = distanceCheck(player);
         
     }
