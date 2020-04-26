@@ -83,7 +83,7 @@ PrefabInstance:
     - target: {fileID: 6516355055336711359, guid: 1d2b8657e3db4400689651dac48a991d,
         type: 3}
       propertyPath: m_Name
-      value: Snake Bullet
+      value: Snake Bullet Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6516355055987094809, guid: 1d2b8657e3db4400689651dac48a991d,
         type: 3}
@@ -116,5 +116,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: snake Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 9158253659564507113, guid: 1d2b8657e3db4400689651dac48a991d,
+        type: 3}
+      propertyPath: flameParticle
+      value: 
+      objectReference: {fileID: 1926596802037466640, guid: f35624864b0a74dbfb3574d0db97a837,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d2b8657e3db4400689651dac48a991d, type: 3}
