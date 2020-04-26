@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: 34df9e1915fd847268016347bfed98df
+guid: 0e333cff1fbe14ee587107c85f8dba1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -269036318494798418
-    second: dragon?_0
+      213: 3428391033546482049
+    second: dragon_0
   - first:
-      213: 5779839671197989712
-    second: dragon?_1
+      213: -3659253432981061226
+    second: dragon_1
   - first:
-      213: -7733484844717566780
-    second: dragon?_2
-  - first:
-      213: -4161526724904190999
-    second: dragon?_0
-  - first:
-      213: 4938380559032407473
-    second: dragon?_1
-  - first:
-      213: 6205382075774990494
-    second: dragon?_2
+      213: 4787528527978275672
+    second: dragon_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -65,7 +56,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -116,7 +107,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dragon?_0
+      name: dragon_0
       rect:
         serializedVersion: 2
         x: 50
@@ -124,20 +115,20 @@ TextureImporter:
         width: 160
         height: 160
       alignment: 9
-      pivot: {x: 0.5, y: 0.3497971}
+      pivot: {x: 0.5, y: 0.3566245}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9eb7ace0e794f36c0800000000000000
-      internalID: -4161526724904190999
+      spriteID: 1812ca90b77149f20800000000000000
+      internalID: 3428391033546482049
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dragon?_1
+      name: dragon_1
       rect:
         serializedVersion: 2
         x: 220
@@ -151,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b552da24f6a88440800000000000000
-      internalID: 4938380559032407473
+      spriteID: 6910908e368b73dc0800000000000000
+      internalID: -3659253432981061226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dragon?_2
+      name: dragon_2
       rect:
         serializedVersion: 2
         x: 450
@@ -172,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e98f422de12fd1650800000000000000
-      internalID: 6205382075774990494
+      spriteID: 853a13ea4d7b07240800000000000000
+      internalID: 4787528527978275672
       vertices: []
       indices: 
       edges: []
