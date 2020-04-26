@@ -83,7 +83,8 @@ public class MapMaker : MonoBehaviour
 }
     void FillOutRooms()
     {
-        string[] fileEntries = Directory.GetFiles(Application.dataPath + "/" + "Rooms");
+        Object[] fileEntries = Resources.LoadAll("Rooms", typeof(GameObject));
+        /*
         foreach (string fileName in fileEntries)
         {
             int assetPathIndex = fileName.IndexOf("Assets");
@@ -92,17 +93,17 @@ public class MapMaker : MonoBehaviour
             if (t != null)
                 possiblyRoom.Add(t);
         }
-        
+        */
        // for (int k = 0; k < possiblyRoom.Count; k++)
           //  print(possiblyRoom[k]);
 
         ClearAllRooms();
-        foreach (Object piece in possiblyRoom)
+        foreach (Object file in fileEntries)
         {
-            if (piece.GetType() == typeof(GameObject))
+            if (file.GetType() == typeof(GameObject))
             {
                 // GameObject t = (GameObject)Instantiate(piece, new Vector2(-50,-50), Quaternion.identity);
-                GameObject t = (GameObject)(piece);
+                GameObject t = (GameObject)(file);
                 if (t.CompareTag("Up") || t.CompareTag("EndUp"))
                 {
                     if(t.CompareTag("Up") && upRooms.Count < 1)
