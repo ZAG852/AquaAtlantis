@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PathAI : MonoBehaviour
 {
-    
+    static PathNode[,] mstrGrid;
     Queue<PathNode> openQ = new Queue<PathNode> () ;
     List<PathNode> closedSet;
 
