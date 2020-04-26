@@ -24,6 +24,7 @@ public class Stairs : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.N))
             {
+                transitioner.gameObject.SetActive(true);
                 transitioner.fadeOut();
                 trans = true;
                 
