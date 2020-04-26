@@ -18,7 +18,7 @@ public class PathAI : MonoBehaviour
 
     void initGrid()
     {
-        mstrGrid = new PathNode[10,10];
+  
        
     }
     // Update is called once per frame
