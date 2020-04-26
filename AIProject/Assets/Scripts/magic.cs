@@ -32,6 +32,9 @@ public class magic : MonoBehaviour
             collision.gameObject.GetComponent<EnemyHealthManager>().hurtEnemy(damage);
             Destroy(gameObject);
         }
-       
+        if (collision.tag != "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }
