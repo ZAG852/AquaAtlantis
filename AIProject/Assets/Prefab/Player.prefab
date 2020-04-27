@@ -77,6 +77,8 @@ MonoBehaviour:
   firepoint: {fileID: 397705366}
   fire: {fileID: 5441104226764644584, guid: b95eec59d03f14a7196a49f310272f13, type: 3}
   bolt: {fileID: 8294334694577999787, guid: db128e79dcd1e40fa99611c9a81c1840, type: 3}
+  interval: 0
+  bulletTimer: 0
 --- !u!1 &9036022212263636647
 GameObject:
   m_ObjectHideFlags: 0
