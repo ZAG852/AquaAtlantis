@@ -49,6 +49,8 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public AudioClip GetEnemyEssenceClip(enemyOptions enemy)

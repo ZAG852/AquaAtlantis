@@ -85,6 +85,7 @@ public class SoundTrack : MonoBehaviour
             soundTrackSource.clip = soundtrack[num].audioClip;
             soundtrack[num].playCount++;
             m_currentTrackIndex = num;
+            return;
         }
 
         if (num <= soundtrack[m_currentTrackIndex].playCount)
@@ -93,6 +94,7 @@ public class SoundTrack : MonoBehaviour
             soundTrackSource.clip = soundtrack[num].audioClip;
             soundtrack[num].playCount++;
             m_currentTrackIndex = num;
+            return;
         }
     }
 }
