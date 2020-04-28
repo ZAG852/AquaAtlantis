@@ -38,6 +38,7 @@ TagManager:
   - heart
   - Canvas
   - PathNode
+  - bolt
   layers:
   - Default
   - TransparentFX

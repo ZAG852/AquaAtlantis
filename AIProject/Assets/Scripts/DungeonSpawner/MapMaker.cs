@@ -444,7 +444,7 @@ public class MapMaker : MonoBehaviour
         Target = path.Peek();
         while (path.Count > 0)
         {
-            print("Path Count = " + path.Count);
+            
             Node tmp = path.Pop();
             unFilterdNodalList.Add(tmp);
             Node[] parentArray = new Node[tmp.RetrieveParent().Length];

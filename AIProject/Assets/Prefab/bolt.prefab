@@ -77,6 +77,11 @@ PrefabInstance:
     - target: {fileID: 5441104226764644584, guid: b95eec59d03f14a7196a49f310272f13,
         type: 3}
       propertyPath: m_Name
+      value: Bolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441104226764644584, guid: b95eec59d03f14a7196a49f310272f13,
+        type: 3}
+      propertyPath: m_TagString
       value: bolt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
