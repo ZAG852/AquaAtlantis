@@ -532,7 +532,7 @@ public class MapMaker : MonoBehaviour
                 {
                     Instantiate(upRightDown[upRightDown.Count - 1], new Vector2(tmp.positionX, tmp.positionY), Quaternion.identity);
                 }
-
+                
             }
             else if (!right && left && up && down)
             {
