@@ -39,6 +39,7 @@ TagManager:
   - Canvas
   - PathNode
   - bolt
+  - unwalkable
   layers:
   - Default
   - TransparentFX
