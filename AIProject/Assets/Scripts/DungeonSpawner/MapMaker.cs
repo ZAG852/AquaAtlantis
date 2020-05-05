@@ -407,7 +407,7 @@ public class MapMaker : MonoBehaviour
             foreach (Node n in grid)
             {
                 Gizmos.color = Color.white;
-                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
+                Gizmos.DrawCube(new Vector3(n.positionX - 3, n.positionY, 0), Vector3.one * (tileSize - .1f));
             }
         }
         */
