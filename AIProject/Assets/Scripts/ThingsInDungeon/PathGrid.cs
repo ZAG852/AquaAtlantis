@@ -71,7 +71,7 @@ public class PathGrid : MonoBehaviour
             {
                 Debug.Log("E node is not walkable!");
             }
-        } catch( IndexOutOfRangeException e)
+        } catch(Exception e)
         {
             Debug.Log("No more Eastern nodes!");
             neighbor_E = new Vector2Int(-1, -1);
@@ -87,7 +87,7 @@ public class PathGrid : MonoBehaviour
                 Debug.Log("W node is not walkable!");
             }
         }
-        catch (IndexOutOfRangeException e)
+        catch (Exception e)
         {
             Debug.Log("No more Western nodes!");
             neighbor_W = new Vector2Int(-1, -1);
@@ -102,7 +102,7 @@ public class PathGrid : MonoBehaviour
                 Debug.Log("N is not walkable!");
             }
         }
-        catch (IndexOutOfRangeException e)
+        catch (Exception e)
         {
             Debug.Log("No more Northern nodes!");
         }
@@ -117,7 +117,7 @@ public class PathGrid : MonoBehaviour
                 Debug.Log("S node is not walkable!");
             }
         }
-        catch (IndexOutOfRangeException e)
+        catch (Exception e)
         {
             Debug.Log("No more Southern nodes!");
             neighbor_S = new Vector2Int(-1, -1);
@@ -126,7 +126,7 @@ public class PathGrid : MonoBehaviour
         return neighbors;
     }
     
-    public Vector2Int Translate(Vector3 position)
+    Vector2Int Translate(Vector3 position)
     {
         // Take in player position in the game space, translate to path grid index in form of a vector2
         // Numbers between 0 and 1 where n * world size = coordinate
