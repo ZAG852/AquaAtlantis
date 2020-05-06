@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4228596408767945117}
   m_Layer: 10
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 4595181247667169573}
   m_Layer: 10
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 7568007780248991743}
   m_Layer: 10
   m_Name: Square (4)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 3337215763282736002}
   m_Layer: 10
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2452,7 +2452,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 6
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2776,7 +2776,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 12
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4099,7 +4099,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4887,19 +4887,18 @@ Tilemap:
   - m_RefCount: 37
     m_Data: {fileID: 3390594201343165030, guid: 41676243378aa4a02a3c253a16a6720c,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 128751645327047178, guid: 41676243378aa4a02a3c253a16a6720c, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: -6803428409571379167, guid: 41676243378aa4a02a3c253a16a6720c,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1274898002416858465, guid: 41676243378aa4a02a3c253a16a6720c,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 3
     m_Data: {fileID: 3123526173405759215, guid: 41676243378aa4a02a3c253a16a6720c,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 6877022113554713818, guid: 41676243378aa4a02a3c253a16a6720c,
+    m_Data: {fileID: 1274898002416858465, guid: 41676243378aa4a02a3c253a16a6720c,
       type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 7630074727819646302, guid: 41676243378aa4a02a3c253a16a6720c,
@@ -4910,13 +4909,14 @@ Tilemap:
   - m_RefCount: 18
     m_Data: {fileID: 6229055305671637720, guid: 41676243378aa4a02a3c253a16a6720c,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 128751645327047178, guid: 41676243378aa4a02a3c253a16a6720c, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -4079264311904251818, guid: 41676243378aa4a02a3c253a16a6720c,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 6877022113554713818, guid: 41676243378aa4a02a3c253a16a6720c,
+      type: 3}
   m_TileMatrixArray:
   - m_RefCount: 441
     m_Data:
@@ -5142,7 +5142,7 @@ GameObject:
   - component: {fileID: 2120329817352471461}
   m_Layer: 10
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5282,7 +5282,7 @@ GameObject:
   - component: {fileID: 2078916499180413868}
   m_Layer: 10
   m_Name: Square (4)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5659,7 +5659,7 @@ GameObject:
   - component: {fileID: 7404796147667442413}
   m_Layer: 10
   m_Name: Square (4)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5767,7 +5767,7 @@ GameObject:
   - component: {fileID: 5445423753283438931}
   m_Layer: 10
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5875,7 +5875,7 @@ GameObject:
   - component: {fileID: 700719252627654750}
   m_Layer: 10
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6044,7 +6044,7 @@ GameObject:
   - component: {fileID: 3554317547037925818}
   m_Layer: 10
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6216,7 +6216,7 @@ GameObject:
   - component: {fileID: 7961942695818331933}
   m_Layer: 10
   m_Name: Square (4)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7440,7 +7440,7 @@ GameObject:
   - component: {fileID: 2325351911566297714}
   m_Layer: 10
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: unwalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
