@@ -11,16 +11,17 @@ public class PathGrid : MonoBehaviour
     public PathNode node;
     public GameObject player;
     public List<PathNode> current_neighbors;
-    public Vector2Int N;
-    public Vector2Int S;
-    public Vector2Int E;
-    public Vector2Int W;
+    public Vector2Int neighbor_N;
+    public Vector2Int neighbor_E;
+    public Vector2Int neighbor_S;
+    public Vector2Int neighbor_W;
+    public int current_neighbors_len;
     public float Xidx;
     public float Yidx;
     static int gridX = 200; // being the rightmost X coordinate
     public float ws;
 
-    PathNode[,] mstrGrid;
+    public PathNode[,] mstrGrid;
     
     //World bounds, node side length, 
     // Start is called before the first frame update
@@ -46,6 +47,14 @@ public class PathGrid : MonoBehaviour
    
             }
         }
+
+        // on start get unwalkable. This gets all unwalkable game objects and translates their raw coords to a node location.
+        GameObject[] roadblocks = GameObject.FindGameObjectsWithTag("unwalkable");
+        Vector3 position = transform.position;
+        for (int i = 0; i < roadblocks.Length; i++)
+        {
+            mstrGrid[Translate(roadblocks[i].transform.position).x, Translate(roadblocks[i].transform.position).y].walkable = false;
+        }
     }
     public List<PathNode> findNeighbors(Vector2Int nodelabel)
     {
@@ -54,27 +63,44 @@ public class PathGrid : MonoBehaviour
         
         try
         {
-            neighbors.Add(mstrGrid[nodelabel.x + 1, nodelabel.y]);
-            E = mstrGrid[nodelabel.x + 1, nodelabel.y].nodePosition;
+            if (mstrGrid[nodelabel.x + 1, nodelabel.y].walkable)
+            {
+                neighbors.Add(mstrGrid[nodelabel.x + 1, nodelabel.y]);
+                neighbor_E = mstrGrid[nodelabel.x + 1, nodelabel.y].nodePosition;
+            } else
+            {
+                Debug.Log("E node is not walkable!");
+            }
         } catch( IndexOutOfRangeException e)
         {
             Debug.Log("No more Eastern nodes!");
-            E = new Vector2Int(-1, -1);
+            neighbor_E = new Vector2Int(-1, -1);
         }
         try
         {
-            neighbors.Add(mstrGrid[nodelabel.x - 1, nodelabel.y]);
-            W = mstrGrid[nodelabel.x - 1, nodelabel.y].nodePosition;
+            if (mstrGrid[nodelabel.x - 1, nodelabel.y].walkable)
+            {
+                neighbors.Add(mstrGrid[nodelabel.x - 1, nodelabel.y]);
+                neighbor_W = mstrGrid[nodelabel.x - 1, nodelabel.y].nodePosition;
+            } else
+            {
+                Debug.Log("W node is not walkable!");
+            }
         }
         catch (IndexOutOfRangeException e)
         {
             Debug.Log("No more Western nodes!");
-            W = new Vector2Int(-1, -1);
+            neighbor_W = new Vector2Int(-1, -1);
         }
         try
         {
-            neighbors.Add(mstrGrid[nodelabel.x, nodelabel.y + 1]);
-            N = mstrGrid[nodelabel.x - 1, nodelabel.y].nodePosition;
+            if (mstrGrid[nodelabel.x, nodelabel.y + 1].walkable) {
+                neighbors.Add(mstrGrid[nodelabel.x, nodelabel.y + 1]);
+                neighbor_N = mstrGrid[nodelabel.x - 1, nodelabel.y].nodePosition;
+            } else
+            {
+                Debug.Log("N is not walkable!");
+            }
         }
         catch (IndexOutOfRangeException e)
         {
@@ -82,19 +108,26 @@ public class PathGrid : MonoBehaviour
         }
         try
         {
-            neighbors.Add(mstrGrid[nodelabel.x, nodelabel.y-1]);
-            S = mstrGrid[nodelabel.x, nodelabel.y-1].nodePosition;
+            if (mstrGrid[nodelabel.x, nodelabel.y - 1].walkable)
+            {
+                neighbors.Add(mstrGrid[nodelabel.x, nodelabel.y - 1]);
+                neighbor_S = mstrGrid[nodelabel.x, nodelabel.y - 1].nodePosition;
+            }
+            else
+            {
+                Debug.Log("S node is not walkable!");
+            }
         }
         catch (IndexOutOfRangeException e)
         {
             Debug.Log("No more Southern nodes!");
-            S = new Vector2Int(-1, -1);
+            neighbor_S = new Vector2Int(-1, -1);
         }
         neighbors.TrimExcess();
         return neighbors;
     }
     
-    Vector2Int Translate(Vector3 position)
+    public Vector2Int Translate(Vector3 position)
     {
         // Take in player position in the game space, translate to path grid index in form of a vector2
         // Numbers between 0 and 1 where n * world size = coordinate
@@ -112,7 +145,7 @@ public class PathGrid : MonoBehaviour
         Xidx = playerlocation.x;
         Yidx = playerlocation.y;
         current_neighbors = findNeighbors(playerlocation);
-        Debug.Log("CN=" + current_neighbors);
+        current_neighbors_len = current_neighbors.Count;
     }
 }
         

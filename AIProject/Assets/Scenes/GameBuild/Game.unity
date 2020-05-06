@@ -731,8 +731,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 745575539}
+  neighbor_N: {x: 0, y: 0}
+  neighbor_E: {x: 0, y: 0}
+  neighbor_S: {x: 0, y: 0}
+  neighbor_W: {x: 0, y: 0}
+  current_neighbors_len: 0
   Xidx: 0
   Yidx: 0
+  ws: 495
 --- !u!4 &1779180471
 Transform:
   m_ObjectHideFlags: 0

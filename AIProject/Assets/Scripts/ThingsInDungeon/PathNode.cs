@@ -6,9 +6,10 @@ public class PathNode
 {
     // !World position to graph position translate function
     // Create static adj matrix 
-   public Vector2Int nodePosition;
+    public Vector2Int nodePosition;
     public int x;
     public int y;
+    public bool walkable = true;
     // create constructor with right click
     public PathNode(Vector2Int nodePosition)
     {
