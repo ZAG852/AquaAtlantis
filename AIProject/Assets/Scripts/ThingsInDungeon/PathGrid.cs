@@ -18,7 +18,7 @@ public class PathGrid : MonoBehaviour
     public int current_neighbors_len;
     public float Xidx;
     public float Yidx;
-    static int gridX = 200; // being the rightmost X coordinate
+    static int gridX = 250; // being the rightmost X coordinate
     public float ws;
 
     public PathNode[,] mstrGrid;
@@ -96,7 +96,7 @@ public class PathGrid : MonoBehaviour
         {
             if (mstrGrid[nodelabel.x, nodelabel.y + 1].walkable) {
                 neighbors.Add(mstrGrid[nodelabel.x, nodelabel.y + 1]);
-                neighbor_N = mstrGrid[nodelabel.x - 1, nodelabel.y].nodePosition;
+                neighbor_N = mstrGrid[nodelabel.x, nodelabel.y + 1].nodePosition;
             } else
             {
                 Debug.Log("N is not walkable!");
@@ -112,8 +112,7 @@ public class PathGrid : MonoBehaviour
             {
                 neighbors.Add(mstrGrid[nodelabel.x, nodelabel.y - 1]);
                 neighbor_S = mstrGrid[nodelabel.x, nodelabel.y - 1].nodePosition;
-            }
-            else
+            } else
             {
                 Debug.Log("S node is not walkable!");
             }
