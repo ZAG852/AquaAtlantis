@@ -42,6 +42,7 @@ public class PlayerHealthManager : MonoBehaviour
                 print("heart");
                 health = health + 1;
                 Destroy(collision.gameObject);
+                FXplayer.fxplayer.PlayFX(fxOptions.itemPickup);
                 manageHealth();
             }
         }

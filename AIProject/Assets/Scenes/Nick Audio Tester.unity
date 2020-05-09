@@ -475,46 +475,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.data[2].clipVolume
-      value: 0.029
-      objectReference: {fileID: 0}
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.data[7].fx
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.data[7].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9e6356d97dab6410c92f593426cd394e, type: 3}
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.data[7].clipVolume
-      value: 0.487
-      objectReference: {fileID: 0}
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.data[8].fx
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.data[8].audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9e6356d97dab6410c92f593426cd394e, type: 3}
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.data[8].clipVolume
-      value: 0.487
-      objectReference: {fileID: 0}
     - target: {fileID: 5586127412356374514, guid: b07c97dce03a448c58ec2d45fb12d191,
         type: 3}
       propertyPath: m_LocalPosition.x

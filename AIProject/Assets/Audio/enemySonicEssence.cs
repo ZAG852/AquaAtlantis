@@ -64,4 +64,8 @@ public class enemySonicEssence : MonoBehaviour
         yield return new WaitForSeconds(dur);
         onComplete();
     }
+
+    void OnDestroy(){
+        essenceSource.Stop();
+    }
 }

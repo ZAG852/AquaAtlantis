@@ -22,11 +22,4 @@ public class FXTrigger : MonoBehaviour
     void OnDestroy(){
         fXplayer.PlayFX(fxOptions.deathFX);
     }
-
-    void Update(){
-        if(Input.GetKeyDown(KeyCode.Space)){
-            Destroy(gameObject);
-        }
-
-    }
 }

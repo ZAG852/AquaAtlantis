@@ -72,14 +72,14 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            FXplayer.fxplayer.PlayFX(fxOptions.itemPickup);
-        }
+        // if (Input.GetKeyDown(KeyCode.A))
+        // {
+        //     FXplayer.fxplayer.PlayFX(fxOptions.itemPickup);
+        // }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            FXplayer.fxplayer.PlayFX(fxOptions.fireball);
-        }
+        // if (Input.GetKeyDown(KeyCode.Q))
+        // {
+        //     FXplayer.fxplayer.PlayFX(fxOptions.fireball);
+        // }
     }
 }
