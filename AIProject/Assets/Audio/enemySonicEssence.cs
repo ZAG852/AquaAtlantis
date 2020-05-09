@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using System;
 
 [RequireComponent(typeof(AudioSource))]
 public class enemySonicEssence : MonoBehaviour
@@ -13,8 +14,12 @@ public class enemySonicEssence : MonoBehaviour
     private void Awake()
     {
         essenceSource = GetComponent<AudioSource>();
-        essenceSource.playOnAwake = true;
+        essenceSource.playOnAwake = false;
     }
+
+    [SerializeField]
+    float waitMin, waitMax;
+    bool randomDelay;
 
     void Start()
     {
@@ -24,18 +29,39 @@ public class enemySonicEssence : MonoBehaviour
 
         essenceSource.outputAudioMixerGroup = enemyGroup;
 
-        // set loop
-        if (!essenceSource.loop)
-            essenceSource.loop = true;
+        // set loop OFF
+        if (essenceSource.loop)
+            essenceSource.loop = false;
 
         // set random pitch
-        essenceSource.pitch = Random.Range(.9f, 1.2f);
+        essenceSource.pitch = UnityEngine.Random.Range(.9f, 1.2f);
 
-        // set audio clip
-        essenceSource.clip = AudioManager.audioManager.GetEnemyEssenceClip(enemy);
+        // set audio clip and volume
+        float volume;
+        essenceSource.clip = AudioManager.audioManager.GetEnemyEssenceClip(enemy, out volume);
+        essenceSource.volume = volume;
+        
 
         // play
         if (!essenceSource.isPlaying)
             essenceSource.Play();
+    }
+
+    void PlayEssense(){
+        essenceSource.Play();
+        randomDelay = false;
+    }
+
+    void Update(){
+        if(!essenceSource.isPlaying && !randomDelay){
+            randomDelay = true;
+            float randomDur = UnityEngine.Random.Range(waitMin, waitMax);
+            StartCoroutine(waitThenPlay(randomDur, PlayEssense));
+        }
+    }
+
+    IEnumerator waitThenPlay(float dur, Action onComplete){
+        yield return new WaitForSeconds(dur);
+        onComplete();
     }
 }

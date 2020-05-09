@@ -72,6 +72,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &622111082030792695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516355055336711359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306a310b777064e81b618f2332c23e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fx: 3
 --- !u!1001 &8329248621787489225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,6 +177,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9dad3e5060f476586c40f9da0ed24f, type: 3}
+--- !u!1 &6516355055336711359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3024678525969123190, guid: 8c9dad3e5060f476586c40f9da0ed24f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8329248621787489225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6516355055336711357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3024678525969123188, guid: 8c9dad3e5060f476586c40f9da0ed24f,

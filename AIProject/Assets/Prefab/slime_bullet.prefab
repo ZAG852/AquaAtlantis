@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3045931564909158726}
   - component: {fileID: -4467045191185117481}
   - component: {fileID: -8318209725526352864}
+  - component: {fileID: 3852878355343487486}
   m_Layer: 0
   m_Name: slime_bullet
   m_TagString: Untagged
@@ -137,6 +138,19 @@ MonoBehaviour:
   damage: 1
   flameParticle: {fileID: 4473410481594204896, guid: 0e3c5076378304460afafdaa5ddb5e59,
     type: 3}
+--- !u!114 &3852878355343487486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024678525969123190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306a310b777064e81b618f2332c23e6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fx: 5
 --- !u!1 &3024678526669313747
 GameObject:
   m_ObjectHideFlags: 0
