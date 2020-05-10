@@ -11,7 +11,7 @@ public class Stairs : MonoBehaviour
     [SerializeField]
     canvasTransition transitioner;
     bool trans = false;
-    float timer = 1f;
+    float timer = 2f;
     private void Start()
     {
         canvas = GameObject.FindGameObjectWithTag("Canvas");
@@ -32,6 +32,8 @@ public class Stairs : MonoBehaviour
         }
         if(trans)
         {
+            SoundTrack.soundTrack.StopSoundtrack();
+            FXplayer.fxplayer.PlayFX(fxOptions.stairs);
             timer -= Time.deltaTime;
             if(timer <= 0)
             {

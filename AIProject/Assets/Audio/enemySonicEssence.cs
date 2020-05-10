@@ -48,6 +48,7 @@ public class enemySonicEssence : MonoBehaviour
     }
 
     void PlayEssense(){
+        essenceSource.pitch = UnityEngine.Random.Range(.95f, 1.05f);
         essenceSource.Play();
         randomDelay = false;
     }
@@ -66,6 +67,10 @@ public class enemySonicEssence : MonoBehaviour
     }
 
     void OnDestroy(){
-        essenceSource.Stop();
+        essenceSource?.Stop();
+    }
+
+    void OnDisable(){
+        essenceSource?.Stop();
     }
 }
