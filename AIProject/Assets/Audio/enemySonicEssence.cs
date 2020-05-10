@@ -43,7 +43,7 @@ public class enemySonicEssence : MonoBehaviour
         
 
         // play
-        if (!essenceSource.isPlaying)
+        if (essenceSource?.isPlaying == false) // can't use !bool contruction with null-conditional / elvis operator
             essenceSource.Play();
     }
 
