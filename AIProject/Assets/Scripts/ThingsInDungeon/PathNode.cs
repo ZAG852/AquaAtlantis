@@ -11,6 +11,11 @@ public class PathNode
     float XLength;
     public bool walkable = true;
     // create constructor with right click
+
+    public PathNode()
+    {
+        nodePosition = new Vector2Int(0, 0);
+    }
     public PathNode(Vector2Int nodePosition, float sideLength)
     {
         this.nodePosition = nodePosition;

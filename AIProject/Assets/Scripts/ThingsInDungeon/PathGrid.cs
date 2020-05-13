@@ -29,7 +29,7 @@ public class PathGrid : MonoBehaviour
     void Start()
     {
         // each node takes up 5x5 space so div the world size by 10 to create appropriate # of path node entries in the array
-        
+        player = GameObject.Find("Player");
         ws = MapMaker.mapThingy.getWorldSize(); // world size is length of one side
         nodeXLength = (ws / Xlen); 
         mstrGrid = new PathNode[Xlen, Xlen];
@@ -133,6 +133,7 @@ public class PathGrid : MonoBehaviour
         Yidx = playerlocation.y;
         current_neighbors = FindNeighbors(playerlocation);
         current_neighbors_len = current_neighbors.Count;
+       // Debug.Log("Node 5,5 hscore = " + mstrGrid[5, 5].DistanceFrom(player));
     }
 
     public static Vector2Int Translate(Vector3 position)
