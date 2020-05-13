@@ -108,8 +108,9 @@ public class PathAI : MonoBehaviour
         //Update heuristic for only the nodes in open set to save resources
         foreach (PathNode node in openSet)
         {
-            // The heuristics array should be updated for nodes on an as-needed basis.
+            // The heuristics array should be updated for nodes on an as-needed basis. Update fScore as well because it is dependant
             node.hScore = updatehScore(node);
+            node.fScore = node.fScore + node.gScore;
         }
     }
 }
