@@ -7,22 +7,25 @@ public class PathGrid : MonoBehaviour
 {
 
     // Center of room X coord, Y coord
-    
-    public PathNode node;
-    public static GameObject player;
-    public List<PathNode> current_neighbors;
     public Vector2Int neighbor_N;
     public Vector2Int neighbor_E;
     public Vector2Int neighbor_S;
     public Vector2Int neighbor_W;
+
+    
+    public static int Xlen = 249; // being the rightmost X coordinate
+    public static int IDcount = 0;
+    public static GameObject player;
+    public List<PathNode> current_neighbors;
     public float nodeXLength;
     public int current_neighbors_len;
     public float Xidx;
     public float Yidx;
-    public static int Xlen = 249; // being the rightmost X coordinate
+    
     static float ws;
 
-    public PathNode[,] mstrGrid;
+    public PathNode node;
+    public static PathNode[,] mstrGrid;
     
     //World bounds, node side length, 
     // Start is called before the first frame update
@@ -33,7 +36,7 @@ public class PathGrid : MonoBehaviour
         ws = MapMaker.mapThingy.getWorldSize(); // world size is length of one side
         nodeXLength = (ws / Xlen); 
         mstrGrid = new PathNode[Xlen, Xlen];
-
+        
 
         for (int x = 0; x < Xlen ; x++)
         {
@@ -42,8 +45,8 @@ public class PathGrid : MonoBehaviour
             {
  
 
-                mstrGrid[x, y] = new PathNode(new Vector2Int(x,y), nodeXLength); 
-   
+                mstrGrid[x, y] = new PathNode(new Vector2Int(x,y), nodeXLength, IDcount );
+                IDcount++;
             }
         }
 
@@ -53,6 +56,12 @@ public class PathGrid : MonoBehaviour
         for (int i = 0; i < roadblocks.Length; i++)
         {
             mstrGrid[Translate(roadblocks[i].transform.position).x, Translate(roadblocks[i].transform.position).y].walkable = false;
+        }
+        // Sets up previous array at time of grid creation as to get appropriate sizing
+        PathAI.prev = new int [IDcount];
+        for (int i = 0; i < IDcount; i++)
+        {
+            PathAI.prev[i] = -1;
         }
     }
     public List<PathNode> FindNeighbors(Vector2Int nodelabel)

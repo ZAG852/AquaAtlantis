@@ -9,28 +9,26 @@ public class PathNode
     // Create static adj matrix 
     public Vector2Int nodePosition;
     float XLength;
+    public double fScore = double.MaxValue;
+    public double gScore = double.MaxValue;
+    public double hScore = double.MaxValue;
+    public int ID;
     public bool walkable = true;
     // create constructor with right click
 
     public PathNode()
     {
         nodePosition = new Vector2Int(0, 0);
+        this.ID = -1; // a blank node has an ID of -1
     }
-    public PathNode(Vector2Int nodePosition, float sideLength)
+    public PathNode(Vector2Int nodePosition, float sideLength, int ID)
     {
         this.nodePosition = nodePosition;
+        this.ID = ID;
         XLength = sideLength;
     }
 
-    public double DistanceFrom(GameObject player)
-    {
-        // distance function to find the distance from the player location to this node
-        Vector2Int targetNode = PathGrid.Translate(player.transform.position);
-        // the grid index of this node is stored in nodeposition. simply count the h + V distance
-        int xdist = Mathf.Abs(nodePosition.x - targetNode.x);
-        int ydist = Mathf.Abs(nodePosition.y - targetNode.y);
-        return xdist + ydist;
-    }
+
 }
 
 
