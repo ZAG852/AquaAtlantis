@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
     float[] playerStats = new float[stats];
     int baseStat = 5;
     int playerLevel = 1;
+    public Image pauseText;
+    public bool paused = false;
     bool newGame = true;
     // Start is called before the first frame update
     void Awake()
@@ -43,6 +46,12 @@ public class GameManager : MonoBehaviour
             clearStats();
             newGame = !newGame;
         }
+        pauseText.enabled = false;
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            PauseGame();
     }
     public int getLevel()
     {
@@ -115,5 +124,14 @@ public class GameManager : MonoBehaviour
     public float getDifficulty()
     {
         return overallDifficulty;
+    }
+    public void PauseGame()
+    {
+        if (!paused)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
+        paused = !paused;
+        pauseText.enabled = !pauseText.enabled;
     }
 }
