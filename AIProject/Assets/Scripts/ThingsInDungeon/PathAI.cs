@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class PathAI : MonoBehaviour
 
     }
 
-    void Astar(PathNode source, PathNode target)
+    List<PathNode> Astar(PathNode source, PathNode target)
     {
         PathNode s = source;
         s.gScore = 0;
@@ -49,13 +50,33 @@ public class PathAI : MonoBehaviour
                     current = FindNodeID(prev[current.ID]);
                 }
                 path.Reverse();
-                //return path;
+                return path;
             }
 
             // If target not found continue...
 
+           foreach (PathNode neighbor in current.FindNeighbors()){
+                int edgeWeight = 1;
+                double tentativeGScore = current.gScore + edgeWeight;
+                if (tentativeGScore < neighbor.gScore)
+                {
+                    neighbor.gScore = tentativeGScore;
+                    neighbor.fScore = neighbor.gScore + neighbor.hScore;
+                    prev[neighbor.ID] = current.ID; // store the ID of previous node
 
+                    //If we have found a better path
+                    if (closedSet.Contains(neighbor))
+                    {
+                        closedSet.Remove(neighbor);
+                        openSet.Add(neighbor);
+                    } else if (openSet.Contains(neighbor) == false)
+                    {
+                        openSet.Add(neighbor);
+                    }
+                }
+            }
         }
+        return null;
     }
 
     PathNode findLowestFScore(List<PathNode> openSet)
@@ -78,6 +99,7 @@ public class PathAI : MonoBehaviour
 
     PathNode FindNodeID(int ID)
     {
+        // Query the master graph for node with matching ID.
         PathNode n = new PathNode(); // empty pathNode
         for (int x = 0; x < PathGrid.Xlen; x++)
         {
@@ -100,7 +122,7 @@ public class PathAI : MonoBehaviour
         // the grid index of this node is stored in nodeposition. simply count the h + V distance
         int xdist = Mathf.Abs(n.nodePosition.x - targetNode.x);
         int ydist = Mathf.Abs(n.nodePosition.y - targetNode.y);
-        return xdist + ydist;
+        return (double) Mathf.Sqrt((float)Math.Pow(xdist, 2) +(float) Math.Pow(ydist, 2));
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -110,7 +132,7 @@ public class PathAI : MonoBehaviour
         {
             // The heuristics array should be updated for nodes on an as-needed basis. Update fScore as well because it is dependant
             node.hScore = updatehScore(node);
-            node.fScore = node.fScore + node.gScore;
+            node.fScore = node.hScore + node.gScore;
         }
     }
 }
