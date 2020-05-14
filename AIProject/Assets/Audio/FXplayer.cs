@@ -42,9 +42,12 @@ public class FXplayer : MonoBehaviour
         {
             if (fx == option.fx)
             {
-                print((int)option.fx);
+                print(option.fx.ToString() + " " + fx.ToString());
                 AudioClip clip = fxOptions[(int)option.fx].audioClip;
+                float pitch = UnityEngine.Random.Range(.7f, 1.2f);
+                fxSource.pitch = pitch;
                 float vol = fxOptions[(int)option.fx].clipVolume;
+                print(vol);
                 fxSource.PlayOneShot(clip, vol);
                 break;
             }

@@ -8,7 +8,7 @@ public class SoundTrack : MonoBehaviour
 {
     public static SoundTrack soundTrack;
 
-    public soundtrackOptions [] soundtrack = new soundtrackOptions[] { };
+    public soundtrackOptions[] soundtrack = new soundtrackOptions[] { };
 
     AudioSource soundTrackSource;
 
@@ -18,10 +18,11 @@ public class SoundTrack : MonoBehaviour
 
     private void Awake()
     {
-        if(soundTrack == null)
+        if (soundTrack == null)
         {
             soundTrack = this;
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
@@ -32,6 +33,11 @@ public class SoundTrack : MonoBehaviour
         soundTrackSource = GetComponent<AudioSource>();
     }
 
+    public void StopSoundtrack(){
+        if(soundTrackSource.isPlaying){
+            soundTrackSource.Stop();
+        }
+    }
     private void Start()
     {
         soundTrackSource.loop = false;
@@ -44,7 +50,6 @@ public class SoundTrack : MonoBehaviour
         if (!soundTrackSource.isPlaying)
         {
             selectAndPlayNewTrack();
-            soundTrackSource.Play();
         }
     }
 
@@ -56,16 +61,30 @@ public class SoundTrack : MonoBehaviour
     void selectAndPlayNewTrack()
     {
         selectNewTrack(randInts());
+        int rand;
+        do
+        {
+            rand = UnityEngine.Random.Range(0, soundtrack.Length);
+        } while (soundtrack[rand].playCount > soundtrack[m_currentTrackIndex].playCount);
+
+        print("found new track");
+        soundTrackSource.clip = soundtrack[rand].audioClip;
+        soundtrack[rand].playCount++;
+        m_currentTrackIndex = rand;
+        soundTrackSource.Play();
+        return;
+
     }
 
     int randInts()
     {
         List<int> rands = new List<int>();
         int i = 0;
-        while(i < 3)
+        while (i < 3)
         {
             int tmpInt = Random.Range(0, soundtrack.Length);
-            if (!rands.Contains(tmpInt)){
+            if (!rands.Contains(tmpInt))
+            {
                 rands.Add(tmpInt);
                 i++;
             }
@@ -79,7 +98,7 @@ public class SoundTrack : MonoBehaviour
     {
         print("selecting new track");
         print("comparing " + num + " " + soundtrack[m_currentTrackIndex].playCount);
-        if(soundtrack[m_currentTrackIndex].playCount < 2)
+        if (soundtrack[m_currentTrackIndex].playCount < 2)
         {
             print("found new track");
             soundTrackSource.clip = soundtrack[num].audioClip;

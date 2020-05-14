@@ -42,6 +42,7 @@ public class PlayerHealthManager : MonoBehaviour
                 print("heart");
                 health = health + 1;
                 Destroy(collision.gameObject);
+                FXplayer.fxplayer.PlayFX(fxOptions.itemPickup);
                 manageHealth();
             }
         }
@@ -83,12 +84,14 @@ public class PlayerHealthManager : MonoBehaviour
         if (health <= 0)
         {
             Instantiate(DamageParticle, transform.position, Quaternion.identity);
+            FXplayer.fxplayer?.PlayFX(fxOptions.deathFX);
             Destroy(gameObject);
         }
     }
     public void hurtPlayer(int damage)
     {
         health -= damage;
+        FXplayer.fxplayer?.PlayFX(fxOptions.bonk);
     }
 
     public void setMaxHealth()

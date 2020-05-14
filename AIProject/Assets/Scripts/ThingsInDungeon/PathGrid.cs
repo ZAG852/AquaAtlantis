@@ -7,44 +7,46 @@ public class PathGrid : MonoBehaviour
 {
 
     // Center of room X coord, Y coord
-    
-    public PathNode node;
-    public GameObject player;
-    public List<PathNode> current_neighbors;
     public Vector2Int neighbor_N;
     public Vector2Int neighbor_E;
     public Vector2Int neighbor_S;
     public Vector2Int neighbor_W;
+
+    
+    public static int Xlen = 249; // being the rightmost X coordinate
+    public static int IDcount = 0;
+    public static GameObject player;
+    public List<PathNode> current_neighbors;
+    public float nodeXLength;
     public int current_neighbors_len;
     public float Xidx;
     public float Yidx;
-    static int gridX = 250; // being the rightmost X coordinate
-    public float ws;
+    
+    static float ws;
 
-    public PathNode[,] mstrGrid;
+    public PathNode node;
+    public static PathNode[,] mstrGrid;
     
     //World bounds, node side length, 
     // Start is called before the first frame update
     void Start()
     {
         // each node takes up 5x5 space so div the world size by 10 to create appropriate # of path node entries in the array
-        
+        player = GameObject.Find("Player");
         ws = MapMaker.mapThingy.getWorldSize(); // world size is length of one side
-        float xLength = (ws / gridX);
-        mstrGrid = new PathNode[gridX, gridX];
+        nodeXLength = (ws / Xlen); 
+        mstrGrid = new PathNode[Xlen, Xlen];
+        
 
-
-        for (int x = 0; x < gridX ; x++)
+        for (int x = 0; x < Xlen ; x++)
         {
 
-            for (int y = 0; y < gridX ; y++)
+            for (int y = 0; y < Xlen ; y++)
             {
-                // creates reference to the object stored in node
-                // call master grid to return a node and set the coordinate properties.
-                // cX & cY are both based on nodeArea
+ 
 
-                mstrGrid[x, y] = new PathNode(new Vector2Int(x,y)); 
-   
+                mstrGrid[x, y] = new PathNode(new Vector2Int(x,y), nodeXLength, IDcount );
+                IDcount++;
             }
         }
 
@@ -55,8 +57,14 @@ public class PathGrid : MonoBehaviour
         {
             mstrGrid[Translate(roadblocks[i].transform.position).x, Translate(roadblocks[i].transform.position).y].walkable = false;
         }
+        // Sets up previous array at time of grid creation as to get appropriate sizing
+        PathAI.prev = new int [IDcount];
+        for (int i = 0; i < IDcount; i++)
+        {
+            PathAI.prev[i] = -1;
+        }
     }
-    public List<PathNode> findNeighbors(Vector2Int nodelabel)
+    public List<PathNode> FindNeighbors(Vector2Int nodelabel)
     {
         // Stores a vector2 for each neighbor. Vector 2 corresponds to row/col in mstrGrid[,]. Reverse Astar solve from player to given enemy;
         List<PathNode> neighbors = new List<PathNode>(4);
@@ -125,26 +133,28 @@ public class PathGrid : MonoBehaviour
         neighbors.TrimExcess();
         return neighbors;
     }
-    
-    Vector2Int Translate(Vector3 position)
-    {
-        // Take in player position in the game space, translate to path grid index in form of a vector2
-        // Numbers between 0 and 1 where n * world size = coordinate
-        float nXposition = position.x / ws;
-        float nYposition = position.y / ws;
-        // Node diameter is accounted for by rounding
-        int xg = Mathf.RoundToInt(nXposition * gridX);
-        int yg = Mathf.RoundToInt(nYposition * gridX);
-        return new Vector2Int(xg, yg);
-    }
+
     // Update is called once per frame
     void Update()
     {
         Vector2Int playerlocation = Translate(player.transform.position);
         Xidx = playerlocation.x;
         Yidx = playerlocation.y;
-        current_neighbors = findNeighbors(playerlocation);
+        current_neighbors = FindNeighbors(playerlocation);
         current_neighbors_len = current_neighbors.Count;
+       // Debug.Log("Node 5,5 hscore = " + mstrGrid[5, 5].DistanceFrom(player));
+    }
+
+    public static Vector2Int Translate(Vector3 position)
+    {
+        // Take in a vector3 position in the game space, translate to path grid index in form of a vector2
+        // Numbers between 0 and 1 where n * world size = coordinate
+        float nXposition = position.x / ws;
+        float nYposition = position.y / ws;
+        // Node diameter is accounted for by rounding
+        int xg = Mathf.RoundToInt(nXposition * Xlen);
+        int yg = Mathf.RoundToInt(nYposition * Xlen);
+        return new Vector2Int(xg, yg);
     }
 }
         

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5586127410647485500}
   - component: {fileID: 5586127410647485635}
   - component: {fileID: 5586127410647485634}
+  - component: {fileID: 5587779129447035265}
   m_Layer: 0
   m_Name: FX
   m_TagString: Untagged
@@ -144,19 +145,40 @@ MonoBehaviour:
   fxOptions:
   - fx: 0
     audioClip: {fileID: 8300000, guid: 697887a5e855f43088dd0b2df764b40d, type: 3}
-    clipVolume: 0.976
+    clipVolume: 0.648
   - fx: 1
-    audioClip: {fileID: 8300000, guid: d87b7008523244b8fa92e09ffc996d50, type: 3}
-    clipVolume: 0.701
+    audioClip: {fileID: 8300000, guid: 27d049b90c9304ce9ad342c06e427d2d, type: 3}
+    clipVolume: 0.87
   - fx: 2
-    audioClip: {fileID: 8300000, guid: 117a15fa16ee84278a379bb2c763eced, type: 3}
-    clipVolume: 0.701
-  - fx: 3
     audioClip: {fileID: 8300000, guid: 16b46e7047a6048058c0d23ec23fc8b3, type: 3}
-    clipVolume: 0.701
+    clipVolume: 0.029
   - fx: 3
-    audioClip: {fileID: 8300000, guid: 16b46e7047a6048058c0d23ec23fc8b3, type: 3}
-    clipVolume: 0.44
+    audioClip: {fileID: 8300000, guid: 754b6a4b5c795492fbb949a833637afc, type: 3}
+    clipVolume: 0.879
+  - fx: 4
+    audioClip: {fileID: 8300000, guid: f3c437d3a3a0845a0bdfb0ffbafc7d23, type: 3}
+    clipVolume: 0.884
+  - fx: 5
+    audioClip: {fileID: 8300000, guid: 92c3f57f9dc004748bb38f040fbc3764, type: 3}
+    clipVolume: 0.807
+  - fx: 6
+    audioClip: {fileID: 8300000, guid: 315db7a5c04d14971b8c9ddd46288e05, type: 3}
+    clipVolume: 0.828
+  - fx: 7
+    audioClip: {fileID: 8300000, guid: 9e6356d97dab6410c92f593426cd394e, type: 3}
+    clipVolume: 0.487
+--- !u!114 &5587779129447035265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586127410647485501}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4388b5c6f2a0b4ddaba14366729fcb0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5586127411273268488
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +339,7 @@ MonoBehaviour:
     playCount: 0
   - audioClip: {fileID: 8300000, guid: 5b87659c859564ba1881a5271b87d3f7, type: 3}
     playCount: 0
-  - audioClip: {fileID: 8300000, guid: cb2eca7478e8f4320a05f0b0dcb7b844, type: 3}
+  - audioClip: {fileID: 8300000, guid: 0ee2740c0b060489f8bdab63a038ef41, type: 3}
     playCount: 0
 --- !u!1 &5586127412356374515
 GameObject:
@@ -366,8 +388,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyEssenceOptions:
   - enemy: 0
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 97364bd793aa84493bc5d9ff45583bae, type: 3}
+    clipVolume: 0.374
   - enemy: 1
-    audioClip: {fileID: 0}
-  - enemy: 1
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 47608348423654f3898a26740bf7f912, type: 3}
+    clipVolume: 0.088
+  - enemy: 2
+    audioClip: {fileID: 8300000, guid: 668b0e513e278465180945d3d71b0829, type: 3}
+    clipVolume: 0.246
+  - enemy: 3
+    audioClip: {fileID: 8300000, guid: 3159e9a5d381343a4a26405563aa4683, type: 3}
+    clipVolume: 0.285
+  - enemy: 4
+    audioClip: {fileID: 8300000, guid: d87b7008523244b8fa92e09ffc996d50, type: 3}
+    clipVolume: 0.315
+  - enemy: 5
+    audioClip: {fileID: 8300000, guid: 30c7a6a18a4694acebd65d7ded4acbfc, type: 3}
+    clipVolume: 0.315
+  - enemy: 6
+    audioClip: {fileID: 8300000, guid: 119b24250d3ac4362a4389f85df62af0, type: 3}
+    clipVolume: 0.302

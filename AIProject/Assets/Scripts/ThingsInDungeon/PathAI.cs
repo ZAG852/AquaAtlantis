@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class PathAI : MonoBehaviour
 {
     
-    Queue<PathNode> openQ = new Queue<PathNode> ();
-    List<PathNode> closedSet;
-    
-    
+    List<PathNode> openSet = new List<PathNode> ();
+    List<PathNode> closedSet = new List<PathNode>();
+    public static int [] prev; // Set by PathGrid .start() all to -1. Stores path node ID values
 
     // Start is called before the first frame update
     void Start()
@@ -16,16 +16,101 @@ public class PathAI : MonoBehaviour
 
     }
 
-    void initGrid()
+    void Astar(PathNode source, PathNode target)
     {
-  
-       
+        PathNode s = source;
+        s.gScore = 0;
+        openSet.Add(s);
+
+
+        // must be in open set before finding hscore
+        //We know the cost to get to source from source is 0
+        //So 0 becomes the gScore of source
+        //Since we change gScore, we must also change fScore
+        s.gScore = 0;
+        s.hScore = updatehScore(s);
+        s.fScore = s.fScore + s.gScore;
+    
+        while (openSet.Count != 0)
+        {
+            // Find lowest fScore node
+            // Set current equal to that
+            PathNode current = findLowestFScore(openSet);
+            openSet.Remove(current);
+            closedSet.Add(current);
+
+            // Upon finding the target...
+            if (current.ID == target.ID)
+            {
+                List<PathNode> path = new List<PathNode>();
+                while (prev[current.ID] != -1)
+                {
+                    path.Add(current);
+                    current = FindNodeID(prev[current.ID]);
+                }
+                path.Reverse();
+                //return path;
+            }
+
+            // If target not found continue...
+
+
+        }
+    }
+
+    PathNode findLowestFScore(List<PathNode> openSet)
+    {
+        double minScore = openSet[0].fScore;
+        
+        PathNode minNode = openSet[0];
+
+        for (int i = 0; i < openSet.Count; i++)
+        {
+            PathNode n = openSet[i];
+            if (n.fScore < minScore)
+            {
+                minNode = n;
+                minScore = minNode.fScore;
+            }
+        }
+        return minNode;
+    }
+
+    PathNode FindNodeID(int ID)
+    {
+        PathNode n = new PathNode(); // empty pathNode
+        for (int x = 0; x < PathGrid.Xlen; x++)
+        {
+
+            for (int y = 0; y < PathGrid.Xlen; y++)
+            {
+                if (PathGrid.mstrGrid[x, y].ID == ID)
+                {
+                    return PathGrid.mstrGrid[x, y];
+                }
+            }
+        }
+            return n;
+    }
+
+    public double updatehScore(PathNode n)
+    {
+        // distance function to find the distance from the player location to this node
+        Vector2Int targetNode = PathGrid.Translate(PathGrid.player.transform.position);
+        // the grid index of this node is stored in nodeposition. simply count the h + V distance
+        int xdist = Mathf.Abs(n.nodePosition.x - targetNode.x);
+        int ydist = Mathf.Abs(n.nodePosition.y - targetNode.y);
+        return xdist + ydist;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-            // Update value of previous array
-
-
+        //Update heuristic for only the nodes in open set to save resources
+        foreach (PathNode node in openSet)
+        {
+            // The heuristics array should be updated for nodes on an as-needed basis. Update fScore as well because it is dependant
+            node.hScore = updatehScore(node);
+            node.fScore = node.fScore + node.gScore;
+        }
     }
 }
