@@ -49,7 +49,14 @@ public class GameManager : MonoBehaviour
             clearStats();
             newGame = !newGame;
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        gameOver = false;
+        pauseText = GameObject.Find("PauseText").GetComponent<Image>();
         pauseText.enabled = false;
+        gameOverText = GameObject.Find("GameOverText").GetComponent<Image>();
         gameOverText.enabled = false;
     }
     void Update()
