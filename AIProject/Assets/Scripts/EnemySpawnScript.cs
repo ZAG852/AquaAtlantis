@@ -40,7 +40,7 @@ public class EnemySpawnScript : MonoBehaviour
             //...if it's the last room, upgrade it to a boss room...
             try
             {
-                Nodies.Node test = MapMaker.mapThingy.getNodeList()[i + 1];
+                Nodies.Node test = MapMaker.mapThingy.getNodeList()[i + 2];
             }
             catch
             {

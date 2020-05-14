@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseCalculations : MonoBehaviour
 {
     private Camera cam;
+    GameManager gm;
     [SerializeField]
     float mover =0;
     public Transform firepoint;
@@ -17,6 +18,7 @@ public class MouseCalculations : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class MouseCalculations : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (bulletTimer >= interval)
+            if (bulletTimer >= interval && !gm.paused)
             {
                 Instantiate(fire, firepoint.position, transform.rotation);
                 bulletTimer = 0;

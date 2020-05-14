@@ -16,13 +16,13 @@ public class PathGrid : MonoBehaviour
     public static int Xlen = 249; // being the rightmost X coordinate
     public static int IDcount = 0;
     public static GameObject player;
-    public List<PathNode> current_neighbors;
+    public PathNode [] current_neighbors;
     public float nodeXLength;
-    public int current_neighbors_len;
-    public float Xidx;
-    public float Yidx;
-    
+
     static float ws;
+    public int current_neighbors_len;
+    public int Xidx;
+    public int Yidx;
 
     public PathNode node;
     public static PathNode[,] mstrGrid;
@@ -64,75 +64,6 @@ public class PathGrid : MonoBehaviour
             PathAI.prev[i] = -1;
         }
     }
-    public List<PathNode> FindNeighbors(Vector2Int nodelabel)
-    {
-        // Stores a vector2 for each neighbor. Vector 2 corresponds to row/col in mstrGrid[,]. Reverse Astar solve from player to given enemy;
-        List<PathNode> neighbors = new List<PathNode>(4);
-        
-        try
-        {
-            if (mstrGrid[nodelabel.x + 1, nodelabel.y].walkable)
-            {
-                neighbors.Add(mstrGrid[nodelabel.x + 1, nodelabel.y]);
-                neighbor_E = mstrGrid[nodelabel.x + 1, nodelabel.y].nodePosition;
-            } else
-            {
-                Debug.Log("E node is not walkable!");
-            }
-        } catch(Exception e)
-        {
-            Debug.Log("No more Eastern nodes!");
-            neighbor_E = new Vector2Int(-1, -1);
-        }
-        try
-        {
-            if (mstrGrid[nodelabel.x - 1, nodelabel.y].walkable)
-            {
-                neighbors.Add(mstrGrid[nodelabel.x - 1, nodelabel.y]);
-                neighbor_W = mstrGrid[nodelabel.x - 1, nodelabel.y].nodePosition;
-            } else
-            {
-                Debug.Log("W node is not walkable!");
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.Log("No more Western nodes!");
-            neighbor_W = new Vector2Int(-1, -1);
-        }
-        try
-        {
-            if (mstrGrid[nodelabel.x, nodelabel.y + 1].walkable) {
-                neighbors.Add(mstrGrid[nodelabel.x, nodelabel.y + 1]);
-                neighbor_N = mstrGrid[nodelabel.x, nodelabel.y + 1].nodePosition;
-            } else
-            {
-                Debug.Log("N is not walkable!");
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.Log("No more Northern nodes!");
-        }
-        try
-        {
-            if (mstrGrid[nodelabel.x, nodelabel.y - 1].walkable)
-            {
-                neighbors.Add(mstrGrid[nodelabel.x, nodelabel.y - 1]);
-                neighbor_S = mstrGrid[nodelabel.x, nodelabel.y - 1].nodePosition;
-            } else
-            {
-                Debug.Log("S node is not walkable!");
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.Log("No more Southern nodes!");
-            neighbor_S = new Vector2Int(-1, -1);
-        }
-        neighbors.TrimExcess();
-        return neighbors;
-    }
 
     // Update is called once per frame
     void Update()
@@ -140,8 +71,8 @@ public class PathGrid : MonoBehaviour
         Vector2Int playerlocation = Translate(player.transform.position);
         Xidx = playerlocation.x;
         Yidx = playerlocation.y;
-        current_neighbors = FindNeighbors(playerlocation);
-        current_neighbors_len = current_neighbors.Count;
+        current_neighbors = mstrGrid[Xidx, Yidx].FindNeighbors();
+        current_neighbors_len = current_neighbors.Length ;
        // Debug.Log("Node 5,5 hscore = " + mstrGrid[5, 5].DistanceFrom(player));
     }
 

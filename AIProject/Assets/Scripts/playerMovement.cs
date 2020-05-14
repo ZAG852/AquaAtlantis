@@ -10,34 +10,41 @@ public class playerMovement : MonoBehaviour
     bool facingRight = true;
 
     Vector2 movement;
+    GameManager gm;
     public Animator anim;
+
+    void Awake()
+    {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     void Update()
     {
-        //input
+        if (!gm.paused) { 
+            //input
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
 
-        anim.SetFloat("H", movement.x);
-        anim.SetFloat("V", movement.y);
-        anim.SetFloat("speed", movement.sqrMagnitude);
+            anim.SetFloat("H", movement.x);
+            anim.SetFloat("V", movement.y);
+            anim.SetFloat("speed", movement.sqrMagnitude);
 
 
-        if (facingRight == false && movement.x > 0)
-        {
+            if (facingRight == false && movement.x > 0)
+            {
 
-            Flip();
+                Flip();
+            }
+            else if (movement.x < 0 && facingRight == true)
+            {
+                Flip();
+            }
+            if(Input.GetKeyDown(KeyCode.P))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
-        else if (movement.x < 0 && facingRight == true)
-        {
-            Flip();
-        }
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
     }
     void Flip()
     {

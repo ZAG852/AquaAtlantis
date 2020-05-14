@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,10 @@ public class GameManager : MonoBehaviour
     float[] playerStats = new float[stats];
     int baseStat = 5;
     int playerLevel = 1;
+    public Image gameOverText;
+    public Image pauseText;
+    public bool paused = false;
+    bool gameOver = false;
     bool newGame = true;
     // Start is called before the first frame update
     void Awake()
@@ -43,6 +49,20 @@ public class GameManager : MonoBehaviour
             clearStats();
             newGame = !newGame;
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        gameOver = false;
+        pauseText = GameObject.Find("PauseText").GetComponent<Image>();
+        pauseText.enabled = false;
+        gameOverText = GameObject.Find("GameOverText").GetComponent<Image>();
+        gameOverText.enabled = false;
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            PauseGame();
     }
     public int getLevel()
     {
@@ -115,5 +135,28 @@ public class GameManager : MonoBehaviour
     public float getDifficulty()
     {
         return overallDifficulty;
+    }
+    public void PauseGame()
+    {
+        if (!gameOver)
+        {
+            if (!paused)
+                Time.timeScale = 0;
+            else
+                Time.timeScale = 1;
+            paused = !paused;
+            pauseText.enabled = !pauseText.enabled;
+        }
+    }
+    public void EndGame()
+    {
+        gameOver = true;
+        gameOverText.enabled = true;
+        Invoke("ToMenu", 5f);
+    }
+    public void ToMenu()
+    {
+        // This is the ID for the StartScreen (main menu)
+        SceneManager.LoadScene(0);
     }
 }
