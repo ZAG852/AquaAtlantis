@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,8 +16,10 @@ public class GameManager : MonoBehaviour
     float[] playerStats = new float[stats];
     int baseStat = 5;
     int playerLevel = 1;
+    public Image gameOverText;
     public Image pauseText;
     public bool paused = false;
+    bool gameOver = false;
     bool newGame = true;
     // Start is called before the first frame update
     void Awake()
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
             newGame = !newGame;
         }
         pauseText.enabled = false;
+        gameOverText.enabled = false;
     }
     void Update()
     {
@@ -127,11 +131,25 @@ public class GameManager : MonoBehaviour
     }
     public void PauseGame()
     {
-        if (!paused)
-            Time.timeScale = 0;
-        else
-            Time.timeScale = 1;
-        paused = !paused;
-        pauseText.enabled = !pauseText.enabled;
+        if (!gameOver)
+        {
+            if (!paused)
+                Time.timeScale = 0;
+            else
+                Time.timeScale = 1;
+            paused = !paused;
+            pauseText.enabled = !pauseText.enabled;
+        }
+    }
+    public void EndGame()
+    {
+        gameOver = true;
+        gameOverText.enabled = true;
+        Invoke("ToMenu", 5f);
+    }
+    public void ToMenu()
+    {
+        // This is the ID for the StartScreen (main menu)
+        SceneManager.LoadScene(0);
     }
 }

@@ -17,11 +17,13 @@ public class PlayerHealthManager : MonoBehaviour
 
     bool empty = false;
     public Animator[] anim;
+    public GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
         health = numberOfHearts;
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -85,6 +87,7 @@ public class PlayerHealthManager : MonoBehaviour
         {
             Instantiate(DamageParticle, transform.position, Quaternion.identity);
             FXplayer.fxplayer?.PlayFX(fxOptions.deathFX);
+            gm.EndGame();
             Destroy(gameObject);
         }
     }
