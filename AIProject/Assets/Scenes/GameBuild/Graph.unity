@@ -200,7 +200,6 @@ GameObject:
   m_Component:
   - component: {fileID: 302900696}
   - component: {fileID: 302900695}
-  - component: {fileID: 302900697}
   m_Layer: 0
   m_Name: PathGrid
   m_TagString: Untagged
@@ -242,21 +241,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &302900697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302900694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62aece4e47da14fd999efc05570e7305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverText: {fileID: 997291949}
-  pauseText: {fileID: 1568389606}
-  paused: 0
 --- !u!1001 &418977832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -591,18 +575,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &997291949 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8413612352311306634, guid: d9dc5c6b55b034833984a1e052fd72d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1857807895}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1024297529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,18 +1029,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1568389606 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4188912570641707157, guid: d9dc5c6b55b034833984a1e052fd72d0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1857807895}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1594863956 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4311014013730444370, guid: d9dc5c6b55b034833984a1e052fd72d0,
