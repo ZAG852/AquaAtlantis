@@ -141,7 +141,12 @@ PrefabInstance:
     - target: {fileID: 1221671911552300125, guid: d9dc5c6b55b034833984a1e052fd72d0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.28619385
+      value: 0.2861328
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221671911552300125, guid: d9dc5c6b55b034833984a1e052fd72d0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.6999512
       objectReference: {fileID: 0}
     - target: {fileID: 1221671911846742577, guid: d9dc5c6b55b034833984a1e052fd72d0,
         type: 3}
@@ -1158,26 +1163,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
+    - target: {fileID: 5586127410647485635, guid: b07c97dce03a448c58ec2d45fb12d191,
         type: 3}
-      propertyPath: fxOptions.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.data[8].fx
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.data[8].audioClip
+      propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 8300000, guid: 91a9d252400dd4e02a9834ae66f90673, type: 3}
-    - target: {fileID: 5586127410647485634, guid: b07c97dce03a448c58ec2d45fb12d191,
-        type: 3}
-      propertyPath: fxOptions.Array.data[8].clipVolume
-      value: 0.487
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2577826236406610826, guid: ecbf00772262d40b2a427344f7172d87,
+        type: 2}
     - target: {fileID: 5586127412356374514, guid: b07c97dce03a448c58ec2d45fb12d191,
         type: 3}
       propertyPath: m_LocalPosition.x
