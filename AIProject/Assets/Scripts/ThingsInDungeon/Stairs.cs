@@ -12,17 +12,19 @@ public class Stairs : MonoBehaviour
     canvasTransition transitioner;
     bool trans = false;
     float timer = 2f;
+    public GameObject tooltip;
     private void Start()
     {
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         transitioner = canvas.GetComponentInChildren<canvasTransition>();
+        tooltip.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
         if(playerInAreaOfEffect && !trans)
         {
-            if(Input.GetKeyDown(KeyCode.N))
+            if(Input.GetKeyDown(KeyCode.E))
             {
                 transitioner.gameObject.SetActive(true);
                 transitioner.fadeOut();
@@ -52,6 +54,7 @@ public class Stairs : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             playerInAreaOfEffect = true;
+            tooltip.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -60,6 +63,7 @@ public class Stairs : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerInAreaOfEffect = false;
+            tooltip.SetActive(false);
         }
     }
 }
