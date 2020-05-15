@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathNode 
+public class PathNode : IHeapItem<PathNode>
 {
     // !World position to graph position translate function
     // Create static adj matrix 
@@ -15,6 +15,7 @@ public class PathNode
     public double hScore = double.MaxValue;
     public int ID;
     public bool walkable = true;
+    int heapIndex;
     // create constructor with right click
     public PathNode [] FindNeighbors()
     {
@@ -108,7 +109,27 @@ public class PathNode
         XLength = sideLength;
     }
 
+    public int HeapIndex
+    {
+        get
+        {
+            return heapIndex;
+        }
+        set
+        {
+            heapIndex = value;
+        }
+    }
 
+    public int CompareTo(PathNode nodeToCompare)
+    {
+        int compare = fScore.CompareTo(nodeToCompare.fScore);
+        if (compare == 0)
+        {
+            compare = hScore.CompareTo(nodeToCompare.hScore);
+        }
+        return -compare;
+    }
 }
 
 
