@@ -128,6 +128,7 @@ public class PathAI : MonoBehaviour
     void FixedUpdate()
     {
         //Update heuristic for only the nodes in open set to save resources
+        
         foreach (PathNode node in openSet)
         {
             // The heuristics array should be updated for nodes on an as-needed basis. Update fScore as well because it is dependant
