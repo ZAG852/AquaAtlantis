@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -128,10 +128,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 975338233351461679, guid: d9dc5c6b55b034833984a1e052fd72d0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 975338234497740468, guid: d9dc5c6b55b034833984a1e052fd72d0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1221671911552300125, guid: d9dc5c6b55b034833984a1e052fd72d0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.2861786
+      value: 0.28619385
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221671911846742577, guid: d9dc5c6b55b034833984a1e052fd72d0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.9499512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221671911846742577, guid: d9dc5c6b55b034833984a1e052fd72d0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.4477539
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221671912125995739, guid: d9dc5c6b55b034833984a1e052fd72d0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.6999512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221671912125995739, guid: d9dc5c6b55b034833984a1e052fd72d0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.7137451
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221671912843109754, guid: d9dc5c6b55b034833984a1e052fd72d0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.29992676
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221671912843109754, guid: d9dc5c6b55b034833984a1e052fd72d0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.7137451
       objectReference: {fileID: 0}
     - target: {fileID: 4311014014131186154, guid: d9dc5c6b55b034833984a1e052fd72d0,
         type: 3}
