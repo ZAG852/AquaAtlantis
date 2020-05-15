@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PathGrid : MonoBehaviour
 {
 
@@ -26,6 +27,7 @@ public class PathGrid : MonoBehaviour
 
     public PathNode node;
     public static PathNode[,] mstrGrid;
+
     
     //World bounds, node side length, 
     // Start is called before the first frame update
@@ -50,6 +52,8 @@ public class PathGrid : MonoBehaviour
             }
         }
 
+                
+        
         // on start get unwalkable. This gets all unwalkable game objects and translates their raw coords to a node location.
         GameObject[] roadblocks = GameObject.FindGameObjectsWithTag("unwalkable");
         Vector3 position = transform.position;
@@ -62,6 +66,29 @@ public class PathGrid : MonoBehaviour
         for (int i = 0; i < IDcount; i++)
         {
             PathAI.prev[i] = -1;
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        print(mstrGrid);
+        if (mstrGrid != null)
+        {
+            
+            foreach (PathNode n in mstrGrid)
+            {
+                if (n.walkable)
+                {
+                    Gizmos.color = Color.white;
+                    Gizmos.DrawCube((Vector2)n.nodePosition, Vector3.one * (n.XLength));
+                }
+                else
+                {
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawCube((Vector2)n.nodePosition, Vector3.one * (n.XLength));
+                }
+            }
+            
         }
     }
 

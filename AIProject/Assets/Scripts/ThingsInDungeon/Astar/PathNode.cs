@@ -9,7 +9,7 @@ public class PathNode : IHeapItem<PathNode>
     // !World position to graph position translate function
     // Create static adj matrix 
     public Vector2Int nodePosition;
-    float XLength;
+    public float XLength;
     public double fScore = double.MaxValue;
     public double gScore = double.MaxValue;
     public double hScore = double.MaxValue;

@@ -11,11 +11,7 @@ public class PathAI : MonoBehaviour
     List<PathNode> closedSet = new List<PathNode>();
     public static int [] prev; // Set by PathGrid .start() all to -1. Stores path node ID values
 
-    // Start is called before the first frame update
-    void Start()
-    {// initialize
-
-    }
+    
 
     List<PathNode> Astar(PathNode source, PathNode target)
     {
@@ -78,7 +74,7 @@ public class PathAI : MonoBehaviour
         }
         return null;
     }
-
+    
     PathNode findLowestFScore(List<PathNode> openSet)
     {
         double minScore = openSet[0].fScore;
