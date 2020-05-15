@@ -14,7 +14,7 @@ public class PathGrid : MonoBehaviour
     public Vector2Int neighbor_W;
 
     
-    public static int Xlen = 249; // being the rightmost X coordinate
+    public static int Xlen = 250; // being the rightmost X coordinate
     public static int IDcount = 0;
     public static GameObject player;
     public PathNode [] current_neighbors;
@@ -93,14 +93,24 @@ public class PathGrid : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector2Int playerlocation = Translate(player.transform.position);
         Xidx = playerlocation.x;
         Yidx = playerlocation.y;
         current_neighbors = mstrGrid[Xidx, Yidx].FindNeighbors();
         current_neighbors_len = current_neighbors.Length ;
-       // Debug.Log("Node 5,5 hscore = " + mstrGrid[5, 5].DistanceFrom(player));
+        Debug.Log("Node 5,5 fscore = " + mstrGrid[5, 5].fScore);
+    }
+
+    public static double updatehScore(PathNode n)
+    {
+        // distance function to find the distance from the player location to this node
+        Vector2Int targetNode = PathGrid.Translate(player.transform.position);
+        // the grid index of this node is stored in nodeposition. simply count the h + V distance
+        int xdist = Mathf.Abs(n.nodePosition.x - targetNode.x);
+        int ydist = Mathf.Abs(n.nodePosition.y - targetNode.y);
+        return (double)Mathf.Sqrt((float)Math.Pow(xdist, 2) + (float)Math.Pow(ydist, 2));
     }
 
     public static Vector2Int Translate(Vector3 position)

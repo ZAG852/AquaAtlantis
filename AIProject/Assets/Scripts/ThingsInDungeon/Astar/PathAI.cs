@@ -25,7 +25,7 @@ public class PathAI : MonoBehaviour
         //So 0 becomes the gScore of source
         //Since we change gScore, we must also change fScore
         s.gScore = 0;
-        s.hScore = updatehScore(s);
+        s.hScore = PathGrid.updatehScore(s);
         s.fScore = s.fScore + s.gScore;
     
         while (openSet.Count != 0)
@@ -111,25 +111,6 @@ public class PathAI : MonoBehaviour
             return n;
     }
 
-    public double updatehScore(PathNode n)
-    {
-        // distance function to find the distance from the player location to this node
-        Vector2Int targetNode = PathGrid.Translate(PathGrid.player.transform.position);
-        // the grid index of this node is stored in nodeposition. simply count the h + V distance
-        int xdist = Mathf.Abs(n.nodePosition.x - targetNode.x);
-        int ydist = Mathf.Abs(n.nodePosition.y - targetNode.y);
-        return (double) Mathf.Sqrt((float)Math.Pow(xdist, 2) +(float) Math.Pow(ydist, 2));
-    }
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        //Update heuristic for only the nodes in open set to save resources
-        
-        foreach (PathNode node in openSet)
-        {
-            // The heuristics array should be updated for nodes on an as-needed basis. Update fScore as well because it is dependant
-            node.hScore = updatehScore(node);
-            node.fScore = node.hScore + node.gScore;
-        }
-    }
+
+
 }
