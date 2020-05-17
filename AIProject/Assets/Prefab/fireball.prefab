@@ -4927,6 +4927,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rb: {fileID: 5441104226764644587}
+  ignoreCollision:
+    serializedVersion: 2
+    m_Bits: 2048
   damage: 1
   flameParticle: {fileID: 7665300956988182348, guid: 1bbd9596c43ea4c6cb04f4cdb5a1d6a8,
     type: 3}
@@ -4989,4 +4992,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306a310b777064e81b618f2332c23e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathTrigger: 0
   fx: 1

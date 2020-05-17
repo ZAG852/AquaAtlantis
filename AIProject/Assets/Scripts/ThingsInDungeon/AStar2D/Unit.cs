@@ -5,18 +5,31 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
 	public Transform target;
+    [SerializeField]
 	float speed = 5;
 	Vector3[] path;
 	int targetIndex;
-
+    [SerializeField]
+    Transform player;
+    float timer = 0;
+    [SerializeField]
+    float memory = 0.4f;
 	private void Start()
 	{
 		
 	}
 	private void Update()
 	{
-        if(Grid.loaded)
+        if(Grid.loaded && target != null)
 		PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+        if(target == null && timer <= 0)
+        {
+            StopCoroutine("FollowPath");
+        }
+        if (timer > 0)
+            timer -= Time.deltaTime;
+        
+
 	}
 	public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
 	{
@@ -69,4 +82,14 @@ public class Unit : MonoBehaviour
 			}
 		}
 	}
+    public void setTarget(Transform obj)
+    {
+        target = obj;
+    }
+    public void nullTarget()
+    {
+        target = null;
+        timer = memory;
+    }
+    
 }

@@ -6,7 +6,8 @@ public class magic : MonoBehaviour
 {
     public float speed = 7f;
     public Rigidbody2D rb;
-
+    [SerializeField]
+    public LayerMask ignoreCollision;
     public int damage;
 
     public GameObject flameParticle;
@@ -25,7 +26,7 @@ public class magic : MonoBehaviour
     //for later
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       if(collision.tag == "enemy")
+       if(collision.tag == "enemy" && !collision.IsTouchingLayers(ignoreCollision))
         {
             //Destroy(collision.gameObject);
             Instantiate(flameParticle, transform.position, Quaternion.identity);
