@@ -119,7 +119,6 @@ public class PathAI : MonoBehaviour
     PathNode FindNodeID(int ID)
     {
         // Query the master graph for node with matching ID.
-        PathNode n = new PathNode(); // empty pathNode
         for (int x = 0; x < PathGrid.Xlen; x++)
         {
 
@@ -131,7 +130,7 @@ public class PathAI : MonoBehaviour
                 }
             }
         }
-        return n;
+        return null;
     }
 }
 
