@@ -12,7 +12,7 @@ public class MapMaker : MonoBehaviour
     [SerializeField]
     GameObject player;
     [SerializeField]
-    float tileSize = 16.5f;
+    public float tileSize = 16.5f;
     public int worldSizex = 30;
     public int worldSizey = 30;
     Node[,] grid;
