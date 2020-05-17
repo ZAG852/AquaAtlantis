@@ -348,6 +348,7 @@ MonoBehaviour:
   speed: 3
   player: {fileID: 9036022212263636650, guid: 7858e326c6b5841969569e674920787d, type: 3}
   memory: 0.4
+  Range: 6
 --- !u!1 &5275296972486026829
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,11 +392,11 @@ GameObject:
   - component: {fileID: 7714556712269344572}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5815067438792582259
 Transform:
   m_ObjectHideFlags: 0
@@ -437,4 +438,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 8

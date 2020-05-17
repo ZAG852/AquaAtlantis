@@ -340,6 +340,7 @@ MonoBehaviour:
   speed: 2
   player: {fileID: 9036022212263636650, guid: 7858e326c6b5841969569e674920787d, type: 3}
   memory: 0.4
+  Range: 6
 --- !u!1 &4106799260250141809
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &470379936557124742
 Transform:
   m_ObjectHideFlags: 0
@@ -387,7 +388,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 5
 --- !u!114 &1528725817689615003
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,13 +18,12 @@ public class EnemyAttackManager : MonoBehaviour
 
     private void Update()
     {
-        if (attack && target != null)
+        if (attack && target != null && Mathf.Sqrt(Mathf.Pow((target.transform.position.x - transform.position.x), 2) + Mathf.Pow((target.transform.position.y - transform.position.y), 2)) <= 1)
         {
             timer += Time.deltaTime;
             if (timer >= interval)
             {
                 timer = 0;
-                print("hurt");
                 target.GetComponent<PlayerHealthManager>().hurtPlayer(damage);
                 Instantiate(flameParticle, target.transform.position, Quaternion.identity);
             }

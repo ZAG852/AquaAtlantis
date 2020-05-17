@@ -340,6 +340,7 @@ MonoBehaviour:
   speed: 2
   player: {fileID: 9036022212263636650, guid: 7858e326c6b5841969569e674920787d, type: 3}
   memory: 0.4
+  Range: 6
 --- !u!1 &2363802693747800250
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,7 +358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4514453743823513290
 Transform:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class magic : MonoBehaviour
     //for later
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       if(collision.tag == "enemy" && !collision.IsTouchingLayers(ignoreCollision))
+       if(collision.tag == "enemy")
         {
             //Destroy(collision.gameObject);
             Instantiate(flameParticle, transform.position, Quaternion.identity);

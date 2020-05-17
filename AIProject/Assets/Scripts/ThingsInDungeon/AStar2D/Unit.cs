@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static playerBehavior;
 public class Unit : MonoBehaviour
 {
 	public Transform target;
@@ -14,6 +14,8 @@ public class Unit : MonoBehaviour
     float timer = 0;
     [SerializeField]
     float memory = 0.4f;
+    [SerializeField]
+    float Range = 6;
 	private void Start()
 	{
 		
@@ -28,8 +30,14 @@ public class Unit : MonoBehaviour
         }
         if (timer > 0)
             timer -= Time.deltaTime;
-        
-
+        if(target == null && Vector3.Distance(current.transform.position,transform.position) <= Range)
+        {
+            setTarget(playerBehavior.current.gameObject.transform);
+        }
+        if(target != null && Vector3.Distance(current.transform.position, transform.position) > Range)
+        {
+            nullTarget();
+        }
 	}
 	public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
 	{
