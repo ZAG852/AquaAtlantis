@@ -9,7 +9,7 @@ public class PathNode : IHeapItem<PathNode>
     // !World position to graph position translate function
     // Create static adj matrix 
     public Vector2Int nodePosition;
-    public float XLength;
+    //public float XLength;
     public double fScore = double.MaxValue;
     public double gScore = double.MaxValue;
     public double hScore = double.MaxValue;
@@ -102,11 +102,12 @@ public class PathNode : IHeapItem<PathNode>
         nodePosition = new Vector2Int(0, 0);
         this.ID = -1; // a blank node has an ID of -1
     }
-    public PathNode(Vector2Int nodePosition, float sideLength, int ID)
+    public PathNode(Vector2Int nodePosition, float sideLength,bool walkable, int ID)
     {
         this.nodePosition = nodePosition;
         this.ID = ID;
-        XLength = sideLength;
+        //XLength = sideLength;
+        this.walkable = walkable;
     }
 
     public int HeapIndex

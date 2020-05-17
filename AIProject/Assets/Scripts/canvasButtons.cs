@@ -22,7 +22,6 @@ public class canvasButtons : MonoBehaviour
     }
     public void theQuit()
     {
-        print("I got clicked");
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

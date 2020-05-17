@@ -13,7 +13,10 @@ public class PathGrid : MonoBehaviour
     public Vector2Int neighbor_S;
     public Vector2Int neighbor_W;
 
-    
+    public float nodeRadius = 0.1f;
+    float nodeDiameter;
+    [SerializeField]
+    LayerMask obstacle;
     public static int Xlen = 250; // being the rightmost X coordinate
     public static int IDcount = 0;
     public static GameObject player;
@@ -27,12 +30,16 @@ public class PathGrid : MonoBehaviour
 
     public PathNode node;
     public static PathNode[,] mstrGrid;
-
+    [SerializeField]
+    bool showGizmos = false;
     
     //World bounds, node side length, 
     // Start is called before the first frame update
     void Start()
     {
+        nodeDiameter = 2 * nodeRadius;
+        Xlen = (int)MapMaker.mapThingy.getWorldSize();
+        print(Xlen);
         // each node takes up 5x5 space so div the world size by 10 to create appropriate # of path node entries in the array
         player = GameObject.Find("Player");
         ws = MapMaker.mapThingy.getWorldSize(); // world size is length of one side
@@ -45,15 +52,15 @@ public class PathGrid : MonoBehaviour
 
             for (int y = 0; y < Xlen ; y++)
             {
- 
-
-                mstrGrid[x, y] = new PathNode(new Vector2Int(x,y), nodeXLength, IDcount );
+                Vector3 worldPoint = gameObject.transform.position + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
+                bool walkable = !(Physics2D.OverlapCircle(worldPoint,nodeRadius,obstacle));
+                mstrGrid[x, y] = new PathNode(new Vector2Int(x,y), nodeXLength,walkable, IDcount );
                 IDcount++;
             }
         }
 
                 
-        
+        /*
         // on start get unwalkable. This gets all unwalkable game objects and translates their raw coords to a node location.
         GameObject[] roadblocks = GameObject.FindGameObjectsWithTag("unwalkable");
         Vector3 position = transform.position;
@@ -61,37 +68,30 @@ public class PathGrid : MonoBehaviour
         {
             mstrGrid[Translate(roadblocks[i].transform.position).x, Translate(roadblocks[i].transform.position).y].walkable = false;
         }
+        */
         // Sets up previous array at time of grid creation as to get appropriate sizing
         PathAI.prev = new int [IDcount];
         for (int i = 0; i < IDcount; i++)
         {
             PathAI.prev[i] = -1;
         }
+        
     }
-
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
-        print(mstrGrid);
-        if (mstrGrid != null)
+        if (mstrGrid != null && UnityEditor.EditorApplication.isPlaying && showGizmos)
         {
             
             foreach (PathNode n in mstrGrid)
             {
-                if (n.walkable)
-                {
-                    Gizmos.color = Color.white;
-                    Gizmos.DrawCube((Vector2)n.nodePosition, Vector3.one * (n.XLength));
-                }
-                else
-                {
-                    Gizmos.color = Color.red;
-                    Gizmos.DrawCube((Vector2)n.nodePosition, Vector3.one * (n.XLength));
-                }
+                Gizmos.color = (n.walkable) ? Color.white : Color.red;
+                Gizmos.DrawCube((Vector2)n.nodePosition, Vector2.one * (nodeDiameter - .1f));
             }
             
         }
     }
-
+#endif
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -100,9 +100,8 @@ public class PathGrid : MonoBehaviour
         Yidx = playerlocation.y;
         current_neighbors = mstrGrid[Xidx, Yidx].FindNeighbors();
         current_neighbors_len = current_neighbors.Length ;
-        Debug.Log("Node 5,5 fscore = " + mstrGrid[5, 5].fScore);
     }
-
+    /*
     public static double updatehScore(PathNode n)
     {
         // distance function to find the distance from the player location to this node
@@ -112,7 +111,7 @@ public class PathGrid : MonoBehaviour
         int ydist = Mathf.Abs(n.nodePosition.y - targetNode.y);
         return (double)Mathf.Sqrt((float)Math.Pow(xdist, 2) + (float)Math.Pow(ydist, 2));
     }
-
+    */
     public static Vector2Int Translate(Vector3 position)
     {
         // Take in a vector3 position in the game space, translate to path grid index in form of a vector2

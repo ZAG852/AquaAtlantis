@@ -7,12 +7,15 @@ using UnityEngine;
 public class PathAI : MonoBehaviour
 {
     
-    List<PathNode> openSet = new List<PathNode> ();
+    Heap<PathNode> openSet;
     List<PathNode> closedSet = new List<PathNode>();
     public static int [] prev; // Set by PathGrid .start() all to -1. Stores path node ID values
 
-    
 
+    private void Start()
+    {
+        openSet = new Heap<PathNode>(MapMaker.mapThingy.worldSizex * MapMaker.mapThingy.worldSizey);
+    }
     List<PathNode> Astar(PathNode source, PathNode target)
     {
         PathNode s = source;
@@ -26,14 +29,14 @@ public class PathAI : MonoBehaviour
         //Since we change gScore, we must also change fScore
         s.gScore = 0;
         s.hScore = PathGrid.updatehScore(s);
-        s.fScore = s.fScore + s.gScore;
+        s.fScore = s.hScore + s.gScore;
     
         while (openSet.Count != 0)
         {
             // Find lowest fScore node
             // Set current equal to that
-            PathNode current = findLowestFScore(openSet);
-            openSet.Remove(current);
+            PathNode current = openSet.RemoveFirst();
+
             closedSet.Add(current);
 
             // Upon finding the target...
@@ -73,24 +76,6 @@ public class PathAI : MonoBehaviour
             }
         }
         return null;
-    }
-    
-    PathNode findLowestFScore(List<PathNode> openSet)
-    {
-        double minScore = openSet[0].fScore;
-        
-        PathNode minNode = openSet[0];
-
-        for (int i = 0; i < openSet.Count; i++)
-        {
-            PathNode n = openSet[i];
-            if (n.fScore < minScore)
-            {
-                minNode = n;
-                minScore = minNode.fScore;
-            }
-        }
-        return minNode;
     }
 
     PathNode FindNodeID(int ID)
