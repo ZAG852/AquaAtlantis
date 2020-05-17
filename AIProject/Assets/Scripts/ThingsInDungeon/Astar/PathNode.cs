@@ -16,6 +16,8 @@ public class PathNode : IHeapItem<PathNode>
     public int ID;
     public bool walkable = true;
     int heapIndex;
+    public PathNode parent;
+    
     // create constructor with right click
     public PathNode [] FindNeighbors()
     {

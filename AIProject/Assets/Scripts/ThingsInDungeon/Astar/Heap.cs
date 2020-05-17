@@ -16,6 +16,7 @@ public class Heap<T> where T : IHeapItem<T>
     public void Add(T item)
     {
         item.HeapIndex = currentItemCount;
+        Console.WriteLine(item.HeapIndex);
         items[currentItemCount] = item;
         SortUp(item);
         currentItemCount++;

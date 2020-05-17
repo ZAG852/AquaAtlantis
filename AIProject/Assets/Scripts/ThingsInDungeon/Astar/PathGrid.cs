@@ -68,14 +68,14 @@ public class PathGrid : MonoBehaviour
         {
             mstrGrid[Translate(roadblocks[i].transform.position).x, Translate(roadblocks[i].transform.position).y].walkable = false;
         }
-        */
+        
         // Sets up previous array at time of grid creation as to get appropriate sizing
         PathAI.prev = new int [IDcount];
         for (int i = 0; i < IDcount; i++)
         {
             PathAI.prev[i] = -1;
         }
-        
+        */
     }
 #if UNITY_EDITOR
     void OnDrawGizmos()
@@ -101,7 +101,7 @@ public class PathGrid : MonoBehaviour
         current_neighbors = mstrGrid[Xidx, Yidx].FindNeighbors();
         current_neighbors_len = current_neighbors.Length ;
     }
-    /*
+    
     public static double updatehScore(PathNode n)
     {
         // distance function to find the distance from the player location to this node
@@ -111,7 +111,7 @@ public class PathGrid : MonoBehaviour
         int ydist = Mathf.Abs(n.nodePosition.y - targetNode.y);
         return (double)Mathf.Sqrt((float)Math.Pow(xdist, 2) + (float)Math.Pow(ydist, 2));
     }
-    */
+    
     public static Vector2Int Translate(Vector3 position)
     {
         // Take in a vector3 position in the game space, translate to path grid index in form of a vector2
@@ -123,5 +123,6 @@ public class PathGrid : MonoBehaviour
         int yg = Mathf.RoundToInt(nYposition * Xlen);
         return new Vector2Int(xg, yg);
     }
+   
 }
         
