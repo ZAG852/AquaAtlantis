@@ -16,30 +16,67 @@ public class Unit : MonoBehaviour
     float memory = 0.4f;
     [SerializeField]
     float Range = 6;
-	private void Start()
+    public bool isRanged = false;
+    float stoppingRange = 4;
+    bool lookingRight = false;
+    private void Start()
 	{
-		
+		if(isRanged)
+        {
+            stoppingRange = 4;
+        }
+        else
+        {
+            stoppingRange = 0.8f;
+        }
 	}
 	private void Update()
 	{
-        if(Grid.loaded && target != null)
-		PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
-        if(target == null && timer <= 0)
+        if (target != null)
+        {
+            if (!lookingRight && target.transform.position.x - gameObject.transform.position.x > 0)
+            {
+                flip();
+            }
+            if (lookingRight && target.transform.position.x - gameObject.transform.position.x < 0)
+            {
+                flip();
+            }
+        }
+        enemyMovement();
+
+	}
+    void enemyMovement()
+    {
+        if (Grid.loaded && target != null &&  Vector3.Distance(current.transform.position, transform.position) > stoppingRange)
+            PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+        if (target == null && timer <= 0)
         {
             StopCoroutine("FollowPath");
         }
         if (timer > 0)
             timer -= Time.deltaTime;
-        if(target == null && Vector3.Distance(current.transform.position,transform.position) <= Range)
+        if (target == null && Vector3.Distance(current.transform.position, transform.position) <= Range)
         {
             setTarget(playerBehavior.current.gameObject.transform);
         }
-        if(target != null && Vector3.Distance(current.transform.position, transform.position) > Range)
+        if (target != null && Vector3.Distance(current.transform.position, transform.position) > Range)
         {
             nullTarget();
         }
-	}
-	public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
+        if (Vector3.Distance(current.transform.position, transform.position) < stoppingRange)
+        {
+            StopCoroutine("FollowPath");
+        }
+    }
+    void flip()
+    {
+        lookingRight = !lookingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+    public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
 	{
 		if (pathSuccessful)
 		{
