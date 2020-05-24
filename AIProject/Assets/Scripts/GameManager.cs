@@ -16,14 +16,15 @@ public class GameManager : MonoBehaviour
     float[] playerStats = new float[stats];
     int baseStat = 5;
     int playerLevel = 1;
-    public Image gameOverText;
-    public Image pauseText;
+    public GameObject gameOverText;
+    public GameObject pauseText;
     public bool paused = false;
     bool gameOver = false;
     bool newGame = true;
     // Start is called before the first frame update
     void Awake()
     {
+        
         if (instance == null)
         {
             instance = this;
@@ -53,11 +54,15 @@ public class GameManager : MonoBehaviour
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Time.timeScale = 1;
+        paused = false;
         gameOver = false;
-        pauseText = GameObject.Find("PauseText").GetComponent<Image>();
-        pauseText.enabled = false;
-        gameOverText = GameObject.Find("GameOverText").GetComponent<Image>();
-        gameOverText.enabled = false;
+        pauseText = GameObject.Find("PausePanel");
+        if(pauseText != null)
+        pauseText.SetActive(false);
+        gameOverText = GameObject.Find("GameOverText");
+        if(gameOverText != null)
+        gameOverText.SetActive(false);
     }
     void Update()
     {
@@ -145,13 +150,13 @@ public class GameManager : MonoBehaviour
             else
                 Time.timeScale = 1;
             paused = !paused;
-            pauseText.enabled = !pauseText.enabled;
+            pauseText.SetActive(paused);
         }
     }
     public void EndGame()
     {
         gameOver = true;
-        gameOverText.enabled = true;
+        gameOverText.SetActive(true);
         Invoke("ToMenu", 5f);
     }
     public void ToMenu()

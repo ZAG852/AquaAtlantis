@@ -349,7 +349,8 @@ MonoBehaviour:
   speed: 3
   player: {fileID: 9036022212263636650, guid: 7858e326c6b5841969569e674920787d, type: 3}
   memory: 0.4
-  Range: 6
+  Range: 9
+  isRanged: 1
 --- !u!1 &713054544209152730
 GameObject:
   m_ObjectHideFlags: 0

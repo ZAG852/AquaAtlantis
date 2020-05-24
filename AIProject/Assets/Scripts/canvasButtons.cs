@@ -20,8 +20,15 @@ public class canvasButtons : MonoBehaviour
         print(SceneManager.sceneCount + 1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void ToMenu()
+    {
+        Time.timeScale = 1;
+        // This is the ID for the StartScreen (main menu)
+        SceneManager.LoadScene(0);
+    }
     public void theQuit()
     {
+        Time.timeScale = 1;
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
